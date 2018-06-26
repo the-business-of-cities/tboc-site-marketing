@@ -1,12 +1,11 @@
 import { ThemeProvider, injectGlobal, } from "styled-components";
-import { globalStyles, Nav, Head, } from "tboc-site-components";
+import { defaultGlobalStyles, Nav, Head, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
 
 // ----------------------------------------------------
-
 
 const Links = [
 	{
@@ -18,9 +17,8 @@ const Links = [
 
 // ----------------------------------------------------
 
-
 injectGlobal`
-	${ globalStyles }
+	${ defaultGlobalStyles(theme) }
 `;
 
 const TemplateWrapper = props => (

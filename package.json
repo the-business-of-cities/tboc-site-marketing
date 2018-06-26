@@ -19,13 +19,14 @@
     "marked": "^0.3.16",
     "moment": "^2.20.1",
     "momentjs": "^2.0.0",
+    "react": "^16.4.1",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "semantic-ui-css": "^2.3.0",
     "semantic-ui-react": "^0.78.2",
     "slugify": "^1.2.9",
     "styled-components": "^3.1.6",
-    "tboc-site-components": "^0.2.1"
+    "tboc-site-components": "^0.2.2"
   },
   "devDependencies": {
     "babel-loader": "7.1.1",

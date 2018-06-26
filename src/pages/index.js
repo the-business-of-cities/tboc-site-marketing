@@ -1,45 +1,98 @@
 import React from "react";
 
-import { Page, Section, Container, Row, Column, } from "tboc-site-components";
+import { Page, Section, Container, Row, Column, Slider, } from "tboc-site-components";
 
 // ----------------------------------------------------
 
+export const SliderQuery = graphql`
+	query SliderQuery {
+		contentfulPublications: allContentfulPublication {
+			edges {
+				node {
+					title
+					image {
+						file {
+							url
+						}
+					}
+					approximateDate
+				}
+			}
+		}
+		contentfulEvents: allContentfulEvent {
+			edges {
+				node {
+					title
+					image {
+						file {
+							url
+						}
+					}
+					date
+				}
+			}
+		}
+		contentfulNews: allContentfulNews {
+			edges {
+				node {
+					title
+					image {
+						file {
+							url
+						}
+					}
+					originalDate
+				}
+			}
+		}
+	}
+`;
+
 // ----------------------------------------------------
 
-const IndexPage = (props) => (
-	<Page>
-		<Section>
-			<Container>
-				<Row>
-					<Column>
-						Hello World
-					</Column>
-				</Row>
+const HomePage = ( { data, }, ) => {
+	let sliderContents = [];
 
-				<Row>
-					<Column>
-						Hello World
-					</Column>
-				</Row>
-			</Container>
-		</Section>
+	data.contentfulPublications.edges.map( edge => sliderContents.push(edge.node));
+	data.contentfulEvents.edges.map( edge => sliderContents.push(edge.node));
+	data.contentfulNews.edges.map( edge => sliderContents.push(edge.node));
 
-		<Section>
-			<Container>
-				<Row>
-					<Column>
-						Hello World
-					</Column>
-				</Row>
+	sliderContents.sort(function(a, b) {
+		return (
+			new Date(a.date || a.originalDate || a.approximateDate ).getTime() -
+			new Date(b.date || b.originalDate || b.approximateDate ).getTime()
+		);
+	});
 
-				<Row>
-					<Column>
-						Hello World
-					</Column>
-				</Row>
-			</Container>
-		</Section>
-	</Page>
-);
+	sliderContents = sliderContents.slice( 1, 8 );
 
-export default IndexPage;
+	return (
+		<Page>
+			<Section>
+				<Container>
+					<Row>
+						<Slider sliderContents = { sliderContents }/>
+					</Row>
+				</Container>
+			</Section>
+
+			<Section>
+				<Container restrict>
+					<Row>
+						<Column>
+							Hello World
+						</Column>
+					</Row>
+
+					<Row>
+						<Column>
+							Hello World
+						</Column>
+					</Row>
+				</Container>
+			</Section>
+		</Page>
+	);
+};
+
+export default HomePage;
