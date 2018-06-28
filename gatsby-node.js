@@ -21,6 +21,8 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 
 	return new Promise((resolve, reject) => {
 		const PageTemplate = path.resolve( "src/templates/page.js" );
+		const PartnersTemplate = path.resolve( "src/pages/partners.js" );
+		const WhoWeAreTemplate = path.resolve( "src/pages/who-we-are.js" );
 
 		resolve( // Query for markdown nodes to use in creating pages.
 			graphql(
@@ -81,12 +83,25 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					const path = `/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
 
+					let component = undefined;
+
+					switch(path) {
+						case "/partners":
+							component = PartnersTemplate;
+							break;
+						case "/who-we-are":
+							component = WhoWeAreTemplate;
+							break;
+						default:
+							component = PageTemplate;
+					}
+
 					createPage({
 						path,
-						component: PageTemplate,
+						component: component,
 						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
 							slug: path,
-							id
+							id,
 						},
 					});
 				});

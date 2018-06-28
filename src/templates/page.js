@@ -1,8 +1,6 @@
-import marked from "marked";
 import PropTypes from "prop-types";
 import React from "react";
-import slugify from "slugify";
-import { GenericPage, Point, } from "tboc-site-components";
+import { ContentPage, } from "tboc-site-components";
 
 // ----------------------------------------------------
 
@@ -11,6 +9,9 @@ export const PageQuery = graphql`
 		contentfulPage(id: { eq: $id }) {
 			title
 			description
+			introduction {
+				introduction
+			}
 			content {
 				id
 				title
@@ -35,29 +36,20 @@ export const PageQuery = graphql`
 
 const PageTemplate = ( { data, }, ) => {
 	return (
-		<GenericPage 
+		<ContentPage 
 			title = { data.contentfulPage.title }
 			secondaryImage = { data.contentfulPage.secondaryImage }
 			description = { data.contentfulPage.description }
 			introduction = { data.contentfulPage.introduction }
-		>
-			{
-				data.contentfulPage.content &&
-				data.contentfulPage.content.map( (section, i) => (
-					<Point
-						cta = { {
-							link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
-							text: section.ctaText,
-						} }
-						image = { section.image.file.url }
-						text = { section.content.content }
-						reverse = { i % 2 === 0 }
-						{ ...section }
-					/>
-				) )
-			}
-		</GenericPage>
+			content = { data.contentfulPage.content }
+		/>
 	);
+};
+
+PageTemplate.propTypes = {
+	data: PropTypes.shape({
+		contentfulPage: PropTypes.object.isRequired,
+	}).isRequired,
 };
 
 export default PageTemplate;

@@ -1,7 +1,8 @@
-import { Page, Slider, Point, } from "tboc-site-components";
+import { BlankPage, Slider, Point, } from "tboc-site-components";
 
 import React from "react";
 import slugify from "slugify";
+import PropTypes from "prop-types";
 
 // ----------------------------------------------------
 
@@ -88,8 +89,9 @@ const HomePage = ( { data, }, ) => {
 	sliderContents = sliderContents.slice( 1, 8 );
 
 	return (
-		<Page>
-			<Slider sliderContents = { sliderContents }/>
+		<BlankPage
+			slider = { <Slider sliderContents = { sliderContents }/> }
+		>
 			
 			{
 				data.contentfulPage.content &&
@@ -107,8 +109,17 @@ const HomePage = ( { data, }, ) => {
 					/>
 				) )
 			}
-		</Page>
+		</BlankPage>
 	);
+};
+
+HomePage.propTypes = {
+	data: PropTypes.shape({
+		contentfulPage: PropTypes.object.isRequired,
+		contentfulPublications: PropTypes.object,
+		contentfulEvents: PropTypes.object,
+		contentfulNews: PropTypes.object,
+	}).isRequired,
 };
 
 export default HomePage;
