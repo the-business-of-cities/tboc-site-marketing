@@ -1,9 +1,3 @@
-import { objectMap, } from "codogo-utility-functions";
-
-import React from "react";
-
-// --------------------------------------------------
-
 const sm = 768;
 const md = 992;
 const lg = md;
@@ -19,7 +13,10 @@ const colors = {
 	text: "#444",
 	link: "#405378",
 	linkHover: "#4D6491",
-	nav: "#002B4E",
+	nav: {
+		background: "#002B4E",
+		alt: "#fff",
+	},
 	footer: "#002B4E",
 	bg: "#fff",
 	bgdark: "#eee",

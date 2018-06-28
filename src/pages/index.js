@@ -1,11 +1,32 @@
-import React from "react";
+import { Page, Slider, Point, } from "tboc-site-components";
 
-import { Page, Section, Container, Row, Column, Slider, } from "tboc-site-components";
+import React from "react";
+import slugify from "slugify";
 
 // ----------------------------------------------------
 
 export const SliderQuery = graphql`
 	query SliderQuery {
+		contentfulPage(title: { eq: "Home" }) {
+			title
+			description
+			content {
+				id
+				title
+				content {
+					content
+				}
+				image {
+					file {
+						url
+					}
+				}
+				ctaText
+				ctaTarget {
+					title
+				}
+			}
+		}
 		contentfulPublications: allContentfulPublication {
 			edges {
 				node {
@@ -68,29 +89,24 @@ const HomePage = ( { data, }, ) => {
 
 	return (
 		<Page>
-			<Section>
-				<Container>
-					<Row>
-						<Slider sliderContents = { sliderContents }/>
-					</Row>
-				</Container>
-			</Section>
+			<Slider sliderContents = { sliderContents }/>
+			
+			{
+				data.contentfulPage.content &&
+				data.contentfulPage.content.map( (section, i) => (
+					<Point
+						cta = { {
+							link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
+							text: section.ctaText,
+						} }
+						title = { section.title }
+						image = { section.image.file.url }
+						text = { section.content.content }
+						reverse = { i % 2 === 0 }
 
-			<Section>
-				<Container restrict>
-					<Row>
-						<Column>
-							Hello World
-						</Column>
-					</Row>
-
-					<Row>
-						<Column>
-							Hello World
-						</Column>
-					</Row>
-				</Container>
-			</Section>
+					/>
+				) )
+			}
 		</Page>
 	);
 };

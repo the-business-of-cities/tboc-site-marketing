@@ -1,6 +1,5 @@
 var slugify = require("slugify");
-var Components = require("tboc-site-components");
-var Generic = Components.Generic;
+var path = require("path");
 
 /**
  * Implement Gatsby"s Node APIs in this file.
@@ -21,10 +20,20 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 	const { createPage, } = boundActionCreators;
 
 	return new Promise((resolve, reject) => {
+		const PageTemplate = path.resolve( "src/templates/page.js" );
+
 		resolve( // Query for markdown nodes to use in creating pages.
 			graphql(
 				`
 					{
+						contentfulPages: allContentfulPage {
+							edges {
+								node {
+									id
+									title
+								}
+							}
+						}
 						contentfulPublications: allContentfulPublication {
 							edges {
 								node {
@@ -34,14 +43,6 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 							}
 						}
 						contentfulJobs: allContentfulJob {
-							edges {
-								node {
-									id
-									title
-								}
-							}
-						}
-						contentfulPages: allContentfulPage {
 							edges {
 								node {
 									id
@@ -75,13 +76,28 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 				// Create pages for each markdown file.
 				//console.log(result.data);
 
+				// Create pages for each markdown file.
+				result.data.contentfulPages.edges.forEach( ( { node, } ) => {
+					const path = `/${ slugify(node.title, { lower: true, }) }`;
+					const id = node.id;
+
+					createPage({
+						path,
+						component: PageTemplate,
+						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+							slug: path,
+							id
+						},
+					});
+				});
+
 				result.data.contentfulPublications.edges.forEach( ( { node, } ) => {
 					const path = `/publications/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
 					
 					createPage({
 						path,
-						component: Generic,
+						component: PageTemplate,
 						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
 							slug: path,
 							id,
@@ -96,22 +112,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: Generic,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
-							slug: path,
-							id,
-						},
-					});
-				});
-
-				// Create pages for each markdown file.
-				result.data.contentfulPages.edges.forEach( ( { node, } ) => {
-					const path = `/${ slugify(node.title, { lower: true, }) }`;
-					const id = node.id;
-					
-					createPage({
-						path,
-						component: Generic,
+						component: PageTemplate,
 						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
 							slug: path,
 							id,
@@ -126,7 +127,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: Generic,
+						component: PageTemplate,
 						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
 							slug: path,
 							id,
@@ -141,7 +142,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: Generic,
+						component: PageTemplate,
 						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
 							slug: path,
 							id,

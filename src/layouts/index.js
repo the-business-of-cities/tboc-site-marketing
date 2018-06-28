@@ -1,6 +1,7 @@
 import { ThemeProvider, injectGlobal, } from "styled-components";
-import { defaultGlobalStyles, Nav, Head, } from "tboc-site-components";
+import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
 
+import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
@@ -9,8 +10,38 @@ import theme from "./theme";
 
 const Links = [
 	{
-		to: "/new-members/",
-		content: "New Members",
+		to: "/our-story/",
+		content: "Our Story",
+		as: "gatsby-link",
+	},
+	{
+		to: "/who-we-are/",
+		content: "Who We Are",
+		as: "gatsby-link",
+	},
+	{
+		to: "/work/",
+		content: "Work",
+		as: "gatsby-link",
+	},
+	{
+		to: "/partners/",
+		content: "Partners",
+		as: "gatsby-link",
+	},
+	{
+		to: "/publications/",
+		content: "Publications",
+		as: "gatsby-link",
+	},
+	{
+		to: "/events/",
+		content: "Events",
+		as: "gatsby-link",
+	},
+	{
+		to: "/contact-us/",
+		content: "Contact Us",
 		as: "gatsby-link",
 	},
 ];
@@ -26,6 +57,12 @@ const TemplateWrapper = props => (
 		<div>
 			<Head />
 
+			<CookieBanner
+				message = "We use cookies on this site. For more information, see our Privacy Policy."
+				onAccept = { () => {} }
+				cookie = "user-has-accepted-cookies"
+			/>
+
 			<Nav
 				homepage = { props.location.pathname === "/" }
 				links = { Links }
@@ -33,6 +70,8 @@ const TemplateWrapper = props => (
 			/>
 
 			{ props.children(...props) }
+
+			<Footer/>
 		</div>
 	</ThemeProvider>
 );
