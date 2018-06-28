@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "tboc-site-marketing",
+  "description": "The Business of Cities Marketing site",
+  "version": "3.2.2",
+  "author": "Max Clayton Clowes <maxcc@me.com>",
   "dependencies": {
     "codogo-nav": "^2.2.1",
     "codogo-utility-functions": "^1.0.5",
