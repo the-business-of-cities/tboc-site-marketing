@@ -1,4 +1,4 @@
-import { BlankPage, Slider, Point, } from "tboc-site-components";
+import { BlankPage, Slider, Point, Section, Container, } from "tboc-site-components";
 
 import React from "react";
 import slugify from "slugify";
@@ -96,17 +96,23 @@ const HomePage = ( { data, }, ) => {
 			{
 				data.contentfulPage.content &&
 				data.contentfulPage.content.map( (section, i) => (
-					<Point
-						cta = { {
-							link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
-							text: section.ctaText,
-						} }
-						title = { section.title }
-						image = { section.image.file.url }
-						text = { section.content.content }
-						reverse = { i % 2 === 0 }
+					<Section
+						key = { `point-${ slugify(section.title) }` }
+					>
+						<Container restrict>
+							<Point
+								cta = { {
+									link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
+									text: section.ctaText,
+								} }
+								title = { section.title }
+								image = { section.image.file.url }
+								text = { section.content.content }
+								reverse = { i % 2 === 0 }
 
-					/>
+							/>
+						</Container>
+					</Section>
 				) )
 			}
 		</BlankPage>

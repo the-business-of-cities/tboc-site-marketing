@@ -1,4 +1,4 @@
-import { ContentPage, TeamMember, } from "tboc-site-components";
+import { ContentPage, TeamMembers, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
@@ -57,19 +57,12 @@ const WhoWeArePage = ( { data, }, ) => {
 	return (
 		<ContentPage
 			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction }
+			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
 		>
-			{
-				data.contentfulTeamMembers.edges.map( teamMember => {
-						return (
-							<TeamMember 
-								member = { teamMember.node }
-							/>
-						);
-					}
-				)
-			}
+			<TeamMembers
+				members = { data.contentfulTeamMembers.edges }
+			/>
 		</ContentPage>
 	);
 };

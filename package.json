@@ -23,11 +23,10 @@
     "react-cookie-banner": "^4.0.0",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
-    "semantic-ui-css": "^2.3.0",
     "semantic-ui-react": "^0.78.2",
     "slugify": "^1.2.9",
     "styled-components": "^3.1.6",
-    "tboc-site-components": "^0.3.1"
+    "tboc-site-components": "^0.4.1"
   },
   "devDependencies": {
     "babel-loader": "7.1.1",

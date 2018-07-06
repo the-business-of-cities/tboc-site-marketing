@@ -1,4 +1,4 @@
-import { ContentPage, LogoGrid, } from "tboc-site-components";
+import { ContentPage, LogoGrid, Section, Container, Column, Row, } from "tboc-site-components";
 
 import React from "react";
 import PropTypes from "prop-types";
@@ -62,26 +62,33 @@ const PartnersPage = ( { data, }, ) => {
 	return (
 		<ContentPage
 			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction }
+			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
 		>
+			<Section>
+				<Container>
+					<Row restrict>
+						<Column>
+							{
+								data.contentfulPartnerCategories.edges.map( category => (
+									<CategoryWrapper key = { category.node.title }>
+										<h2>{ category.node.title }</h2>
 
-			{
-				data.contentfulPartnerCategories.edges.map( category => (
-					<CategoryWrapper key = { category.node.title }>
-						<h2>{ category.node.title }</h2>
-
-						<LogoGrid
-							logos = { 
-								category.node.partner.map(partner => ({
-									image: partner.image,
-									link: partner.website,
-								}))
+										<LogoGrid
+											logos = { 
+												category.node.partner.map(partner => ({
+													image: partner.image,
+													link: partner.website,
+												}))
+											}
+										/>
+									</CategoryWrapper>
+								))
 							}
-						/>
-					</CategoryWrapper>
-				))
-			}
+						</Column>
+					</Row>
+				</Container>
+			</Section>
 		</ContentPage>
 	);
 };

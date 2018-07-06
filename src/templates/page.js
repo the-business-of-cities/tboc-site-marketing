@@ -1,6 +1,7 @@
+import { ContentPage, } from "tboc-site-components";
+
 import PropTypes from "prop-types";
 import React from "react";
-import { ContentPage, } from "tboc-site-components";
 
 // ----------------------------------------------------
 
@@ -40,7 +41,7 @@ const PageTemplate = ( { data, }, ) => {
 			title = { data.contentfulPage.title }
 			secondaryImage = { data.contentfulPage.secondaryImage }
 			description = { data.contentfulPage.description }
-			introduction = { data.contentfulPage.introduction }
+			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
 		/>
 	);

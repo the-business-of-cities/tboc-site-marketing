@@ -21,6 +21,9 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 
 	return new Promise((resolve, reject) => {
 		const PageTemplate = path.resolve( "src/templates/page.js" );
+		const EventTemplate = path.resolve( "src/templates/event.js" );
+		const NewsTemplate = path.resolve( "src/templates/news.js" );
+		const PartnerTemplate = path.resolve( "src/templates/partner.js" );
 		const PartnersTemplate = path.resolve( "src/pages/partners.js" );
 		const WhoWeAreTemplate = path.resolve( "src/pages/who-we-are.js" );
 
@@ -76,9 +79,6 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 				}
 
 				// Create pages for each markdown file.
-				//console.log(result.data);
-
-				// Create pages for each markdown file.
 				result.data.contentfulPages.edges.forEach( ( { node, } ) => {
 					const path = `/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
@@ -99,7 +99,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					createPage({
 						path,
 						component: component,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+						context: {
 							slug: path,
 							id,
 						},
@@ -113,7 +113,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					createPage({
 						path,
 						component: PageTemplate,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+						context: {
 							slug: path,
 							id,
 						},
@@ -128,7 +128,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					createPage({
 						path,
 						component: PageTemplate,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+						context: {
 							slug: path,
 							id,
 						},
@@ -143,7 +143,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					createPage({
 						path,
 						component: PageTemplate,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+						context: {
 							slug: path,
 							id,
 						},
@@ -154,11 +154,13 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 				result.data.contentfulEvents.edges.forEach( ( { node, } ) => {
 					const path = `/events/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
+
+					console.log(path);
 					
 					createPage({
 						path,
-						component: PageTemplate,
-						context: { // In your blog post template"s graphql query, you can use path as a GraphQL variable to query for data from the markdown file.
+						component: EventTemplate,
+						context: {
 							slug: path,
 							id,
 						},
