@@ -20,12 +20,18 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 	const { createPage, } = boundActionCreators;
 
 	return new Promise((resolve, reject) => {
-		const PageTemplate = path.resolve( "src/templates/page.js" );
+		const PartnersPage = path.resolve( "src/pages/partners.js" );
+		const OurStoryPage = path.resolve( "src/pages/our-story.js" );
+		const PublicationsPage = path.resolve( "src/pages/publications.js" );
+		const EventsPage = path.resolve( "src/pages/events.js" );
+		const NewsPage = path.resolve( "src/pages/news.js" );
+		
+		const DefaultPage = path.resolve( "src/templates/page.js" );
 		const EventTemplate = path.resolve( "src/templates/event.js" );
 		const NewsTemplate = path.resolve( "src/templates/news.js" );
-		const PartnerTemplate = path.resolve( "src/templates/partner.js" );
-		const PartnersTemplate = path.resolve( "src/pages/partners.js" );
-		const WhoWeAreTemplate = path.resolve( "src/pages/who-we-are.js" );
+		const PublicationTemplate = path.resolve( "src/templates/publication.js" );
+		const JobTemplate = path.resolve( "src/templates/job.js" );
+		//const PartnerTemplate = path.resolve( "src/templates/partner.js" );
 
 		resolve( // Query for markdown nodes to use in creating pages.
 			graphql(
@@ -86,14 +92,23 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					let component = undefined;
 
 					switch(path) {
-						case "/partners":
-							component = PartnersTemplate;
-							break;
-						case "/who-we-are":
-							component = WhoWeAreTemplate;
-							break;
-						default:
-							component = PageTemplate;
+					case "/partners":
+						component = PartnersPage;
+						break;
+					case "/our-story":
+						component = OurStoryPage;
+						break;
+					case "/publications":
+						component = PublicationsPage;
+						break;
+					case "/events":
+						component = EventsPage;
+						break;
+					case "/news":
+						component = NewsPage;
+						break;
+					default:
+						component = DefaultPage;
 					}
 
 					createPage({
@@ -112,7 +127,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: PageTemplate,
+						component: PublicationTemplate,
 						context: {
 							slug: path,
 							id,
@@ -127,7 +142,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: PageTemplate,
+						component: JobTemplate,
 						context: {
 							slug: path,
 							id,
@@ -142,7 +157,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					
 					createPage({
 						path,
-						component: PageTemplate,
+						component: NewsTemplate,
 						context: {
 							slug: path,
 							id,
@@ -154,8 +169,6 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 				result.data.contentfulEvents.edges.forEach( ( { node, } ) => {
 					const path = `/events/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
-
-					console.log(path);
 					
 					createPage({
 						path,

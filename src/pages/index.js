@@ -1,4 +1,4 @@
-import { BlankPage, Slider, Point, Section, Container, } from "tboc-site-components";
+import { BlankPage, Slider, Point, Section, Container, Row, Column, } from "tboc-site-components";
 
 import React from "react";
 import slugify from "slugify";
@@ -32,6 +32,7 @@ export const SliderQuery = graphql`
 			edges {
 				node {
 					title
+					description
 					image {
 						file {
 							url
@@ -45,6 +46,7 @@ export const SliderQuery = graphql`
 			edges {
 				node {
 					title
+					description
 					image {
 						file {
 							url
@@ -58,6 +60,7 @@ export const SliderQuery = graphql`
 			edges {
 				node {
 					title
+					description
 					image {
 						file {
 							url
@@ -86,12 +89,23 @@ const HomePage = ( { data, }, ) => {
 		);
 	});
 
+	//should be featured??
+
 	sliderContents = sliderContents.slice( 1, 8 );
 
 	return (
 		<BlankPage
 			slider = { <Slider sliderContents = { sliderContents }/> }
 		>
+			<Section>
+				<Container narrow>
+					<Row>
+						<Column>
+							<h2>The Business of Cities provides urban intelligence to global cities, firms and decision-makers. We use data, insight and narrative to guide leadership and strategy for those driving future change in the world’s cities.</h2>
+						</Column>
+					</Row>
+				</Container>
+			</Section>
 			
 			{
 				data.contentfulPage.content &&
@@ -101,7 +115,7 @@ const HomePage = ( { data, }, ) => {
 					>
 						<Container restrict>
 							<Point
-								cta = { {
+								cta = { (section.ctaTarget && section.ctaText) && {
 									link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
 									text: section.ctaText,
 								} }

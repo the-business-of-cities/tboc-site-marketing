@@ -1,13 +1,14 @@
-import { ContentPage, TeamMembers, } from "tboc-site-components";
+import { ContentPage, LogoGrid, Section, Container, Column, Row, } from "tboc-site-components";
 
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 // ----------------------------------------------------
 
-export const AllTeamMembersQuery = graphql`
-	query AllTeamMembersQuery {
-		contentfulPage(title: { eq: "Who we are" }) {
+export const AllNewsQuery = graphql`
+	query AllNewsQuery {
+		contentfulPage(title: { eq: "News" }) {
 			title
 			description
 			introduction {
@@ -30,19 +31,10 @@ export const AllTeamMembersQuery = graphql`
 				}
 			}
 		}
-		contentfulTeamMembers: allContentfulTeamMember {
+		contentfulNews: allContentfulNews {
 			edges {
 				node {
-					name
-					role
-					description {
-						description
-					}
-					image {
-						file {
-							url
-						}
-					}
+					title
 				}
 			}
 		}
@@ -51,27 +43,36 @@ export const AllTeamMembersQuery = graphql`
 
 // ----------------------------------------------------
 
-const WhoWeArePage = ( { data, }, ) => {
-	console.log(data);
-
+const NewsPage = ( { data, }, ) => {
 	return (
 		<ContentPage
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
 		>
-			<TeamMembers
-				members = { data.contentfulTeamMembers.edges }
-			/>
+			<Section>
+				<Container>
+					<Row restrict>
+						<Column>
+							{
+								data.contentfulNews.edges.map( news => (
+									<div>{ news.title }</div>
+								))
+							}
+						</Column>
+					</Row>
+				</Container>
+			</Section>
 		</ContentPage>
 	);
 };
 
-WhoWeArePage.propTypes = {
+NewsPage.propTypes = {
 	data: PropTypes.shape({
 		contentfulPage: PropTypes.object.isRequired,
-		contentfulTeamMembers: PropTypes.object.isRequired,
+		contentfulNews: PropTypes.object.isRequired,
 	}).isRequired,
 };
 
-export default WhoWeArePage;
+
+export default NewsPage;

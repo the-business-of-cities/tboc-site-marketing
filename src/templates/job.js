@@ -5,11 +5,10 @@ import React from "react";
 
 // ----------------------------------------------------
 
-export const NewsQuery = graphql`
-	query NewsQuery($id: String!) {
-		contentfulNews(id: { eq: $id }) {
+export const JobQuery = graphql`
+	query JobQuery($id: String!) {
+		contentfulJob(id: { eq: $id }) {
 			title
-			originalDate
 			description
 			content {
 				content
@@ -26,13 +25,13 @@ export const NewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = ( { data, }, ) => {
+const JobTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
-			title = { data.contentfulNews.title }
-			secondaryImage = { data.contentfulNews.image }
-			description = { data.contentfulNews.description }
-			introduction = { data.contentfulNews.details.details }
+			title = { data.contentfulJob.title }
+			secondaryImage = { data.contentfulJob.image }
+			description = { data.contentfulJob.description }
+			introduction = { data.contentfulJob.details.details }
 		>
 			{
 				console.log(data)
@@ -41,10 +40,10 @@ const NewsTemplate = ( { data, }, ) => {
 	);
 };
 
-NewsTemplate.propTypes = {
+JobTemplate.propTypes = {
 	data: PropTypes.shape({
-		contentfulNews: PropTypes.object.isRequired,
+		contentfulJob: PropTypes.object.isRequired,
 	}).isRequired,
 };
 
-export default NewsTemplate;
+export default JobTemplate;

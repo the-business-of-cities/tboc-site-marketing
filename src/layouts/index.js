@@ -5,46 +5,34 @@ import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
 import React from "react";
 import theme from "./theme";
+import slugify from "slugify";
 
 // ----------------------------------------------------
 
-const Links = [
-	{
-		to: "/our-story/",
-		content: "Our Story",
-		as: "gatsby-link",
-	},
-	{
-		to: "/who-we-are/",
-		content: "Who We Are",
-		as: "gatsby-link",
-	},
-	{
-		to: "/work/",
-		content: "Work",
-		as: "gatsby-link",
-	},
-	{
-		to: "/partners/",
-		content: "Partners",
-		as: "gatsby-link",
-	},
-	{
-		to: "/publications/",
-		content: "Publications",
-		as: "gatsby-link",
-	},
-	{
-		to: "/events/",
-		content: "Events",
-		as: "gatsby-link",
-	},
-	{
-		to: "/contact-us/",
-		content: "Contact Us",
-		as: "gatsby-link",
-	},
-];
+export const SettingsQuery = graphql`
+	query SettingsQuery {
+		contentfulSettings: allContentfulSiteSettings {
+			edges {
+				node {
+					siteTitle
+					siteDescription
+					logo {
+						file {
+							url
+						}
+					}
+					navLinks {
+						title
+						service
+					}
+					footerLinks {
+						title
+					}
+				}
+			}
+		}
+	}
+`;
 
 // ----------------------------------------------------
 
@@ -52,8 +40,9 @@ injectGlobal`
 	${ defaultGlobalStyles(theme) }
 `;
 
-const TemplateWrapper = props => (
-	<ThemeProvider theme = { theme }>
+
+const TemplateWrapper = props => {
+	return <ThemeProvider theme = { theme }>
 		<div>
 			<Head />
 
@@ -65,7 +54,15 @@ const TemplateWrapper = props => (
 
 			<Nav
 				homepage = { props.location.pathname === "/" }
-				links = { Links }
+				links = { props.data.contentfulSettings.edges[0].node.navLinks
+					.filter( link => !link.service )
+					.map( link => {
+					return {
+						to: slugify(link.title),
+						content: link.title,
+						as: "gatsby-link",
+					};
+				}) }
 				logo = { { url: "https://images.ctfassets.net/7k0m7hkot1dm/28C0yQCX5aSKqwyYgSIIIA/08b95dc10f29054e15da2178dbbc3c35/Asset_4_2x.png", text: "tboc", } }
 			/>
 
@@ -74,10 +71,13 @@ const TemplateWrapper = props => (
 			<Footer/>
 		</div>
 	</ThemeProvider>
-);
+};
 
 TemplateWrapper.propTypes = {
 	children: PropTypes.func.isRequired,
+	data: PropTypes.shape({
+		contentfulSettings: PropTypes.object,
+	}),
 	location: PropTypes.object,
 };
 
