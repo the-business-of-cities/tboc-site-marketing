@@ -31,7 +31,7 @@ const JobTemplate = ( { data, }, ) => {
 			title = { data.contentfulJob.title }
 			secondaryImage = { data.contentfulJob.image }
 			description = { data.contentfulJob.description }
-			introduction = { data.contentfulJob.details.details }
+			introduction = { data.contentfulJob.details && data.contentfulJob.details.details }
 		>
 			{
 				console.log(data)

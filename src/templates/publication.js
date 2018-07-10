@@ -28,7 +28,7 @@ const PublicationTemplate = ( { data, }, ) => {
 			title = { data.contentfulPublication.title }
 			secondaryImage = { data.contentfulPublication.image }
 			description = { data.contentfulPublication.description }
-			introduction = { data.contentfulPublication.details.details }
+			introduction = { data.contentfulPublication.details && data.contentfulPublication.details.details }
 		>
 			{
 				console.log(data)

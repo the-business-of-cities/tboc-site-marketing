@@ -32,7 +32,7 @@ const NewsTemplate = ( { data, }, ) => {
 			title = { data.contentfulNews.title }
 			secondaryImage = { data.contentfulNews.image }
 			description = { data.contentfulNews.description }
-			introduction = { data.contentfulNews.details.details }
+			introduction = { data.contentfulNews.details && data.contentfulNews.details.details }
 		>
 			{
 				console.log(data)

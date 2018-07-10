@@ -1,8 +1,7 @@
-import { ContentPage, LogoGrid, Section, Container, Column, Row, } from "tboc-site-components";
+import { ContentPage, Section, Container, Column, Row, Publications, } from "tboc-site-components";
 
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 
 // ----------------------------------------------------
 
@@ -35,6 +34,11 @@ export const AllPublicationsQuery = graphql`
 			edges {
 				node {
 					title
+					image {
+						file {
+							url
+						}
+					}
 				}
 			}
 		}
@@ -54,11 +58,9 @@ const PublicationsPage = ( { data, }, ) => {
 				<Container>
 					<Row restrict>
 						<Column>
-							{
-								data.contentfulPublications.edges.map( category => (
-									<div>{ category.title }</div>
-								))
-							}
+							<Publications
+								publications = { data.contentfulPublications.edges }
+							/>
 						</Column>
 					</Row>
 				</Container>

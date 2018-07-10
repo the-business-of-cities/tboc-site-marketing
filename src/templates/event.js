@@ -34,7 +34,7 @@ const EventTemplate = ( { data, }, ) => {
 			title = { data.contentfulEvent.title }
 			secondaryImage = { data.contentfulEvent.image }
 			description = { data.contentfulEvent.description }
-			introduction = { data.contentfulEvent.details.details }
+			introduction = { data.contentfulEvent.details && data.contentfulEvent.details.details }
 		/>
 	);
 };

@@ -25,9 +25,13 @@ export const SettingsQuery = graphql`
 						title
 						service
 					}
+					footerText
 					footerLinks {
 						title
 					}
+					linkedinLink
+					twitterLink
+					youtubeLink
 				}
 			}
 		}
@@ -42,35 +46,64 @@ injectGlobal`
 
 
 const TemplateWrapper = props => {
-	return <ThemeProvider theme = { theme }>
-		<div>
-			<Head />
+	const {
+		navLinks,
+		footerLinks,
+		footerText,
+		linkedinLink,
+		twitterLink,
+		youtubeLink,
+	} = props.data.contentfulSettings.edges[0].node;
 
-			<CookieBanner
-				message = "We use cookies on this site. For more information, see our Privacy Policy."
-				onAccept = { () => {} }
-				cookie = "user-has-accepted-cookies"
-			/>
+	return (
+		<ThemeProvider theme = { theme }>
+			<div>
+				<Head />
 
-			<Nav
-				homepage = { props.location.pathname === "/" }
-				links = { props.data.contentfulSettings.edges[0].node.navLinks
-					.filter( link => !link.service )
-					.map( link => {
-					return {
-						to: slugify(link.title),
-						content: link.title,
-						as: "gatsby-link",
-					};
-				}) }
-				logo = { { url: "https://images.ctfassets.net/7k0m7hkot1dm/28C0yQCX5aSKqwyYgSIIIA/08b95dc10f29054e15da2178dbbc3c35/Asset_4_2x.png", text: "tboc", } }
-			/>
+				<CookieBanner
+					message = "We use cookies on this site. For more information, see our Privacy Policy."
+					onAccept = { () => {} }
+					cookie = "user-has-accepted-cookies"
+				/>
 
-			{ props.children(...props) }
+				<Nav
+					homepage = { props.location.pathname === "/" }
+					links = { navLinks
+						.filter( link => !link.service )
+						.map( link => {
+							return {
+								to: `/${ slugify(link.title.toLowerCase()) }`,
+								content: link.title,
+								as: "gatsby-link",
+							};
+						}) 
+					}
+					logo = { { url: "https://images.ctfassets.net/7k0m7hkot1dm/28C0yQCX5aSKqwyYgSIIIA/08b95dc10f29054e15da2178dbbc3c35/Asset_4_2x.png", text: "tboc", } }
+				/>
 
-			<Footer/>
-		</div>
-	</ThemeProvider>
+				{ props.children(...props) }
+
+				<Footer
+					footerText = { footerText }
+					footerLinks = { footerLinks }
+					socialLinks = { [
+						{
+							type: "youtube",
+							link: youtubeLink,
+						},
+						{
+							type: "linkedin",
+							link: linkedinLink,
+						},
+						{
+							type: "twitter",
+							link: twitterLink,
+						},
+					] }
+				/>
+			</div>
+		</ThemeProvider>
+	);
 };
 
 TemplateWrapper.propTypes = {
