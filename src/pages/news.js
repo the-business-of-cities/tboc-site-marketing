@@ -34,6 +34,7 @@ export const AllNewsQuery = graphql`
 			edges {
 				node {
 					title
+					description
 					image {
 						file {
 							url
