@@ -96,7 +96,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					case "/partners":
 						component = PartnersPage;
 						break;
-					case "/our-story":
+					case "/about-us":
 						component = OurStoryPage;
 						break;
 					case "/publications":

@@ -7,7 +7,7 @@ import React from "react";
 
 export const AllTeamMembersQuery = graphql`
 	query AllTeamMembersQuery {
-		contentfulPage(title: { eq: "Our Story" }) {
+		contentfulPage(title: { eq: "About Us" }) {
 			title
 			description
 			introduction {
@@ -54,7 +54,7 @@ export const AllTeamMembersQuery = graphql`
 const OurStoryPage = ( { data, }, ) => {
 	console.log(data);
 
-	return (
+	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }

@@ -49,7 +49,7 @@ export const AllPublicationsQuery = graphql`
 // ----------------------------------------------------
 
 const PublicationsPage = ( { data, }, ) => {
-	return (
+	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }

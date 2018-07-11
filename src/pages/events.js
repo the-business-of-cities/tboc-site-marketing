@@ -46,7 +46,7 @@ export const AllEventsQuery = graphql`
 // ----------------------------------------------------
 
 const PartnersPage = ( { data, }, ) => {
-	return (
+	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }
