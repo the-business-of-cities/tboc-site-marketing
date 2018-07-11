@@ -30,17 +30,19 @@ export const AllTeamMembersQuery = graphql`
 				}
 			}
 		}
-		contentfulTeamMembers: allContentfulTeamMember {
+		contentfulTeamSettings: allContentfulSiteSettings {
 			edges {
 				node {
-					name
-					role
-					description {
-						description
-					}
-					image {
-						file {
-							url
+					teamMembers {
+						name
+						role
+						description {
+							description
+						}
+						image {
+							file {
+								url
+							}
 						}
 					}
 				}
@@ -52,8 +54,6 @@ export const AllTeamMembersQuery = graphql`
 // ----------------------------------------------------
 
 const OurStoryPage = ( { data, }, ) => {
-	console.log(data);
-
 	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
@@ -61,7 +61,7 @@ const OurStoryPage = ( { data, }, ) => {
 			content = { data.contentfulPage.content }
 		>
 			<TeamMembers
-				members = { data.contentfulTeamMembers.edges }
+				members = { data.contentfulTeamSettings.edges[0].node.teamMembers }
 			/>
 		</ContentPage>
 	);
@@ -70,7 +70,7 @@ const OurStoryPage = ( { data, }, ) => {
 OurStoryPage.propTypes = {
 	data: PropTypes.shape({
 		contentfulPage: PropTypes.object.isRequired,
-		contentfulTeamMembers: PropTypes.object.isRequired,
+		contentfulTeamSettings: PropTypes.object.isRequired,
 	}).isRequired,
 };
 

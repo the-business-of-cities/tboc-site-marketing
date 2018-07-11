@@ -59,6 +59,7 @@ const CategoryWrapper = styled.div`
 // ----------------------------------------------------
 
 const PartnersPage = ( { data, }, ) => {
+	console.log(data);
 	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
@@ -70,20 +71,21 @@ const PartnersPage = ( { data, }, ) => {
 					<Row restrict>
 						<Column>
 							{
-								data.contentfulPartnerCategories.edges.map( category => (
-									<CategoryWrapper key = { category.node.title }>
-										<h2>{ category.node.title }</h2>
+								data.contentfulPartnerCategories.edges.map( category => 
+									category.node.partner && (
+										<CategoryWrapper key = { category.node.title }>
+											<h2>{ category.node.title }</h2>
 
-										<LogoGrid
-											logos = { 
-												category.node.partner.map(partner => ({
-													image: partner.image,
-													link: partner.website,
-												}))
-											}
-										/>
-									</CategoryWrapper>
-								))
+											<LogoGrid
+												logos = { 
+													category.node.partner.map(partner => ({
+														image: partner.image,
+														link: partner.website,
+													}))
+												}
+											/>
+										</CategoryWrapper>
+									))
 							}
 						</Column>
 					</Row>
