@@ -55,6 +55,9 @@ const TemplateWrapper = props => {
 		youtubeLink,
 	} = props.data.contentfulSettings.edges[0].node;
 
+	const links = navLinks.filter( link => !link.service );
+	const dropdown = navLinks.filter( link => link.service );
+
 	return (
 		<ThemeProvider theme = { theme }>
 			<div>
@@ -68,13 +71,21 @@ const TemplateWrapper = props => {
 
 				<Nav
 					homepage = { props.location.pathname === "/" }
-					links = { navLinks
+					links = { links
 						.filter( link => !link.service )
 						.map( link => {
 							return {
 								to: `/${ slugify(link.title.toLowerCase()) }`,
 								content: link.title,
 								as: "gatsby-link",
+								dropdown: slugify(link.title.toLowerCase()) === "what-we-do" && 
+									dropdown.map( link => {
+										return {
+											to: `/${ slugify(link.title.toLowerCase()) }`,
+											content: link.title,
+											as: "gatsby-link",
+										};
+									}),
 							};
 						}) 
 					}
