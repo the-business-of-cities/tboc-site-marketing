@@ -28,11 +28,7 @@ const PublicationTemplate = ( { data, }, ) => {
 			image = { data.contentfulPublication.image && data.contentfulPublication.image.file.url }
 			description = { data.contentfulPublication.description }
 			introduction = { data.contentfulPublication.details && data.contentfulPublication.details.details }
-		>
-			{
-				console.log(data)
-			}
-		</ContentPage>
+		/>
 	);
 };
 
