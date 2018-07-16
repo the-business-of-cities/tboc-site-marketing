@@ -1,4 +1,4 @@
-import { BlankPage, Slider, Point, Section, Container, Row, Column, } from "tboc-site-components";
+import { BlankPage, Point, Section, Container, } from "tboc-site-components";
 
 import React from "react";
 import slugify from "slugify";
@@ -28,18 +28,38 @@ export const SliderQuery = graphql`
 				}
 			}
 		}
-		contentfulBannerSettings: allContentfulSiteSettings {
+		contentfulHomeSettings: allContentfulSiteSettings {
 			edges {
 				node {
 					homeDescription {
 						homeDescription
 					}
 					homeBanner {
-						title
-						description
-						image {
-							file {
-								url
+						... on ContentfulPublication {
+							title
+							description
+							image {
+								file {
+									url
+								}
+							}
+						}
+						... on ContentfulNews {
+							title
+							description
+							image {
+								file {
+									url
+								}
+							}
+						}
+						... on ContentfulEvent {
+							title
+							description
+							image {
+								file {
+									url
+								}
 							}
 						}
 					}
@@ -52,21 +72,15 @@ export const SliderQuery = graphql`
 // ----------------------------------------------------
 
 const HomePage = ( { data, }, ) => {
-	console.log(data);
+	console.log(data.contentfulHomeSettings.edges[0].node);
+
+	const home = data.contentfulHomeSettings.edges[0].node;
+
 	return (
 		<BlankPage
-			slider = { <Slider sliderContents = { data.contentfulBannerSettings.edges[0] }/> }
+			banner = { { text: home.homeDescription.homeDescription, } }
+			sliderContents = { home.homeBanner }
 		>
-			<Section>
-				<Container narrow>
-					<Row>
-						<Column>
-							<h2>The Business of Cities provides urban intelligence to global cities, firms and decision-makers. We use data, insight and narrative to guide leadership and strategy for those driving future change in the world’s cities.</h2>
-						</Column>
-					</Row>
-				</Container>
-			</Section>
-			
 			{
 				data.contentfulPage.content &&
 				data.contentfulPage.content.map( (section, i) => (
