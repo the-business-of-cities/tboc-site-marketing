@@ -59,7 +59,6 @@ const CategoryWrapper = styled.div`
 // ----------------------------------------------------
 
 const PartnersPage = ( { data, }, ) => {
-	console.log(data);
 	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
@@ -85,7 +84,8 @@ const PartnersPage = ( { data, }, ) => {
 												}
 											/>
 										</CategoryWrapper>
-									))
+									)
+								)
 							}
 						</Column>
 					</Row>

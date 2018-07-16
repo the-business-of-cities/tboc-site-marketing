@@ -28,45 +28,21 @@ export const SliderQuery = graphql`
 				}
 			}
 		}
-		contentfulPublications: allContentfulPublication {
+		contentfulBannerSettings: allContentfulSiteSettings {
 			edges {
 				node {
-					title
-					description
-					image {
-						file {
-							url
+					homeDescription {
+						homeDescription
+					}
+					homeBanner {
+						title
+						description
+						image {
+							file {
+								url
+							}
 						}
 					}
-					approximateDate
-				}
-			}
-		}
-		contentfulEvents: allContentfulEvent {
-			edges {
-				node {
-					title
-					description
-					image {
-						file {
-							url
-						}
-					}
-					date
-				}
-			}
-		}
-		contentfulNews: allContentfulNews {
-			edges {
-				node {
-					title
-					description
-					image {
-						file {
-							url
-						}
-					}
-					originalDate
 				}
 			}
 		}
@@ -76,26 +52,10 @@ export const SliderQuery = graphql`
 // ----------------------------------------------------
 
 const HomePage = ( { data, }, ) => {
-	let sliderContents = [];
-
-	data.contentfulPublications.edges.map( edge => sliderContents.push(edge.node));
-	data.contentfulEvents.edges.map( edge => sliderContents.push(edge.node));
-	data.contentfulNews.edges.map( edge => sliderContents.push(edge.node));
-
-	sliderContents.sort(function(a, b) {
-		return (
-			new Date(a.date || a.originalDate || a.approximateDate ).getTime() -
-			new Date(b.date || b.originalDate || b.approximateDate ).getTime()
-		);
-	});
-
-	//should be featured??
-
-	sliderContents = sliderContents.slice( 1, 8 );
-
+	console.log(data);
 	return (
 		<BlankPage
-			slider = { <Slider sliderContents = { sliderContents }/> }
+			slider = { <Slider sliderContents = { data.contentfulBannerSettings.edges[0] }/> }
 		>
 			<Section>
 				<Container narrow>
