@@ -9,20 +9,27 @@ const breakpoints = {
 	lg: { min: lg, max: 100000, },
 };
 
+const palette = {
+	primary: "#003158",
+	secondary: "#005291",
+	tertiary: "#0071CC",
+};
+
 const colors = {
+	...palette,
 	text: "#444",
 	link: "#405378",
 	linkHover: "#4D6491",
 	nav: {
-		background: "#003158",
+		background: palette.primary,
 		alt: "#fff",
 	},
-	footer: "#003158",
+	footer: palette.primary,
 	bg: {
 		white: "#fff",
 		light: "#eee",
 		medium: "#aaa",
-		dark: "#003158",
+		dark: palette.primary,
 	},
 	grey: "rgba(0,0,0,0.2)",
 	lines: "rgba(0,0,0,0.2)",

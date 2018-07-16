@@ -13,6 +13,11 @@ export const AllEventsQuery = graphql`
 			introduction {
 				introduction
 			}
+			image {
+				file {
+					url
+				}
+			}
 			content {
 				id
 				title
@@ -51,6 +56,7 @@ const PartnersPage = ( { data, }, ) => {
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
+			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 		>
 			<Events events = { data.contentfulEvents.edges }/>
 		</ContentPage>

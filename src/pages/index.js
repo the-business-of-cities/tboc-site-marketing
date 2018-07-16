@@ -72,8 +72,6 @@ export const SliderQuery = graphql`
 // ----------------------------------------------------
 
 const HomePage = ( { data, }, ) => {
-	console.log(data.contentfulHomeSettings.edges[0].node);
-
 	const home = data.contentfulHomeSettings.edges[0].node;
 
 	return (
@@ -97,7 +95,6 @@ const HomePage = ( { data, }, ) => {
 								image = { section.image.file.url }
 								text = { section.content.content }
 								reverse = { i % 2 === 0 }
-
 							/>
 						</Container>
 					</Section>

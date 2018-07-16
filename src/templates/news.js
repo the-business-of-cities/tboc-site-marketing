@@ -15,7 +15,6 @@ export const NewsQuery = graphql`
 				content
 			}
 			image {
-				description
 				file {
 					url
 				}
@@ -30,14 +29,10 @@ const NewsTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulNews.title }
-			secondaryImage = { data.contentfulNews.image }
+			image = { data.contentfulNews.image.file.url }
 			description = { data.contentfulNews.description }
 			introduction = { data.contentfulNews.details && data.contentfulNews.details.details }
-		>
-			{
-				console.log(data)
-			}
-		</ContentPage>
+		/>
 	);
 };
 

@@ -11,7 +11,6 @@ export const PublicationQuery = graphql`
 			title
 			description
 			image {
-				description
 				file {
 					url
 				}
@@ -26,7 +25,7 @@ const PublicationTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPublication.title }
-			secondaryImage = { data.contentfulPublication.image }
+			image = { data.contentfulPublication.image }
 			description = { data.contentfulPublication.description }
 			introduction = { data.contentfulPublication.details && data.contentfulPublication.details.details }
 		>

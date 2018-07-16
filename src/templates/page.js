@@ -13,6 +13,11 @@ export const PageQuery = graphql`
 			introduction {
 				introduction
 			}
+			image {
+				file {
+					url
+				}
+			}
 			content {
 				id
 				title
@@ -43,6 +48,7 @@ const PageTemplate = ( { data, }, ) => {
 			description = { data.contentfulPage.description }
 			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
+			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 		/>
 	);
 };

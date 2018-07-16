@@ -12,7 +12,6 @@ export const PartnerQuery = graphql`
 			website
 			description
 			image {
-				description
 				file {
 					url
 				}
@@ -27,7 +26,7 @@ const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPartner.title }
-			secondaryImage = { data.contentfulPartner.image }
+			image = { data.contentfulPartner.image.file.url }
 			description = { data.contentfulPartner.description }
 		/>
 	);

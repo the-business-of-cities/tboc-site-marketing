@@ -17,7 +17,6 @@ export const EventQuery = graphql`
 				details
 			}
 			image {
-				description
 				file {
 					url
 				}
@@ -32,7 +31,7 @@ const EventTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulEvent.title }
-			secondaryImage = { data.contentfulEvent.image }
+			image = { data.contentfulEvent.image.file.url }
 			description = { data.contentfulEvent.description }
 			introduction = { data.contentfulEvent.details && data.contentfulEvent.details.details }
 		/>

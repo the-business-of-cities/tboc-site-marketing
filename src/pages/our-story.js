@@ -13,6 +13,11 @@ export const AllTeamMembersQuery = graphql`
 			introduction {
 				introduction
 			}
+			image {
+				file {
+					url
+				}
+			}
 			content {
 				id
 				title
@@ -59,6 +64,7 @@ const OurStoryPage = ( { data, }, ) => {
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
+			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 		>
 			<TeamMembers
 				members = { data.contentfulTeamSettings.edges[0].node.teamMembers }
