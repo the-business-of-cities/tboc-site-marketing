@@ -43,12 +43,11 @@ export const PageQuery = graphql`
 const PageTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
-			title = { data.contentfulPage.title }
-			secondaryImage = { data.contentfulPage.secondaryImage }
-			description = { data.contentfulPage.description }
-			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
+			description = { data.contentfulPage.description }
 			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+			introduction = { data.contentfulPage.introduction.introduction }
+			title = { data.contentfulPage.title }
 		/>
 	);
 };

@@ -25,7 +25,7 @@ const PublicationTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPublication.title }
-			image = { data.contentfulPublication.image }
+			image = { data.contentfulPublication.image && data.contentfulPublication.image.file.url }
 			description = { data.contentfulPublication.description }
 			introduction = { data.contentfulPublication.details && data.contentfulPublication.details.details }
 		>

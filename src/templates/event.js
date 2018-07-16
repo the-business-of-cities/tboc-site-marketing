@@ -31,7 +31,7 @@ const EventTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulEvent.title }
-			image = { data.contentfulEvent.image.file.url }
+			image = { data.contentfulEvent.image && data.contentfulEvent.image.file.url }
 			description = { data.contentfulEvent.description }
 			introduction = { data.contentfulEvent.details && data.contentfulEvent.details.details }
 		/>

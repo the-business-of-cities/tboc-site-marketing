@@ -26,7 +26,7 @@ const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPartner.title }
-			image = { data.contentfulPartner.image.file.url }
+			image = { data.contentfulPartner.image && data.contentfulPartner.image.file.url }
 			description = { data.contentfulPartner.description }
 		/>
 	);

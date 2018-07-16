@@ -29,7 +29,7 @@ const NewsTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulNews.title }
-			image = { data.contentfulNews.image.file.url }
+			image = { data.contentfulNews.image && data.contentfulNews.image.file.url }
 			description = { data.contentfulNews.description }
 			introduction = { data.contentfulNews.details && data.contentfulNews.details.details }
 		/>

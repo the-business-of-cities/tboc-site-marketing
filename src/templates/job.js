@@ -28,7 +28,7 @@ const JobTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulJob.title }
-			image = { data.contentfulJob.image }
+			image = { data.contentfulJob.image && data.contentfulJob.image.file.url }
 			description = { data.contentfulJob.description }
 			introduction = { data.contentfulJob.details && data.contentfulJob.details.details }
 		/>
