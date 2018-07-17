@@ -27,6 +27,7 @@ const colors = {
 	footer: palette.primary,
 	bg: {
 		white: "#fff",
+		lighter: "#fafafa",
 		light: "#eee",
 		medium: "#aaa",
 		dark: palette.primary,

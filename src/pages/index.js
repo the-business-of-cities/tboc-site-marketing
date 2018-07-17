@@ -22,6 +22,11 @@ export const SliderQuery = graphql`
 						url
 					}
 				}
+				backgroundImage {
+					file {
+						url
+					}
+				}
 				ctaText
 				ctaTarget {
 					title
@@ -54,32 +59,26 @@ export const SliderQuery = graphql`
 // ----------------------------------------------------
 
 const HomePage = ( { data, }, ) => {
-	const home = data.contentfulHomeSettings.edges[0].node;
-
 	return (
 		<BlankPage
-			banner = { { text: home.homeDescription.homeDescription, } }
-			sliderContents = { home.homeBanner }
+			banner = { { text: data.contentfulHomeSettings.edges[0].node.homeDescription.homeDescription, } }
+			sliderContents = { data.contentfulHomeSettings.edges[0].node.homeBanner }
 		>
 			{
 				data.contentfulPage.content &&
 				data.contentfulPage.content.map( (section, i) => (
-					<Section
+					<Point
+						cta = { (section.ctaTarget && section.ctaText) && {
+							link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
+							text: section.ctaText,
+						} }
+						image = { section.image }
+						bgImage = { section.backgroundImage && section.backgroundImage.file.url }
 						key = { `point-${ slugify(section.title) }` }
-					>
-						<Container restrict>
-							<Point
-								cta = { (section.ctaTarget && section.ctaText) && {
-									link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
-									text: section.ctaText,
-								} }
-								title = { section.title }
-								image = { section.image.file.url }
-								text = { section.content.content }
-								reverse = { i % 2 === 0 }
-							/>
-						</Container>
-					</Section>
+						reverse = { i % 2 === 0 }
+						text = { section.content.content }
+						title = { section.title }
+					/>
 				) )
 			}
 		</BlankPage>
@@ -89,9 +88,7 @@ const HomePage = ( { data, }, ) => {
 HomePage.propTypes = {
 	data: PropTypes.shape({
 		contentfulPage: PropTypes.object.isRequired,
-		contentfulPublications: PropTypes.object,
-		contentfulEvents: PropTypes.object,
-		contentfulNews: PropTypes.object,
+		contentfulHomeSettings: PropTypes.object,
 	}).isRequired,
 };
 
