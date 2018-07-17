@@ -75,13 +75,13 @@ const TemplateWrapper = props => {
 						.filter( link => !link.service )
 						.map( link => {
 							return {
-								to: `/${ slugify(link.title.toLowerCase()) }`,
+								to: `/${ slugify(link.title, { lower: true, } ) }`,
 								content: link.title,
 								as: "gatsby-link",
-								dropdown: slugify(link.title.toLowerCase()) === "what-we-do" && 
+								dropdown: slugify(link.title, { lower: true, } ) === "what-we-do" && 
 									dropdown.map( link => {
 										return {
-											to: `/${ slugify(link.title.toLowerCase()) }`,
+											to: `/${ slugify(link.title, { lower: true, } ) }`,
 											content: link.title,
 											as: "gatsby-link",
 										};

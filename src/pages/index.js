@@ -68,12 +68,12 @@ const HomePage = ( { data, }, ) => {
 				data.contentfulPage.content &&
 				data.contentfulPage.content.map( (section, i) => (
 					<Point
+						bgImage = { section.backgroundImage && section.backgroundImage.file.url }
 						cta = { (section.ctaTarget && section.ctaText) && {
 							link: `/${ slugify(section.ctaTarget.title, { lower: true, }) }`,
 							text: section.ctaText,
 						} }
 						image = { section.image }
-						bgImage = { section.backgroundImage && section.backgroundImage.file.url }
 						key = { `point-${ slugify(section.title) }` }
 						reverse = { i % 2 === 0 }
 						text = { section.content.content }
