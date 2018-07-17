@@ -1,4 +1,4 @@
-import { BlankPage, Point, Section, Container, } from "tboc-site-components";
+import { BlankPage, Point, } from "tboc-site-components";
 
 import React from "react";
 import slugify from "slugify";

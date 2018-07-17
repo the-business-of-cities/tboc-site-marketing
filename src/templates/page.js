@@ -29,6 +29,11 @@ export const PageQuery = graphql`
 						url
 					}
 				}
+				backgroundImage {
+					file {
+						url
+					}
+				}
 				ctaText
 				ctaTarget {
 					title

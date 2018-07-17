@@ -29,6 +29,11 @@ export const AllNewsQuery = graphql`
 						url
 					}
 				}
+				backgroundImage {
+					file {
+						url
+					}
+				}
 				ctaText
 				ctaTarget {
 					title

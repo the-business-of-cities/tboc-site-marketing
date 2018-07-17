@@ -30,6 +30,11 @@ export const AllPartnersQuery = graphql`
 						url
 					}
 				}
+				backgroundImage {
+					file {
+						url
+					}
+				}
 				ctaText
 				ctaTarget {
 					title

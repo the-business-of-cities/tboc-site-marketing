@@ -29,6 +29,11 @@ export const AllEventsQuery = graphql`
 						url
 					}
 				}
+				backgroundImage {
+					file {
+						url
+					}
+				}
 				ctaText
 				ctaTarget {
 					title
