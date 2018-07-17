@@ -44,24 +44,6 @@ export const SliderQuery = graphql`
 								}
 							}
 						}
-						... on ContentfulNews {
-							title
-							description
-							image {
-								file {
-									url
-								}
-							}
-						}
-						... on ContentfulEvent {
-							title
-							description
-							image {
-								file {
-									url
-								}
-							}
-						}
 					}
 				}
 			}
