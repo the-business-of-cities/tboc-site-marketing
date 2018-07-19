@@ -39,6 +39,18 @@ export const PageQuery = graphql`
 					title
 				}
 			}
+			partnerCategory {
+				title
+				partner {
+					name
+					website
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
 		}
 	}
 `;
@@ -53,6 +65,7 @@ const PageTemplate = ( { data, }, ) => {
 			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 			introduction = { data.contentfulPage.introduction.introduction }
 			title = { data.contentfulPage.title }
+			partners = { data.contentfulPage.partnerCategory }
 		/>
 	);
 };

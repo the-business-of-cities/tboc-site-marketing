@@ -40,6 +40,18 @@ export const AllPartnersQuery = graphql`
 					title
 				}
 			}
+			partnerCategory {
+				title
+				partner {
+					name
+					website
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
 		}
 		contentfulPartnerCategories: allContentfulPartnerCategory {
 			edges {
@@ -60,12 +72,6 @@ export const AllPartnersQuery = graphql`
 	}
 `;
 
-const CategoryWrapper = styled.div`
-	margin-bottom: 1em;
-	flex: 1;
-	width: 100%;
-`;
-
 // ----------------------------------------------------
 
 const PartnersPage = ( { data, }, ) => {
@@ -75,34 +81,8 @@ const PartnersPage = ( { data, }, ) => {
 			introduction = { data.contentfulPage.introduction.introduction }
 			content = { data.contentfulPage.content }
 			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-		>
-			<Section>
-				<Container>
-					<Row restrict>
-						<Column>
-							{
-								data.contentfulPartnerCategories.edges.map( category => 
-									category.node.partner && (
-										<CategoryWrapper key = { category.node.title }>
-											<h2>{ category.node.title }</h2>
-
-											<LogoGrid
-												logos = { 
-													category.node.partner.map(partner => ({
-														image: partner.image,
-														link: partner.website,
-													}))
-												}
-											/>
-										</CategoryWrapper>
-									)
-								)
-							}
-						</Column>
-					</Row>
-				</Container>
-			</Section>
-		</ContentPage>
+			partners = { data.contentfulPage.partnerCategory }
+		/>
 	);
 };
 
