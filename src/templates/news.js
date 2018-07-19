@@ -9,7 +9,6 @@ export const NewsQuery = graphql`
 	query NewsQuery($id: String!) {
 		contentfulNews(id: { eq: $id }) {
 			title
-			originalDate
 			description
 			content {
 				content

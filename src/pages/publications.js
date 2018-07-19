@@ -45,6 +45,7 @@ export const AllPublicationsQuery = graphql`
 				node {
 					title
 					description
+					publishingDate
 					image {
 						file {
 							url
