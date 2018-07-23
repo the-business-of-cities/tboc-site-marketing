@@ -1,8 +1,7 @@
-import { ContentPage, LogoGrid, Section, Container, Column, Row, } from "tboc-site-components";
+import { ContentPage, } from "tboc-site-components";
 
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 
 // ----------------------------------------------------
 
