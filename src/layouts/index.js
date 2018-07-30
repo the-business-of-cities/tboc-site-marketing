@@ -17,6 +17,7 @@ export const SettingsQuery = graphql`
 					siteTitle
 					siteDescription
 					logo {
+						description
 						file {
 							url
 						}
@@ -47,6 +48,7 @@ injectGlobal`
 
 const TemplateWrapper = props => {
 	const {
+		logo,
 		navLinks,
 		footerLinks,
 		footerText,
@@ -89,7 +91,7 @@ const TemplateWrapper = props => {
 							};
 						}) 
 					}
-					logo = { { url: "https://images.ctfassets.net/7k0m7hkot1dm/28C0yQCX5aSKqwyYgSIIIA/08b95dc10f29054e15da2178dbbc3c35/Asset_4_2x.png", text: "tboc", } }
+					logo = { { url: logo.file.url, text: logo.description, } }
 				/>
 
 				{ props.children(...props) }

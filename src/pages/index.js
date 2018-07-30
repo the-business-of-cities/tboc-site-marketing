@@ -52,6 +52,15 @@ export const SliderQuery = graphql`
 								}
 							}
 						}
+						... on ContentfulNews {
+							title
+							description
+							image {
+								file {
+									url
+								}
+							}
+						}
 					}
 				}
 			}
