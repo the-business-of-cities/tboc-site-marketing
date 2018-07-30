@@ -25,8 +25,10 @@ export const AllPartnersQuery = graphql`
 					content
 				}
 				image {
+					description
 					file {
 						url
+						contentType
 					}
 				}
 				backgroundImage {

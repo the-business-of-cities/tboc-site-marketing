@@ -18,11 +18,14 @@ export const SliderQuery = graphql`
 					content
 				}
 				image {
+					description
 					file {
 						url
+						contentType
 					}
 				}
 				backgroundImage {
+					description
 					file {
 						url
 					}
