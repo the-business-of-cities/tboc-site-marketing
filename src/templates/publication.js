@@ -11,6 +11,7 @@ export const PublicationQuery = graphql`
 			title
 			description
 			image {
+				description
 				file {
 					url
 				}

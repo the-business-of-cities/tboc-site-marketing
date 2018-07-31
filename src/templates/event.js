@@ -17,6 +17,7 @@ export const EventQuery = graphql`
 				details
 			}
 			image {
+				description
 				file {
 					url
 				}

@@ -14,6 +14,7 @@ export const NewsQuery = graphql`
 				content
 			}
 			image {
+				description
 				file {
 					url
 				}

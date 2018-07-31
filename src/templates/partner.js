@@ -12,6 +12,7 @@ export const PartnerQuery = graphql`
 			website
 			description
 			image {
+				description
 				file {
 					url
 				}

@@ -14,6 +14,7 @@ export const JobQuery = graphql`
 				content
 			}
 			image {
+				description
 				file {
 					url
 				}

@@ -32,6 +32,7 @@ export const AllPartnersQuery = graphql`
 					}
 				}
 				backgroundImage {
+					description
 					file {
 						url
 					}
