@@ -11,30 +11,7 @@ export const SliderQuery = graphql`
 		contentfulPage(title: { eq: "Home" }) {
 			title
 			description
-			content {
-				id
-				title
-				content {
-					content
-				}
-				image {
-					description
-					file {
-						url
-						contentType
-					}
-				}
-				backgroundImage {
-					description
-					file {
-						url
-					}
-				}
-				ctaText
-				ctaTarget {
-					title
-				}
-			}
+			...PagePoints
 		}
 		contentfulHomeSettings: allContentfulSiteSettings {
 			edges {
@@ -90,6 +67,7 @@ const HomePage = ( { data, }, ) => {
 						reverse = { i % 2 === 0 }
 						text = { section.content.content }
 						title = { section.title }
+						videoUrl = { section.videoUrl }
 					/>
 				) )
 			}

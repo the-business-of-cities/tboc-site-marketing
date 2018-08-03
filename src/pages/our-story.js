@@ -18,30 +18,7 @@ export const AllTeamMembersQuery = graphql`
 					url
 				}
 			}
-			content {
-				id
-				title
-				content {
-					content
-				}
-				image {
-					description
-					file {
-						url
-						contentType
-					}
-				}
-				backgroundImage {
-					description
-					file {
-						url
-					}
-				}
-				ctaText
-				ctaTarget {
-					title
-				}
-			}
+			...PagePoints
 		}
 		contentfulTeamSettings: allContentfulSiteSettings {
 			edges {
