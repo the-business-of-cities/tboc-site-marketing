@@ -32,7 +32,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 		const NewsTemplate = path.resolve( "src/templates/news.js" );
 		const PublicationTemplate = path.resolve( "src/templates/publication.js" );
 		const JobTemplate = path.resolve( "src/templates/job.js" );
-		//const PartnerTemplate = path.resolve( "src/templates/partner.js" );
+		const PartnerTemplate = path.resolve( "src/templates/partner.js" );
 
 		resolve( // Query for markdown nodes to use in creating pages.
 			graphql(
@@ -75,6 +75,14 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 								node {
 									id
 									title
+								}
+							}
+						}
+						contentfulPartners: allContentfulPartner {
+							edges {
+								node {
+									id
+									name
 								}
 							}
 						}
@@ -177,6 +185,21 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 					createPage({
 						path,
 						component: EventTemplate,
+						context: {
+							slug: path,
+							id,
+						},
+					});
+				});
+
+				// Create pages for each markdown file.
+				result.data.contentfulPartners.edges.forEach( ( { node, } ) => {
+					const path = `/partners/${ slugify(node.name, { lower: true, }) }`;
+					const id = node.id;
+					
+					createPage({
+						path,
+						component: PartnerTemplate,
 						context: {
 							slug: path,
 							id,

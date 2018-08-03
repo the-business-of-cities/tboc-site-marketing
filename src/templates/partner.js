@@ -1,7 +1,8 @@
-import { ContentPage, } from "tboc-site-components";
+import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
+import marked from "marked";
 
 // ----------------------------------------------------
 
@@ -17,6 +18,22 @@ export const PartnerQuery = graphql`
 					url
 				}
 			}
+			content {
+				content
+			}
+			testimonial {
+				title
+				quote {
+					quote
+				}
+				quotee
+				image {
+					description
+					file {
+						url
+					}
+				}
+			}
 		}
 	}
 `;
@@ -26,10 +43,31 @@ export const PartnerQuery = graphql`
 const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
-			title = { data.contentfulPartner.title }
-			image = { data.contentfulPartner.image && data.contentfulPartner.image.file.url }
+			title = { data.contentfulPartner.name }
 			description = { data.contentfulPartner.description }
-		/>
+		>
+			<Section>
+				<Container>
+					<Row>
+						<Column>
+							<p><MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink></p>
+
+							{ data.contentfulPartner.description && 
+								<div
+									dangerouslySetInnerHTML = { {
+										__html: marked(
+											data.contentfulPartner.description,
+										),
+									} }
+								/> 
+							}
+
+							<Testimonial testimonial = { data.contentfulPartner.testimonial }/>
+						</Column>
+					</Row>
+				</Container>
+			</Section>
+		</ContentPage>
 	);
 };
 
