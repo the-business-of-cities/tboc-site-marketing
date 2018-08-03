@@ -27,6 +27,7 @@ export const AllEventsQuery = graphql`
 					location
 					role
 					date
+					link
 				}
 			}
 		}
