@@ -1,8 +1,9 @@
-import { BlankPage, Point, } from "tboc-site-components";
+import { BlankPage, Point, Section, Container, Column, Row, LogoGrid, } from "tboc-site-components";
 
+import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
-import PropTypes from "prop-types";
+import styled from "styled-components";
 
 // ----------------------------------------------------
 
@@ -12,6 +13,18 @@ export const SliderQuery = graphql`
 			title
 			description
 			...PagePoints
+			partnerCategory {
+				title
+				partner {
+					name
+					website
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
 		}
 		contentfulHomeSettings: allContentfulSiteSettings {
 			edges {
@@ -45,6 +58,12 @@ export const SliderQuery = graphql`
 	}
 `;
 
+const LogoWrapper = styled.div`
+	margin-bottom: 1em;
+	flex: 1;
+	width: 100%;
+`;
+
 // ----------------------------------------------------
 
 const HomePage = ( { data, }, ) => {
@@ -70,6 +89,36 @@ const HomePage = ( { data, }, ) => {
 						videoUrl = { section.videoUrl }
 					/>
 				) )
+			}
+
+			{
+				data.contentfulPage.partnerCategory &&
+				data.contentfulPage.partnerCategory[0].partner &&
+				<Section>
+					<Container>
+						<Row restrict>
+							<Column>
+								<h1>Our Partners</h1>
+
+								<LogoWrapper>
+									{
+										data.contentfulPage.partnerCategory.map( category => (
+											<LogoGrid
+												logos = { 
+													category.partner.map(partner => ({
+														image: partner.image,
+														link: "partners",
+													}))
+												}
+												logosPerRow = { { xs: 4, sm: 5, md: 7, lg: 9, } }
+											/>
+										))
+									}
+								</LogoWrapper>
+							</Column>
+						</Row>
+					</Container>
+				</Section>
 			}
 		</BlankPage>
 	);

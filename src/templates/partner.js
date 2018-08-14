@@ -1,4 +1,4 @@
-import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, } from "tboc-site-components";
+import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, Publications, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
@@ -20,6 +20,16 @@ export const PartnerQuery = graphql`
 			}
 			content {
 				content
+			}
+			publications {
+				title
+				description
+				publishingDate
+				image {
+					file {
+						url
+					}
+				}
 			}
 			testimonial {
 				title
@@ -47,7 +57,7 @@ const PartnerTemplate = ( { data, }, ) => {
 			description = { data.contentfulPartner.description }
 		>
 			<Section>
-				<Container>
+				<Container narrow>
 					<Row>
 						<Column>
 							<p><MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink></p>
@@ -61,12 +71,29 @@ const PartnerTemplate = ( { data, }, ) => {
 									} }
 								/> 
 							}
-
-							<Testimonial testimonial = { data.contentfulPartner.testimonial }/>
 						</Column>
 					</Row>
 				</Container>
 			</Section>
+
+			<Testimonial 
+				{ ...data.contentfulPartner.testimonial }
+			/>
+
+			{
+				data.contentfulPartner.publications &&
+				<Section>
+					<Container>
+						<Row>
+							<Column>
+								<Publications
+									publications = { data.contentfulPartner.publications }
+								/>
+							</Column>
+						</Row>
+					</Container>
+				</Section>
+			}
 		</ContentPage>
 	);
 };

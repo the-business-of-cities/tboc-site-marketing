@@ -29,6 +29,9 @@ export const AllTeamMembersQuery = graphql`
 						description {
 							description
 						}
+						extendedDescription {
+							extendedDescription
+						}
 						image {
 							file {
 								url
