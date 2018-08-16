@@ -99,7 +99,7 @@ const HomePage = ( { data, }, ) => {
 						<Row restrict>
 							<Column>
 								<h1>Our Partners</h1>
-
+ 
 								<LogoWrapper>
 									{
 										data.contentfulPage.partnerCategory.map( category => (
