@@ -98,7 +98,7 @@ const HomePage = ( { data, }, ) => {
 					<Container>
 						<Row restrict>
 							<Column>
-								<h1>Our Partners</h1>
+								<h1>A Selection of Our Clients and Partners</h1>
  
 								<LogoWrapper>
 									{
