@@ -26,6 +26,7 @@ export const AllPublicationsQuery = graphql`
 					title
 					description
 					publishingDate
+					showAsPublication
 					image {
 						file {
 							url
@@ -40,6 +41,10 @@ export const AllPublicationsQuery = graphql`
 // ----------------------------------------------------
 
 const PublicationsPage = ( { data, }, ) => {
+	const publications = data.contentfulPublications
+		.edges
+		.filter( publication => publication.node.showAsPublication !== false );
+
 	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
@@ -52,7 +57,7 @@ const PublicationsPage = ( { data, }, ) => {
 					<Row restrict>
 						<Column>
 							<Publications
-								publications = { data.contentfulPublications.edges }
+								publications = { publications }
 							/>
 						</Column>
 					</Row>
