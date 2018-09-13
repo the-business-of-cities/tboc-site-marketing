@@ -26,6 +26,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 		const EventsPage = path.resolve( "src/pages/events.js" );
 		const NewsPage = path.resolve( "src/pages/news.js" );
 		const HomePage = path.resolve( "src/pages/index.js" );
+		const JobsPage = path.resolve( "src/pages/jobs.js" );
 		
 		const DefaultPage = path.resolve( "src/templates/page.js" );
 		const EventTemplate = path.resolve( "src/templates/event.js" );
@@ -118,6 +119,9 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 						break;
 					case "/home":
 						component = HomePage;
+						break;
+					case "/vacancies":
+						component = JobsPage;
 						break;
 					default:
 						component = DefaultPage;
