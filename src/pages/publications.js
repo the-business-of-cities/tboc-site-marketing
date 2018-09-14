@@ -27,6 +27,7 @@ export const AllPublicationsQuery = graphql`
 					description
 					publishingDate
 					showAsPublication
+					externalUrl
 					image {
 						file {
 							url

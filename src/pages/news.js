@@ -26,6 +26,7 @@ export const AllNewsQuery = graphql`
 					title
 					description
 					publishingDate
+					externalUrl
 					image {
 						file {
 							url

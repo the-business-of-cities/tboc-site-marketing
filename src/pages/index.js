@@ -36,6 +36,7 @@ export const SliderQuery = graphql`
 						... on ContentfulPublication {
 							title
 							description
+							externalUrl
 							image {
 								file {
 									url
@@ -45,6 +46,7 @@ export const SliderQuery = graphql`
 						... on ContentfulNews {
 							title
 							description
+							externalUrl
 							image {
 								file {
 									url
