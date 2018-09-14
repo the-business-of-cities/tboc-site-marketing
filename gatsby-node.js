@@ -52,6 +52,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 								node {
 									id
 									title
+									externalUrl
 								}
 							}
 						}
@@ -140,8 +141,9 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 				result.data.contentfulPublications.edges.forEach( ( { node, } ) => {
 					const path = `/publications/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
+					const url = node.externalUrl;
 					
-					createPage({
+					!url && createPage({
 						path,
 						component: PublicationTemplate,
 						context: {
