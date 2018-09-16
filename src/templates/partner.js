@@ -54,27 +54,30 @@ const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPartner.name }
+			subtitle = { data.contentfulPartner.website && <MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
 			description = { data.contentfulPartner.description }
 		>
-			<Section>
-				<Container narrow>
-					<Row>
-						<Column>
-							<p><MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink></p>
-
-							{ data.contentfulPartner.description && 
-								<div
-									dangerouslySetInnerHTML = { {
-										__html: marked(
-											data.contentfulPartner.description,
-										),
-									} }
-								/> 
-							}
-						</Column>
-					</Row>
-				</Container>
-			</Section>
+			{
+				data.contentfulPartner.content &&
+				<Section>
+					<Container narrow>
+						{ 
+							data.contentfulPartner.content.content &&
+							<Row>
+								<Column>
+									<div
+										dangerouslySetInnerHTML = { {
+											__html: marked(
+												data.contentfulPartner.content.content,
+											),
+										} }
+									/>
+								</Column>
+							</Row>
+						}
+					</Container>
+				</Section>
+			}
 
 			<Testimonial 
 				{ ...data.contentfulPartner.testimonial }

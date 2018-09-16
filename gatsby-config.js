@@ -1,6 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: "The Business of Cities",
+  		siteUrl: "https://www.thebusinessofcities.com",
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
@@ -13,7 +14,7 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-plugin-favicon`,
+			resolve: "gatsby-plugin-favicon",
 			options: {
 				logo: "./src/images/favicon.png",
 				injectHTML: true,
@@ -40,5 +41,8 @@ module.exports = {
 		// 		exclude: [ "/preview/**", "/do-not-track/me/too/", ],
 		// 	},
 		// },
+		{
+			resolve: "gatsby-plugin-sitemap",
+		},
 	],
 };

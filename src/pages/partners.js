@@ -58,7 +58,6 @@ const PartnersPage = ( { data, }, ) => {
 		<ContentPage
 			title = { data.contentfulPage.title }
 			introduction = { data.contentfulPage.introduction.introduction }
-			content = { data.contentfulPage.content }
 			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 			partners = { data.contentfulPage.partnerCategory }
 		/>
