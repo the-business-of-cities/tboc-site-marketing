@@ -31,8 +31,7 @@ const JobTemplate = ( { data, }, ) => {
 			title = { data.contentfulJob.title }
 			image = { data.contentfulJob.image && data.contentfulJob.image.file.url }
 			description = { data.contentfulJob.description }
-			content = { data.contentfulJob.content }
-			introduction = { data.contentfulJob.details && data.contentfulJob.details.details }
+			introduction = { data.contentfulJob.content && data.contentfulJob.content.content }
 		/>
 	);
 };
