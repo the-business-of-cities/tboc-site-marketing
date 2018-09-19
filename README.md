@@ -1,6 +1,6 @@
 # tboc-site-marketing
 
-Live site: http://thebusinessofcities.com/
+Live site: https://www.thebusinessofcities.com/
 Dev build: https://tboc.netlify.com/
 
 ---
