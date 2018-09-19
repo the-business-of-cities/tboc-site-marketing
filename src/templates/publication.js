@@ -10,6 +10,9 @@ export const PublicationQuery = graphql`
 		contentfulPublication(id: { eq: $id }) {
 			title
 			description
+			content {
+				content
+			}
 			image {
 				description
 				file {
@@ -28,7 +31,7 @@ const PublicationTemplate = ( { data, }, ) => {
 			title = { data.contentfulPublication.title }
 			image = { data.contentfulPublication.image && data.contentfulPublication.image.file.url }
 			description = { data.contentfulPublication.description }
-			introduction = { data.contentfulPublication.details && data.contentfulPublication.details.details }
+			introduction = { data.contentfulPublication.content && data.contentfulPublication.content.content }
 		/>
 	);
 };

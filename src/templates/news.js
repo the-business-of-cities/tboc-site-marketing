@@ -31,7 +31,7 @@ const NewsTemplate = ( { data, }, ) => {
 			title = { data.contentfulNews.title }
 			image = { data.contentfulNews.image && data.contentfulNews.image.file.url }
 			description = { data.contentfulNews.description }
-			introduction = { data.contentfulNews.details && data.contentfulNews.details.details }
+			introduction = { data.contentfulNews.content && data.contentfulNews.content.content }
 		/>
 	);
 };
