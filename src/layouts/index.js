@@ -62,10 +62,23 @@ const TemplateWrapper = props => {
 	const links = navLinks.filter( link => !link.service );
 	const dropdown = navLinks.filter( link => link.service );
 
+	theme.site = {
+		siteTitle: props.data.contentfulSettings.edges[0].node.siteTitle,
+		siteDescription: props.data.contentfulSettings.edges[0].node.siteDescription,
+		url: "https://www.thebusinessofcities.com/",
+	}
+
 	return (
 		<ThemeProvider theme = { theme }>
 			<div>
-				<Head />
+				<Head 
+					site = {theme.site}
+					page = {{
+						path: props.location.pathname.split('/').join('/'),
+						slug: props.location.pathname.split('/').join('/'),
+					}}
+					image = { props.data.contentfulSettings.edges[0].node.logo.file.url }
+				/>
 
 				<CookieBanner
 					message = "We use cookies on this site. For more information, see our Privacy Policy."

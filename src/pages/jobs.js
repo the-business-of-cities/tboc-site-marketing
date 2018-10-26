@@ -41,8 +41,6 @@ export const AllJobsQuery = graphql`
 const JobsPage = ( { data, }, ) => {
 	const jobs = data.contentfulJobs.edges;
 
-	console.log(jobs);
-
 	return data.contentfulPage && (
 		<ContentPage
 			title = { data.contentfulPage.title }
