@@ -66,17 +66,17 @@ const TemplateWrapper = props => {
 		siteTitle: props.data.contentfulSettings.edges[0].node.siteTitle,
 		siteDescription: props.data.contentfulSettings.edges[0].node.siteDescription,
 		url: "https://www.thebusinessofcities.com/",
-	}
+	};
 
 	return (
 		<ThemeProvider theme = { theme }>
 			<div>
 				<Head 
-					site = {theme.site}
-					page = {{
-						path: props.location.pathname.split('/').join('/'),
-						slug: props.location.pathname.split('/').join('/'),
-					}}
+					site = { theme.site }
+					page = { {
+						path: props.location.pathname.split("/").join("/"),
+						slug: props.location.pathname.split("/").join("/"),
+					} }
 					image = { props.data.contentfulSettings.edges[0].node.logo.file.url }
 				/>
 
