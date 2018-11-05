@@ -1,7 +1,5 @@
 import { ThemeProvider, injectGlobal, } from "styled-components";
-import { defaultGlobalStyles, Nav, Head, Footer, pagePoints, } from "tboc-site-components";
-
-import { PointFragment, } from "../services";
+import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
