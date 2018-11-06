@@ -70,6 +70,7 @@ const TemplateWrapper = props => {
 		<ThemeProvider theme = { theme }>
 			<div>
 				<Head 
+					theme = { theme }
 					site = { theme.site }
 					page = { {
 						path: props.location.pathname.split("/").join("/"),
