@@ -57,6 +57,7 @@ const PublicationsPage = ( { data, }, ) => {
 					<Row restrict>
 						<Column>
 							<Publications
+								sorting = { true }
 								publications = { publications }
 							/>
 						</Column>
