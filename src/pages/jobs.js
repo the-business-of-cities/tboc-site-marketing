@@ -65,7 +65,7 @@ const JobsPage = ( { data, }, ) => {
 JobsPage.propTypes = {
 	data: PropTypes.shape({
 		contentfulPage: PropTypes.object.isRequired,
-		contentfuljobs: PropTypes.object.isRequired,
+		contentfulJobs: PropTypes.object.isRequired,
 	}).isRequired,
 };
 

@@ -112,6 +112,7 @@ const HomePage = ( { data, }, ) => {
 														link: "partners",
 													}))
 												}
+												key = { slugify(category.title, { lower: true } ) }
 												logosPerRow = { { xs: 4, sm: 5, md: 7, lg: 9, } }
 											/>
 										))

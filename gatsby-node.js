@@ -155,7 +155,7 @@ exports.createPages = ({ boundActionCreators, graphql, }) => {
 
 				// Create pages for each markdown file.
 				result.data.contentfulJobs.edges.forEach( ( { node, } ) => {
-					const path = `/jobs/${ slugify(node.title, { lower: true, }) }`;
+					const path = `/vacancies/${ slugify(node.title, { lower: true, }) }`;
 					const id = node.id;
 					
 					createPage({
