@@ -86,6 +86,7 @@ const TemplateWrapper = props => {
 				/>
 
 				<Nav
+					theme = {theme}
 					homepage = { props.location.pathname === "/" }
 					links = { links
 						.filter( link => !link.service )
