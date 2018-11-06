@@ -24,7 +24,6 @@ export const PointFragment = graphql`
 			ctaUrl
 			ctaTarget {
 				title
-				link
 			}
 		}
 	}
