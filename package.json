@@ -1,7 +1,7 @@
 {
   "name": "tboc-site-marketing",
   "description": "The Business of Cities Marketing site",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "author": "Max Clayton Clowes <maxcc@me.com>",
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
