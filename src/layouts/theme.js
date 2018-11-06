@@ -38,8 +38,8 @@ const colors = {
 };
 
 const theme = {
-	breakpoints: breakpoints,
-	colors: colors,
+	breakpoints: {...breakpoints},
+	colors: {...colors},
 	font: {
 		size: {
 			xs: "12px",
