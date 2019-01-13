@@ -94,7 +94,7 @@ const theme = {
 	meta: {
 		twitterUsername: "mcclowes",
 		twitterCreator: "codogoio",
-		googleAnalytics: "UA-127061321-1",
+		googleAnalytics: false, // "UA-127061321-1",
 		googleSearch: "VtmbAGWSFSHyB3QC-HmxMAhPLDkR-4IdnMH_GqwNGrA",
 	},
 };
