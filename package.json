@@ -23,7 +23,7 @@
     "mcclowes-scripts": "^0.5.3",
     "moment": "^2.24.0",
     "pre-commit": "^1.2.2",
-    "react": "^16.8.4",
+    "react": "^16.8.6",
     "react-accessible-accordion": "^2.4.5",
     "react-cookie-banner": "^4.0.0",
     "react-helmet": "^5.2.0",
