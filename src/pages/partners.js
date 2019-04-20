@@ -2,6 +2,7 @@ import { ContentPage, } from "tboc-site-components";
 
 import React from "react";
 import PropTypes from "prop-types";
+import Layout from '../layouts/index';
 
 // ----------------------------------------------------
 
@@ -53,14 +54,16 @@ export const AllPartnersQuery = graphql`
 
 // ----------------------------------------------------
 
-const PartnersPage = ( { data, }, ) => {
+const PartnersPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<ContentPage
-			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction.introduction }
-			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-			partners = { data.contentfulPage.partnerCategory }
-		/>
+		<Layout location={location}>
+			<ContentPage
+				title = { data.contentfulPage.title }
+				introduction = { data.contentfulPage.introduction.introduction }
+				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+				partners = { data.contentfulPage.partnerCategory }
+			/>
+		</Layout>
 	);
 };
 

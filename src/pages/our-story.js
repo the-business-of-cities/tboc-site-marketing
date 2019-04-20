@@ -2,6 +2,7 @@ import { ContentPage, TeamMembers, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
+import Layout from '../layouts/index';
 
 // ----------------------------------------------------
 
@@ -50,17 +51,19 @@ export const AllTeamMembersQuery = graphql`
 
 // ----------------------------------------------------
 
-const OurStoryPage = ( { data, }, ) => {
+const OurStoryPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<ContentPage
-			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction.introduction }
-			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-		>
-			<TeamMembers
-				members = { data.contentfulTeamSettings.edges[0].node.teamMembers }
-			/>
-		</ContentPage>
+		<Layout location={location}>
+			<ContentPage
+				title = { data.contentfulPage.title }
+				introduction = { data.contentfulPage.introduction.introduction }
+				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+			>
+				<TeamMembers
+					members = { data.contentfulTeamSettings.edges[0].node.teamMembers }
+				/>
+			</ContentPage>
+		</Layout>
 	);
 };
 

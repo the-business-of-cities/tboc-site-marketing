@@ -1,5 +1,6 @@
 import { ThemeProvider, injectGlobal, } from "styled-components";
 import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
+import { StaticQuery, graphql } from 'gatsby';
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -44,7 +45,6 @@ export const SettingsQuery = graphql`
 injectGlobal`
 	${ defaultGlobalStyles(theme) }
 `;
-
 
 const TemplateWrapper = props => {
 	const {
@@ -109,7 +109,7 @@ const TemplateWrapper = props => {
 					logo = { { url: logo.file.url, text: logo.description, } }
 				/>
 
-				{ props.children(...props) }
+				{ props.children }
 
 				<Footer
 					footerText = { footerText }
@@ -142,4 +142,9 @@ TemplateWrapper.propTypes = {
 	location: PropTypes.object,
 };
 
-export default TemplateWrapper;
+export default ({ children, location }) => (
+	<StaticQuery
+		query={SettingsQuery}
+		render={data => <TemplateWrapper data={data} location={location} children={children} /> }
+	/>
+)
