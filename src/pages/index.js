@@ -1,5 +1,6 @@
 import { BlankPage, Point, Section, Container, Column, Row, LogoGrid, } from "tboc-site-components";
 
+import { graphql, } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";

@@ -1,5 +1,6 @@
 import { ContentPage, TeamMembers, } from "tboc-site-components";
 
+import { graphql, } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import Layout from "../layouts/index";
