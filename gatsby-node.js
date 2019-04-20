@@ -7,17 +7,19 @@ var path = require("path");
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.modifyWebpackConfig = ({ config, stage, }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, }) => {
 	if (stage === "build-html") {
-		config.loader("null", {
-			test: /velocity/,
-			loader: "null-loader",
-		});
+		actions.setWebpackConfig({
+			loader: {
+				test: /velocity/,
+				loader: "null-loader",
+			},
+		})
 	};
 };
 
-exports.createPages = ({ boundActionCreators, graphql, }) => {
-	const { createPage, } = boundActionCreators;
+exports.createPages = ({ actions, graphql, }) => {
+	const { createPage, } = actions;
 
 	return new Promise((resolve, reject) => {
 		const PartnersPage = path.resolve( "src/pages/partners.js" );

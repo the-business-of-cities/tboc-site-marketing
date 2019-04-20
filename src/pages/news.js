@@ -2,6 +2,7 @@ import { ContentPage, Section, Container, Column, Row, News, } from "tboc-site-c
 
 import React from "react";
 import PropTypes from "prop-types";
+import Layout from '../layouts/index';
 
 // ----------------------------------------------------
 
@@ -40,26 +41,28 @@ export const AllNewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsPage = ( { data, }, ) => {
+const NewsPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<ContentPage
-			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction.introduction }
-			content = { data.contentfulPage.content }
-			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-		>
-			<Section>
-				<Container>
-					<Row restrict>
-						<Column>
-							<News
-								news = { data.contentfulNews.edges }
-							/>
-						</Column>
-					</Row>
-				</Container>
-			</Section>
-		</ContentPage>
+		<Layout location={location}>
+			<ContentPage
+				title = { data.contentfulPage.title }
+				introduction = { data.contentfulPage.introduction.introduction }
+				content = { data.contentfulPage.content }
+				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+			>
+				<Section>
+					<Container>
+						<Row restrict>
+							<Column>
+								<News
+									news = { data.contentfulNews.edges }
+								/>
+							</Column>
+						</Row>
+					</Container>
+				</Section>
+			</ContentPage>
+		</Layout>
 	);
 };
 
