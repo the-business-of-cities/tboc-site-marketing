@@ -1,5 +1,6 @@
 import { ContentPage, Section, Container, Column, Row, Publications, } from "tboc-site-components";
 
+import { graphql, } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../layouts/index";
