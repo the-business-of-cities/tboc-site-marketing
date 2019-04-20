@@ -2,7 +2,7 @@ import { ContentPage, } from "tboc-site-components";
 
 import React from "react";
 import PropTypes from "prop-types";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -56,7 +56,7 @@ export const AllPartnersQuery = graphql`
 
 const PartnersPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }

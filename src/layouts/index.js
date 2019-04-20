@@ -1,6 +1,6 @@
 import { ThemeProvider, injectGlobal, } from "styled-components";
 import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -142,9 +142,9 @@ TemplateWrapper.propTypes = {
 	location: PropTypes.object,
 };
 
-export default ({ children, location }) => (
+export default ({ children, location, }) => (
 	<StaticQuery
-		query={SettingsQuery}
-		render={data => <TemplateWrapper data={data} location={location} children={children} /> }
+		query = { SettingsQuery }
+		render = { data => <TemplateWrapper data = { data } location = { location } children = { children } /> }
 	/>
-)
+);

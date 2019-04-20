@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -71,7 +71,7 @@ const LogoWrapper = styled.div`
 
 const HomePage = ( { data, location, }, ) => {
 	return (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<BlankPage
 				banner = { { text: data.contentfulHomeSettings.edges[0].node.homeDescription.homeDescription, } }
 				sliderContents = { data.contentfulHomeSettings.edges[0].node.homeBanner }

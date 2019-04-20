@@ -37,9 +37,9 @@ export const AllEventsQuery = graphql`
 
 // ----------------------------------------------------
 
-const PartnersPage = ( { data, location }, ) => {
+const PartnersPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }
