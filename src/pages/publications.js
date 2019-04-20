@@ -2,7 +2,7 @@ import { ContentPage, Section, Container, Column, Row, Publications, } from "tbo
 
 import React from "react";
 import PropTypes from "prop-types";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -48,7 +48,7 @@ const PublicationsPage = ( { data, location, }, ) => {
 		.filter( publication => publication.node.showAsPublication !== false );
 
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }

@@ -2,7 +2,7 @@ import { ContentPage, TeamMembers, } from "tboc-site-components";
 
 import PropTypes from "prop-types";
 import React from "react";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -53,7 +53,7 @@ export const AllTeamMembersQuery = graphql`
 
 const OurStoryPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }

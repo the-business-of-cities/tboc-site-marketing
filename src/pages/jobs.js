@@ -1,5 +1,5 @@
 import { ContentPage, Section, Container, Column, Row, Jobs, } from "tboc-site-components";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 import React from "react";
 import PropTypes from "prop-types";
@@ -43,7 +43,7 @@ const JobsPage = ( { data, location, }, ) => {
 	const jobs = data.contentfulJobs.edges;
 
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }

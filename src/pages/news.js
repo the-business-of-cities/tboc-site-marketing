@@ -2,7 +2,7 @@ import { ContentPage, Section, Container, Column, Row, News, } from "tboc-site-c
 
 import React from "react";
 import PropTypes from "prop-types";
-import Layout from '../layouts/index';
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -43,7 +43,7 @@ export const AllNewsQuery = graphql`
 
 const NewsPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<Layout location={location}>
+		<Layout location = { location }>
 			<ContentPage
 				title = { data.contentfulPage.title }
 				introduction = { data.contentfulPage.introduction.introduction }
