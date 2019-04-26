@@ -39,7 +39,7 @@
     "xml-parser": "^1.2.1"
   },
   "devDependencies": {
-    "babel-loader": "7.1.1",
+    "babel-loader": "8.0.5",
     "prettier": "^1.16.4"
   },
   "eslintConfig": {
