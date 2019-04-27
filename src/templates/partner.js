@@ -3,6 +3,7 @@ import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, P
 import PropTypes from "prop-types";
 import React from "react";
 import marked from "marked";
+import { Link, } from "gatsby";
 
 // ----------------------------------------------------
 
@@ -54,7 +55,7 @@ const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPartner.name }
-			subtitle = { data.contentfulPartner.website && <MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
+			subtitle = { data.contentfulPartner.website && <MaybeLink gatsbyLink = { Link } href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
 			description = { data.contentfulPartner.description }
 		>
 			{

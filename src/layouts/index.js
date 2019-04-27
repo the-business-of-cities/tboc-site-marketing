@@ -1,6 +1,7 @@
-import { ThemeProvider, injectGlobal, } from "styled-components";
-import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
+import { createGlobalStyle, } from "styled-components";
+import { defaultGlobalStyles, Nav, Head, Footer, ThemeProvider, } from "tboc-site-components";
 import { StaticQuery, graphql, } from "gatsby";
+import { Link, } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -42,7 +43,7 @@ export const SettingsQuery = graphql`
 
 // ----------------------------------------------------
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
 	${ defaultGlobalStyles(theme) }
 `;
 
@@ -69,6 +70,7 @@ const TemplateWrapper = props => {
 	return (
 		<ThemeProvider theme = { theme }>
 			<div>
+				<GlobalStyle />
 				<Head 
 					theme = { theme }
 					site = { theme.site }
@@ -87,6 +89,7 @@ const TemplateWrapper = props => {
 
 				<Nav
 					theme = { theme }
+					gatsbyLink = { Link }
 					homepage = { props.location.pathname === "/" }
 					links = { links
 						.filter( link => !link.service )
@@ -135,7 +138,7 @@ const TemplateWrapper = props => {
 };
 
 TemplateWrapper.propTypes = {
-	children: PropTypes.func.isRequired,
+	children: PropTypes.any,
 	data: PropTypes.shape({
 		contentfulSettings: PropTypes.object,
 	}),
