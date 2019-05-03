@@ -1,5 +1,6 @@
 import { ContentPage, } from "tboc-site-components";
 
+import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -25,14 +26,16 @@ export const JobQuery = graphql`
 
 // ----------------------------------------------------
 
-const JobTemplate = ( { data, }, ) => {
+const JobTemplate = ( { data, location, }, ) => {
 	return (
-		<ContentPage 
-			title = { data.contentfulJob.title }
-			image = { data.contentfulJob.image && data.contentfulJob.image.file.url }
-			description = { data.contentfulJob.description }
-			introduction = { data.contentfulJob.content && data.contentfulJob.content.content }
-		/>
+		<Layout location = { location }>
+			<ContentPage 
+				title = { data.contentfulJob.title }
+				image = { data.contentfulJob.image && data.contentfulJob.image.file.url }
+				description = { data.contentfulJob.description }
+				introduction = { data.contentfulJob.content && data.contentfulJob.content.content }
+			/>
+		</Layout>
 	);
 };
 

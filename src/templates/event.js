@@ -1,5 +1,6 @@
 import { ContentPage, } from "tboc-site-components";
 
+import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -28,14 +29,16 @@ export const EventQuery = graphql`
 
 // ----------------------------------------------------
 
-const EventTemplate = ( { data, }, ) => {
+const EventTemplate = ( { data, location, }, ) => {
 	return (
-		<ContentPage 
-			title = { data.contentfulEvent.title }
-			image = { data.contentfulEvent.image && data.contentfulEvent.image.file.url }
-			description = { data.contentfulEvent.description }
-			introduction = { data.contentfulEvent.details && data.contentfulEvent.details.details }
-		/>
+		<Layout location = { location }>
+			<ContentPage 
+				title = { data.contentfulEvent.title }
+				image = { data.contentfulEvent.image && data.contentfulEvent.image.file.url }
+				description = { data.contentfulEvent.description }
+				introduction = { data.contentfulEvent.details && data.contentfulEvent.details.details }
+			/>
+		</Layout>
 	);
 };
 

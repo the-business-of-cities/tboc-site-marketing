@@ -1,5 +1,6 @@
 import { ContentPage, } from "tboc-site-components";
 
+import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -25,14 +26,16 @@ export const PublicationQuery = graphql`
 
 // ----------------------------------------------------
 
-const PublicationTemplate = ( { data, }, ) => {
+const PublicationTemplate = ( { data, location, }, ) => {
 	return (
-		<ContentPage 
-			title = { data.contentfulPublication.title }
-			image = { data.contentfulPublication.image && data.contentfulPublication.image.file.url }
-			description = { data.contentfulPublication.description }
-			introduction = { data.contentfulPublication.content && data.contentfulPublication.content.content }
-		/>
+		<Layout location = { location }>
+			<ContentPage 
+				title = { data.contentfulPublication.title }
+				image = { data.contentfulPublication.image && data.contentfulPublication.image.file.url }
+				description = { data.contentfulPublication.description }
+				introduction = { data.contentfulPublication.content && data.contentfulPublication.content.content }
+			/>
+		</Layout>
 	);
 };
 

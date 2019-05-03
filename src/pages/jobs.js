@@ -1,6 +1,6 @@
 import { ContentPage, Section, Container, Column, Row, Jobs, } from "tboc-site-components";
 
-import { graphql, Link } from "gatsby";
+import { graphql, Link, } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../layouts/index";

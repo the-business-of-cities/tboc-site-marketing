@@ -1,6 +1,6 @@
 import { createGlobalStyle, } from "styled-components";
 import { defaultGlobalStyles, Nav, Head, Footer, ThemeProvider, } from "tboc-site-components";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql, Link, } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
