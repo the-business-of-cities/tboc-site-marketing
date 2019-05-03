@@ -1,5 +1,5 @@
 import { ContentPage, Events, } from "tboc-site-components";
-import { graphql, } from "gatsby";
+import { graphql, Link, } from "gatsby";
 
 import Layout from "../layouts/index";
 import React from "react";
@@ -46,7 +46,7 @@ const PartnersPage = ( { data, location, }, ) => {
 				introduction = { data.contentfulPage.introduction.introduction }
 				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
 			>
-				<Events events = { data.contentfulEvents.edges }/>
+				<Events events = { data.contentfulEvents.edges } GatsbyLink = { Link } />
 			</ContentPage>
 		</Layout>
 	);

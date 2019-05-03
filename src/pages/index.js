@@ -1,6 +1,6 @@
 import { BlankPage, Point, Section, Container, Column, Row, LogoGrid, } from "tboc-site-components";
 
-import { graphql, } from "gatsby";
+import { graphql, Link, } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
@@ -74,6 +74,7 @@ const HomePage = ( { data, location, }, ) => {
 	return (
 		<Layout location = { location }>
 			<BlankPage
+				GatsbyLink = { Link }
 				banner = { { text: data.contentfulHomeSettings.edges[0].node.homeDescription.homeDescription, } }
 				sliderContents = { data.contentfulHomeSettings.edges[0].node.homeBanner }
 			>

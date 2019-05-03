@@ -55,7 +55,7 @@ const PartnerTemplate = ( { data, }, ) => {
 	return (
 		<ContentPage 
 			title = { data.contentfulPartner.name }
-			subtitle = { data.contentfulPartner.website && <MaybeLink gatsbyLink = { Link } href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
+			subtitle = { data.contentfulPartner.website && <MaybeLink GatsbyLink = { Link } href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
 			description = { data.contentfulPartner.description }
 		>
 			{
@@ -91,6 +91,7 @@ const PartnerTemplate = ( { data, }, ) => {
 						<Row>
 							<Column>
 								<Publications
+									GatsbyLink = { Link }
 									publications = { data.contentfulPartner.publications }
 								/>
 							</Column>

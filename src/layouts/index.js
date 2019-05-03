@@ -1,7 +1,6 @@
 import { createGlobalStyle, } from "styled-components";
 import { defaultGlobalStyles, Nav, Head, Footer, ThemeProvider, } from "tboc-site-components";
-import { StaticQuery, graphql, } from "gatsby";
-import { Link, } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -89,7 +88,7 @@ const TemplateWrapper = props => {
 
 				<Nav
 					theme = { theme }
-					gatsbyLink = { Link }
+					GatsbyLink = { Link }
 					homepage = { props.location.pathname === "/" }
 					links = { links
 						.filter( link => !link.service )
@@ -115,6 +114,7 @@ const TemplateWrapper = props => {
 				{ props.children }
 
 				<Footer
+					GatsbyLink = { Link }
 					footerText = { footerText }
 					footerLinks = { footerLinks }
 					socialLinks = { [

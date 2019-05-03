@@ -1,6 +1,6 @@
 import { ContentPage, Section, Container, Column, Row, Jobs, } from "tboc-site-components";
 
-import { graphql, } from "gatsby";
+import { graphql, Link } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../layouts/index";
@@ -55,6 +55,7 @@ const JobsPage = ( { data, location, }, ) => {
 						<Row restrict>
 							<Column>
 								<Jobs
+									GatsbyLink = { Link }
 									jobs = { jobs }
 								/>
 							</Column>
