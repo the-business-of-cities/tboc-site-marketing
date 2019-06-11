@@ -1,4 +1,5 @@
 import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, Publications, } from "tboc-site-components";
+import { graphql, } from "gatsby";
 
 import Layout from "../layouts/index";
 import PropTypes from "prop-types";
