@@ -1,5 +1,7 @@
 import { ContentPage, Events, } from "tboc-site-components";
+import { graphql, Link, } from "gatsby";
 
+import Layout from "../layouts/index";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -36,15 +38,17 @@ export const AllEventsQuery = graphql`
 
 // ----------------------------------------------------
 
-const PartnersPage = ( { data, }, ) => {
+const PartnersPage = ( { data, location, }, ) => {
 	return data.contentfulPage && (
-		<ContentPage
-			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction.introduction }
-			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-		>
-			<Events events = { data.contentfulEvents.edges }/>
-		</ContentPage>
+		<Layout location = { location }>
+			<ContentPage
+				title = { data.contentfulPage.title }
+				introduction = { data.contentfulPage.introduction.introduction }
+				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+			>
+				<Events events = { data.contentfulEvents.edges } GatsbyLink = { Link } />
+			</ContentPage>
+		</Layout>
 	);
 };
 

@@ -1,5 +1,6 @@
-import { ThemeProvider, injectGlobal, } from "styled-components";
-import { defaultGlobalStyles, Nav, Head, Footer, } from "tboc-site-components";
+import { createGlobalStyle, } from "styled-components";
+import { defaultGlobalStyles, Nav, Head, Footer, ThemeProvider, } from "tboc-site-components";
+import { StaticQuery, graphql, Link, } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -41,10 +42,9 @@ export const SettingsQuery = graphql`
 
 // ----------------------------------------------------
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
 	${ defaultGlobalStyles(theme) }
 `;
-
 
 const TemplateWrapper = props => {
 	const {
@@ -69,6 +69,7 @@ const TemplateWrapper = props => {
 	return (
 		<ThemeProvider theme = { theme }>
 			<div>
+				<GlobalStyle />
 				<Head 
 					theme = { theme }
 					site = { theme.site }
@@ -87,6 +88,7 @@ const TemplateWrapper = props => {
 
 				<Nav
 					theme = { theme }
+					GatsbyLink = { Link }
 					homepage = { props.location.pathname === "/" }
 					links = { links
 						.filter( link => !link.service )
@@ -109,9 +111,10 @@ const TemplateWrapper = props => {
 					logo = { { url: logo.file.url, text: logo.description, } }
 				/>
 
-				{ props.children(...props) }
+				{ props.children }
 
 				<Footer
+					GatsbyLink = { Link }
 					footerText = { footerText }
 					footerLinks = { footerLinks }
 					socialLinks = { [
@@ -135,11 +138,16 @@ const TemplateWrapper = props => {
 };
 
 TemplateWrapper.propTypes = {
-	children: PropTypes.func.isRequired,
+	children: PropTypes.any,
 	data: PropTypes.shape({
 		contentfulSettings: PropTypes.object,
 	}),
 	location: PropTypes.object,
 };
 
-export default TemplateWrapper;
+export default ({ children, location, }) => (
+	<StaticQuery
+		query = { SettingsQuery }
+		render = { data => <TemplateWrapper data = { data } location = { location } children = { children } /> }
+	/>
+);

@@ -1,8 +1,11 @@
 import { ContentPage, Section, Row, Column, Container, MaybeLink, Testimonial, Publications, } from "tboc-site-components";
+import { graphql, } from "gatsby";
 
+import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 import marked from "marked";
+import { Link, } from "gatsby";
 
 // ----------------------------------------------------
 
@@ -50,54 +53,57 @@ export const PartnerQuery = graphql`
 
 // ----------------------------------------------------
 
-const PartnerTemplate = ( { data, }, ) => {
+const PartnerTemplate = ( { data, location, }, ) => {
 	return (
-		<ContentPage 
-			title = { data.contentfulPartner.name }
-			subtitle = { data.contentfulPartner.website && <MaybeLink href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
-			description = { data.contentfulPartner.description }
-		>
-			{
-				data.contentfulPartner.content &&
-				<Section>
-					<Container narrow>
-						{ 
-							data.contentfulPartner.content.content &&
+		<Layout location = { location }>
+			<ContentPage 
+				title = { data.contentfulPartner.name }
+				subtitle = { data.contentfulPartner.website && <MaybeLink GatsbyLink = { Link } href = { data.contentfulPartner.website }>{ data.contentfulPartner.website }</MaybeLink> }
+				description = { data.contentfulPartner.description }
+			>
+				{
+					data.contentfulPartner.content &&
+					<Section>
+						<Container narrow>
+							{ 
+								data.contentfulPartner.content.content &&
+								<Row>
+									<Column>
+										<div
+											dangerouslySetInnerHTML = { {
+												__html: marked(
+													data.contentfulPartner.content.content,
+												),
+											} }
+										/>
+									</Column>
+								</Row>
+							}
+						</Container>
+					</Section>
+				}
+
+				<Testimonial 
+					{ ...data.contentfulPartner.testimonial }
+				/>
+
+				{
+					data.contentfulPartner.publications &&
+					<Section>
+						<Container>
 							<Row>
 								<Column>
-									<div
-										dangerouslySetInnerHTML = { {
-											__html: marked(
-												data.contentfulPartner.content.content,
-											),
-										} }
+									<Publications
+										GatsbyLink = { Link }
+										publications = { data.contentfulPartner.publications }
 									/>
 								</Column>
 							</Row>
-						}
-					</Container>
-				</Section>
-			}
-
-			<Testimonial 
-				{ ...data.contentfulPartner.testimonial }
-			/>
-
-			{
-				data.contentfulPartner.publications &&
-				<Section>
-					<Container>
-						<Row>
-							<Column>
-								<Publications
-									publications = { data.contentfulPartner.publications }
-								/>
-							</Column>
-						</Row>
-					</Container>
-				</Section>
-			}
-		</ContentPage>
+						</Container>
+					</Section>
+				}
+			</ContentPage>
+		</Layout>
 	);
 };
 

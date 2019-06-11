@@ -1,7 +1,9 @@
 import { ContentPage, Section, Container, Column, Row, Publications, } from "tboc-site-components";
 
+import { graphql, Link, } from "gatsby";
 import React from "react";
 import PropTypes from "prop-types";
+import Layout from "../layouts/index";
 
 // ----------------------------------------------------
 
@@ -41,30 +43,33 @@ export const AllPublicationsQuery = graphql`
 
 // ----------------------------------------------------
 
-const PublicationsPage = ( { data, }, ) => {
+const PublicationsPage = ( { data, location, }, ) => {
 	const publications = data.contentfulPublications
 		.edges
 		.filter( publication => publication.node.showAsPublication !== false );
 
 	return data.contentfulPage && (
-		<ContentPage
-			title = { data.contentfulPage.title }
-			introduction = { data.contentfulPage.introduction.introduction }
-			image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
-		>
-			<Section>
-				<Container>
-					<Row restrict>
-						<Column>
-							<Publications
-								sorting = { true }
-								publications = { publications }
-							/>
-						</Column>
-					</Row>
-				</Container>
-			</Section>
-		</ContentPage>
+		<Layout location = { location }>
+			<ContentPage
+				title = { data.contentfulPage.title }
+				introduction = { data.contentfulPage.introduction.introduction }
+				image = {  data.contentfulPage.image && data.contentfulPage.image.file.url }
+			>
+				<Section>
+					<Container>
+						<Row restrict>
+							<Column>
+								<Publications
+									GatsbyLink = { Link }
+									sorting = { true }
+									publications = { publications }
+								/>
+							</Column>
+						</Row>
+					</Container>
+				</Section>
+			</ContentPage>
+		</Layout>
 	);
 };
 

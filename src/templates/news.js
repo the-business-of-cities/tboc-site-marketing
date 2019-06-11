@@ -1,5 +1,7 @@
 import { ContentPage, } from "tboc-site-components";
+import { graphql, } from "gatsby";
 
+import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -25,14 +27,17 @@ export const NewsQuery = graphql`
 
 // ----------------------------------------------------
 
-const NewsTemplate = ( { data, }, ) => {
+const NewsTemplate = ( { data, location, }, ) => {
 	return (
-		<ContentPage 
-			title = { data.contentfulNews.title }
-			image = { data.contentfulNews.image && data.contentfulNews.image.file.url }
-			description = { data.contentfulNews.description }
-			introduction = { data.contentfulNews.content && data.contentfulNews.content.content }
-		/>
+
+		<Layout location = { location }>
+			<ContentPage 
+				title = { data.contentfulNews.title }
+				image = { data.contentfulNews.image && data.contentfulNews.image.file.url }
+				description = { data.contentfulNews.description }
+				introduction = { data.contentfulNews.content && data.contentfulNews.content.content }
+			/>
+		</Layout>
 	);
 };
 
