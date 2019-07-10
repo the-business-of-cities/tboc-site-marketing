@@ -4,7 +4,7 @@
   "version": "3.7.1",
   "author": "Max Clayton Clowes <maxcc@me.com>",
   "dependencies": {
-    "@babel/runtime": "7.0.0-beta.55",
+    "@babel/runtime": "7.5.4",
     "babel-preset-gatsby": "^0.1.11",
     "codogo-nav": "^2.4.1",
     "codogo-utility-functions": "^1.2.0",
