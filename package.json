@@ -28,7 +28,7 @@
     "react-accessible-accordion": "^2.4.5",
     "react-cookie-banner": "^4.0.0",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
+    "react-helmet": "^5.2.1",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.8.6",
     "react-vimeo": "^2.0.0",
