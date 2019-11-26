@@ -11,7 +11,7 @@
     "contentful": "^7.5.0",
     "core-js": "^2.6.5",
     "eslint": "^4.19.1",
-    "gatsby": "^2.3.24",
+    "gatsby": "^2.18.3",
     "gatsby-link": "^2.0.16",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-analytics": "^2.1.4",
