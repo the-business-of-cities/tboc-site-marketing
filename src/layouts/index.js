@@ -1,6 +1,12 @@
-import { createGlobalStyle, } from "styled-components";
-import { defaultGlobalStyles, Nav, Head, Footer, ThemeProvider, } from "tboc-site-components";
-import { StaticQuery, graphql, Link, } from "gatsby";
+import { createGlobalStyle } from "styled-components";
+import {
+  defaultGlobalStyles,
+  Nav,
+  Head,
+  Footer,
+  ThemeProvider,
+} from "tboc-site-components";
+import { StaticQuery, graphql, Link } from "gatsby";
 
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
@@ -9,148 +15,151 @@ import theme from "./theme";
 import slugify from "slugify";
 
 const GlobalStyle = createGlobalStyle`
-	${ defaultGlobalStyles(theme) }
+	${defaultGlobalStyles(theme)}
 `;
 
-const TemplateWrapper = props => {
-	const {
-		logo,
-		navLinks,
-		footerLinks,
-		footerText,
-		linkedinLink,
-		twitterLink,
-		youtubeLink,
-	} = props.data.contentfulSettings.edges[0].node;
+const TemplateWrapper = (props) => {
+  const {
+    logo,
+    navLinks,
+    footerLinks,
+    footerText,
+    linkedinLink,
+    twitterLink,
+    youtubeLink,
+  } = props.data.contentfulSettings.edges[0].node;
 
-	const links = navLinks.filter( link => !link.service );
-	const dropdown = navLinks.filter( link => link.service );
+  const links = navLinks.filter((link) => !link.service);
+  const dropdown = navLinks.filter((link) => link.service);
 
-	theme.site = {
-		siteTitle: props.data.contentfulSettings.edges[0].node.siteTitle,
-		siteDescription: props.data.contentfulSettings.edges[0].node.siteDescription,
-		url: "https://www.thebusinessofcities.com/",
-	};
+  theme.site = {
+    siteTitle: props.data.contentfulSettings.edges[0].node.siteTitle,
+    siteDescription:
+      props.data.contentfulSettings.edges[0].node.siteDescription,
+    url: "https://www.thebusinessofcities.com/",
+  };
 
-	return (
-		<ThemeProvider theme = { theme }>
-			<div>
-				<GlobalStyle />
-				<Head 
-					theme = { theme }
-					site = { theme.site }
-					page = { {
-						path: props.location.pathname.split("/").join("/"),
-						slug: props.location.pathname.split("/").join("/"),
-					} }
-					image = { props.data.contentfulSettings.edges[0].node.logo.file.url }
-				/>
+  return (
+    <ThemeProvider theme={theme}>
+      <div>
+        <GlobalStyle />
+        <Head
+          theme={theme}
+          site={theme.site}
+          page={{
+            path: props.location.pathname.split("/").join("/"),
+            slug: props.location.pathname.split("/").join("/"),
+          }}
+          image={props.data.contentfulSettings.edges[0].node.logo.file.url}
+        />
 
-				<CookieBanner
-					message = "We use cookies on this site. For more information, see our Privacy Policy."
-					onAccept = { () => {} }
-					cookie = "user-has-accepted-cookies"
-				/>
+        <CookieBanner
+          message="We use cookies on this site. For more information, see our Privacy Policy."
+          onAccept={() => {}}
+          cookie="user-has-accepted-cookies"
+        />
 
-				<Nav
-					theme = { theme }
-					GatsbyLink = { Link }
-					homepage = { props.location.pathname === "/" }
-					links = { links
-						.filter( link => !link.service )
-						.map( link => {
-							return {
-								to: `/${ slugify(link.title, { lower: true, } ) }`,
-								content: link.title,
-								as: "gatsby-link",
-								dropdown: slugify(link.title, { lower: true, } ) === "what-we-do" && 
-									dropdown.map( link => {
-										return {
-											to: `/${ slugify(link.title, { lower: true, } ) }`,
-											content: link.title,
-											as: "gatsby-link",
-										};
-									}),
-							};
-						}) 
-					}
-					logo = { { url: logo.file.url, text: logo.description, } }
-				/>
+        <Nav
+          theme={theme}
+          GatsbyLink={Link}
+          homepage={props.location.pathname === "/"}
+          links={links
+            .filter((link) => !link.service)
+            .map((link) => {
+              return {
+                to: `/${slugify(link.title, { lower: true })}`,
+                content: link.title,
+                as: "gatsby-link",
+                dropdown:
+                  slugify(link.title, { lower: true }) === "what-we-do" &&
+                  dropdown.map((link) => {
+                    return {
+                      to: `/${slugify(link.title, { lower: true })}`,
+                      content: link.title,
+                      as: "gatsby-link",
+                    };
+                  }),
+              };
+            })}
+          logo={{ url: logo.file.url, text: logo.description }}
+        />
 
-				{ props.children }
+        {props.children}
 
-				<Footer
-					GatsbyLink = { Link }
-					footerText = { footerText }
-					footerLinks = { footerLinks }
-					socialLinks = { [
-						{
-							type: "youtube",
-							link: youtubeLink,
-						},
-						{
-							type: "linkedin",
-							link: linkedinLink,
-						},
-						{
-							type: "twitter",
-							link: twitterLink,
-						},
-					] }
-				/>
-			</div>
-		</ThemeProvider>
-	);
+        <Footer
+          GatsbyLink={Link}
+          footerText={footerText}
+          footerLinks={footerLinks}
+          socialLinks={[
+            {
+              type: "youtube",
+              link: youtubeLink,
+            },
+            {
+              type: "linkedin",
+              link: linkedinLink,
+            },
+            {
+              type: "twitter",
+              link: twitterLink,
+            },
+          ]}
+        />
+      </div>
+    </ThemeProvider>
+  );
 };
 
 TemplateWrapper.propTypes = {
-	children: PropTypes.any,
-	data: PropTypes.shape({
-		contentfulSettings: PropTypes.object,
-	}),
-	location: PropTypes.object,
+  children: PropTypes.any,
+  data: PropTypes.shape({
+    contentfulSettings: PropTypes.object,
+  }),
+  location: PropTypes.object,
 };
 
-const DefaultLayout = ({ children, location, }) => (
-	<StaticQuery
-		query = { SettingsQuery }
-		render = { data => <TemplateWrapper data = { data } location = { location } children = { children } /> }
-	/>
+const DefaultLayout = ({ children, location }) => (
+  <StaticQuery
+    query={SettingsQuery}
+    render={(data) => (
+      <TemplateWrapper data={data} location={location} children={children} />
+    )}
+  />
 );
 
 TemplateWrapper.propTypes = {
-	children: PropTypes.any,
-	location: PropTypes.object,
+  children: PropTypes.any,
+  location: PropTypes.object,
 };
 
 export default DefaultLayout;
 
 export const SettingsQuery = graphql`
-	query SettingsQuery {
-		contentfulSettings: allContentfulSiteSettings {
-			edges {
-				node {
-					siteTitle
-					siteDescription
-					logo {
-						description
-						file {
-							url
-						}
-					}
-					navLinks {
-						title
-						service
-					}
-					footerText
-					footerLinks {
-						title
-					}
-					linkedinLink
-					twitterLink
-					youtubeLink
-				}
-			}
-		}
-	}
+  query SettingsQuery {
+    contentfulSettings: allContentfulSiteSettings {
+      edges {
+        node {
+          siteTitle
+          siteDescription
+          logo {
+            description
+            file {
+              url
+            }
+          }
+          navLinks {
+            title
+            service
+          }
+          footerText
+          footerLinks {
+            title
+          }
+          linkedinLink
+          twitterLink
+          youtubeLink
+        }
+      }
+    }
+  }
 `;

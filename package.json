@@ -1,8 +1,8 @@
 {
   "name": "tboc-site-marketing",
-  "description": "The Business of Cities Marketing site",
+  "description": "The Business of Cities marketing site",
   "version": "3.7.1",
-  "author": "Max Clayton Clowes <maxcc@me.com>",
+  "author": "Max Clayton Clowes <contact@mcclowes.com>",
   "dependencies": {
     "@babel/runtime": "7.7.2",
     "babel-preset-gatsby": "^0.4.12",
@@ -28,6 +28,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.2.0",
+    "react-vimeo": "^2.0.0",
+    "react-youtube": "^7.13.0",
     "slugify": "^1.4.5",
     "styled-components": "^4.4.1",
     "tboc-site-components": "^0.15.0",
@@ -40,6 +42,7 @@
     "husky": "^4.3.0",
     "jest": "^26.6.3",
     "prettier": "^2.0.5",
+    "pretty-quick": "^3.1.0",
     "react-test-renderer": "^17.0.1"
   },
   "eslintConfig": {
@@ -47,18 +50,20 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format"
+      "pre-commit": "npm run format:staged"
     }
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
+  "main": "public/index.js",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "mcclowes-scripts format",
+    "format:old": "mcclowes-scripts format",
+    "format": "prettier --write src/",
+    "format:staged": "pretty-quick --staged",
     "test": "jest"
   }
 }
