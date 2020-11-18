@@ -116,7 +116,7 @@ const DefaultLayout = ({ children, location, }) => (
 		query = { SettingsQuery }
 		render = { data => <TemplateWrapper data = { data } location = { location } children = { children } /> }
 	/>
-)
+);
 
 TemplateWrapper.propTypes = {
 	children: PropTypes.any,
