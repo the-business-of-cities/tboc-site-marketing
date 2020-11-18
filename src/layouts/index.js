@@ -8,40 +8,6 @@ import React from "react";
 import theme from "./theme";
 import slugify from "slugify";
 
-// ----------------------------------------------------
-
-export const SettingsQuery = graphql`
-	query SettingsQuery {
-		contentfulSettings: allContentfulSiteSettings {
-			edges {
-				node {
-					siteTitle
-					siteDescription
-					logo {
-						description
-						file {
-							url
-						}
-					}
-					navLinks {
-						title
-						service
-					}
-					footerText
-					footerLinks {
-						title
-					}
-					linkedinLink
-					twitterLink
-					youtubeLink
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const GlobalStyle = createGlobalStyle`
 	${ defaultGlobalStyles(theme) }
 `;
@@ -145,9 +111,46 @@ TemplateWrapper.propTypes = {
 	location: PropTypes.object,
 };
 
-export default ({ children, location, }) => (
+const DefaultLayout = ({ children, location, }) => (
 	<StaticQuery
 		query = { SettingsQuery }
 		render = { data => <TemplateWrapper data = { data } location = { location } children = { children } /> }
 	/>
-);
+)
+
+TemplateWrapper.propTypes = {
+	children: PropTypes.any,
+	location: PropTypes.object,
+};
+
+export default DefaultLayout;
+
+export const SettingsQuery = graphql`
+	query SettingsQuery {
+		contentfulSettings: allContentfulSiteSettings {
+			edges {
+				node {
+					siteTitle
+					siteDescription
+					logo {
+						description
+						file {
+							url
+						}
+					}
+					navLinks {
+						title
+						service
+					}
+					footerText
+					footerLinks {
+						title
+					}
+					linkedinLink
+					twitterLink
+					youtubeLink
+				}
+			}
+		}
+	}
+`;
