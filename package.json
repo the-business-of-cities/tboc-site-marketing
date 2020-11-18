@@ -45,9 +45,11 @@
   "eslintConfig": {
     "extends": "mcclowes"
   },
-  "pre-commit": [
-    "format"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  },
   "keywords": [
     "gatsby"
   ],
