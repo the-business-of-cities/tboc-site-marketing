@@ -30,7 +30,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.2.0",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.13.0",
     "react-vimeo": "^2.0.0",
     "react-youtube": "^7.8.0",
     "slugify": "^1.4.5",
