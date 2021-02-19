@@ -51,7 +51,7 @@ const TableEntries = ({ entries, slug }) => {
           <th>Description</th>
         </tr>
 
-        {entries.map((entry) => {
+        {entries.map(entry => {
           return <TableEntry slug={slug} entry={entry} />;
         })}
       </tbody>

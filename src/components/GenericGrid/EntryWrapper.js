@@ -27,7 +27,7 @@ EntryWrapper.propTypes = {
   GatsbyLink: PropTypes.any,
   children: PropTypes.array,
   externalUrl: PropTypes.string,
-  internalUrl: PropTypes.string,
+  internalUrl: PropTypes.string
 };
 
 export default EntryWrapper;

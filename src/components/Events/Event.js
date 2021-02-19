@@ -33,7 +33,7 @@ const Event = ({ condensed, GatsbyLink, ...event }) => {
 };
 
 Event.propTypes = {
-  event: PropTypes.object,
+  event: PropTypes.object
 };
 
 export default Event;

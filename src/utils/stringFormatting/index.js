@@ -1,4 +1,4 @@
-export const formatTelNumber = (num) => {
+export const formatTelNumber = num => {
   if (num.slice(0, 1) === "+" && num.length === 13) {
     return `${num.slice(0, 3)} (0)${num.slice(3, 6)} ${num.slice(
       6,

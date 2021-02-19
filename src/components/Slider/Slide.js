@@ -32,12 +32,12 @@ const SlideInner = styled(MaybeLink)`
   position: absolute;
   right: 0;
   transition-duration: 0.5s;
-  background-color: ${(props) =>
+  background-color: ${props =>
     props.colorCount % 3 === 0
       ? props.theme.colors.tertiary
       : (props.colorCount + 1) % 3 === 0
-      ? props.theme.colors.secondary
-      : props.theme.colors.primary};
+        ? props.theme.colors.secondary
+        : props.theme.colors.primary};
 
   &:hover {
     color: #eee;
@@ -88,12 +88,12 @@ const SlideText = styled.div`
         background: linear-gradient(
           to right,
           transparent,
-          ${(props) =>
+          ${props =>
               props.colorCount % 3 === 0
                 ? props.theme.colors.tertiary
                 : (props.colorCount + 1) % 3 === 0
-                ? props.theme.colors.secondary
-                : props.theme.colors.primary}
+                  ? props.theme.colors.secondary
+                  : props.theme.colors.primary}
             50%
         );
       }
@@ -124,7 +124,9 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
       {image && (
         <MaybeLink GatsbyLink={GatsbyLink} href={externalUrl} to={internalUrl}>
           <SlideImage
-            src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${image.file.url}`}
+            src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${
+              image.file.url
+            }`}
             alt={image.description}
           />
         </MaybeLink>
@@ -142,7 +144,7 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
           <SlideText
             colorCount={colorCount}
             dangerouslySetInnerHTML={{
-              __html: marked(description),
+              __html: marked(description)
             }}
           />
         )}
@@ -154,7 +156,7 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
 Slide.propTypes = {
   GatsbyLink: PropTypes.any,
   colorCount: PropTypes.any,
-  slide: PropTypes.object,
+  slide: PropTypes.object
 };
 
 export default Slide;

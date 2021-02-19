@@ -27,7 +27,7 @@ const Testimonial = ({ image, quote, quotee }) => {
             {quote && (
               <div
                 dangerouslySetInnerHTML={{
-                  __html: marked(quote.quote),
+                  __html: marked(quote.quote)
                 }}
               />
             )}
@@ -49,7 +49,7 @@ const Testimonial = ({ image, quote, quotee }) => {
 Testimonial.propTypes = {
   image: PropTypes.object,
   quote: PropTypes.object,
-  quotee: PropTypes.any,
+  quotee: PropTypes.any
 };
 
 export default Testimonial;

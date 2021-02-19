@@ -5,7 +5,7 @@ import {
   Column,
   Button,
   Image,
-  MaybeLink,
+  MaybeLink
 } from "../Primitives";
 import { Video } from "../Video";
 
@@ -23,7 +23,7 @@ const PointContent = styled.div`
   font-size: 0.9em;
 `;
 
-const Point = (props) => {
+const Point = props => {
   const {
     title,
     text,
@@ -34,14 +34,14 @@ const Point = (props) => {
     reverse,
     bgImage,
     videoUrl,
-    GatsbyLink,
+    GatsbyLink
   } = props;
   const imageIsVideo =
     image && String(image.file.contentType).match("video/.*") !== null;
 
   const fullCTA = {
     link: cta || ctaLink,
-    text: ctaText,
+    text: ctaText
   };
 
   return (
@@ -54,19 +54,21 @@ const Point = (props) => {
             {text && (
               <PointContent
                 dangerouslySetInnerHTML={{
-                  __html: marked(text),
+                  __html: marked(text)
                 }}
               />
             )}
 
-            {fullCTA && fullCTA.link && fullCTA.text && (
-              <Button
-                GatsbyLink={GatsbyLink}
-                to={fullCTA.link}
-                text={fullCTA.text}
-                outline="black"
-              />
-            )}
+            {fullCTA &&
+              fullCTA.link &&
+              fullCTA.text && (
+                <Button
+                  GatsbyLink={GatsbyLink}
+                  to={fullCTA.link}
+                  text={fullCTA.text}
+                  outline="black"
+                />
+              )}
           </Column>
 
           {image && (
@@ -101,16 +103,16 @@ Point.propTypes = {
   bgImage: PropTypes.string,
   cta: PropTypes.shape({
     text: PropTypes.string,
-    link: PropTypes.string,
+    link: PropTypes.string
   }),
   image: PropTypes.shape({
     file: PropTypes.object,
-    description: PropTypes.string,
+    description: PropTypes.string
   }),
   reverse: PropTypes.bool,
   text: PropTypes.string,
   title: PropTypes.string,
-  videoUrl: PropTypes.string,
+  videoUrl: PropTypes.string
 };
 
 export default Point;

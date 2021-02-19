@@ -4,7 +4,7 @@ import {
   Container,
   Column,
   Row,
-  Jobs,
+  Jobs
 } from "../components";
 
 import { graphql, Link } from "gatsby";
@@ -43,8 +43,8 @@ const JobsPage = ({ data, location }) => {
 JobsPage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulJobs: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulJobs: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default JobsPage;

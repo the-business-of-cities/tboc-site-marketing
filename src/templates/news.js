@@ -22,8 +22,8 @@ const NewsTemplate = ({ data, location }) => {
 
 NewsTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulNews: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulNews: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default NewsTemplate;

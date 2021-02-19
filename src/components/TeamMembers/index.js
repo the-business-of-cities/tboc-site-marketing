@@ -13,8 +13,8 @@ const TeamMembersWrapper = styled.div`
   grid-column-gap: 2em;
   grid-row-gap: 2em;
 
-  ${mixins.bp.lg.only`grid-template-columns: 1fr 1fr 1fr;`}
-  ${mixins.bp.xs.only`grid-template-columns: 1fr;`}
+  ${mixins.bp.lg.only`grid-template-columns: 1fr 1fr 1fr;`} ${mixins.bp.xs
+    .only`grid-template-columns: 1fr;`};
 `;
 
 const TeamMembers = ({ members }) => {
@@ -25,10 +25,10 @@ const TeamMembers = ({ members }) => {
           <Row>
             <Column>
               <TeamMembersWrapper>
-                {members.map((member) => (
+                {members.map(member => (
                   <TeamMember
                     key={slugify(member.name || member.node.name, {
-                      lower: true,
+                      lower: true
                     })}
                     member={member.node || member}
                   />
@@ -43,7 +43,7 @@ const TeamMembers = ({ members }) => {
 };
 
 TeamMembers.propTypes = {
-  members: PropTypes.array,
+  members: PropTypes.array
 };
 
 export default TeamMembers;

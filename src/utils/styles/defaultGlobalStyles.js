@@ -5,7 +5,7 @@ import theme from "./theme";
 
 // --------------------------------------------------
 
-const defaultGlobalStyles = (customTheme) => {
+const defaultGlobalStyles = customTheme => {
   const activeTheme = customTheme || theme;
 
   return css`

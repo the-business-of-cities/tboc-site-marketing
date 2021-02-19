@@ -5,7 +5,7 @@ import {
   Container,
   Column,
   Row,
-  LogoGrid,
+  LogoGrid
 } from "../components";
 
 import { graphql, Link } from "gatsby";
@@ -29,7 +29,7 @@ const HomePage = ({ data, location }) => {
         banner={{
           text:
             data.contentfulHomeSettings.edges[0].node.homeDescription
-              .homeDescription,
+              .homeDescription
         }}
         sliderContents={data.contentfulHomeSettings.edges[0].node.homeBanner}
       >
@@ -43,7 +43,7 @@ const HomePage = ({ data, location }) => {
                 section.ctaTarget &&
                 section.ctaText && {
                   link: `/${slugify(section.ctaTarget.title, { lower: true })}`,
-                  text: section.ctaText,
+                  text: section.ctaText
                 }
               }
               image={section.image}
@@ -64,11 +64,11 @@ const HomePage = ({ data, location }) => {
                     <h1>A Selection of Our Clients and Partners</h1>
 
                     <LogoWrapper>
-                      {data.contentfulPage.partnerCategory.map((category) => (
+                      {data.contentfulPage.partnerCategory.map(category => (
                         <LogoGrid
-                          logos={category.partner.map((partner) => ({
+                          logos={category.partner.map(partner => ({
                             image: partner.image,
-                            link: "partners",
+                            link: "partners"
                           }))}
                           key={slugify(category.title, { lower: true })}
                           logosPerRow={{ xs: 4, sm: 5, md: 7, lg: 9 }}
@@ -88,8 +88,8 @@ const HomePage = ({ data, location }) => {
 HomePage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulHomeSettings: PropTypes.object,
-  }).isRequired,
+    contentfulHomeSettings: PropTypes.object
+  }).isRequired
 };
 
 export default HomePage;

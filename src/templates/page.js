@@ -22,8 +22,8 @@ const PageTemplate = ({ data, location }) => {
 
 PageTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulPage: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulPage: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default PageTemplate;

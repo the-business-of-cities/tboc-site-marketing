@@ -28,8 +28,8 @@ const OurStoryPage = ({ data, location }) => {
 OurStoryPage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulTeamSettings: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulTeamSettings: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default OurStoryPage;

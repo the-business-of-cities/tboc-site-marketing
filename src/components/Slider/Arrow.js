@@ -13,7 +13,7 @@ const ArrowWrapper = styled.div`
   margin: 0 0.5em;
   cursor: pointer;
 
-  ${(props) => (props.next ? "right: 0;" : "left: 0;")};
+  ${props => (props.next ? "right: 0;" : "left: 0;")};
 `;
 
 const Arrow = ({ next, onClick }) => (
@@ -32,7 +32,7 @@ const Arrow = ({ next, onClick }) => (
 
 Arrow.propTypes = {
   next: PropTypes.any,
-  onClick: PropTypes.any,
+  onClick: PropTypes.any
 };
 
 export default Arrow;

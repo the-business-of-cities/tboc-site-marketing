@@ -7,7 +7,7 @@ const Jobs = ({ jobs, GatsbyLink }) => (
 );
 
 Jobs.propTypes = {
-  jobs: PropTypes.array.isRequired,
+  jobs: PropTypes.array.isRequired
 };
 
 export default Jobs;

@@ -6,7 +6,7 @@ import {
   Container,
   MaybeLink,
   Testimonial,
-  Publications,
+  Publications
 } from "../components";
 import { graphql } from "gatsby";
 
@@ -38,7 +38,7 @@ const PartnerTemplate = ({ data, location }) => {
                   <Column>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: marked(data.contentfulPartner.content.content),
+                        __html: marked(data.contentfulPartner.content.content)
                       }}
                     />
                   </Column>
@@ -71,8 +71,8 @@ const PartnerTemplate = ({ data, location }) => {
 
 PartnerTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulPartner: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulPartner: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default PartnerTemplate;

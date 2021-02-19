@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 
 const LogoWrapper = styled.div`
   background: white;
@@ -16,7 +16,7 @@ const LogoWrapper = styled.div`
 
   ${breakpoint("mobile", "min")} {
     bottom: ${({ theme }) => theme.dimensions.nav.linksHeight};
-  } ;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -27,7 +27,7 @@ const LogoContainer = styled.div`
   padding: 0 ${({ theme }) => theme.dimensions.nav.margin.xs};
 `;
 
-const IndexLink = (props) => <div to="/" {...props} />;
+const IndexLink = props => <div to="/" {...props} />;
 
 const LogoLink = styled(IndexLink)`
   &,
@@ -74,8 +74,8 @@ const Logo = ({ logo, GatsbyLink }) => (
 Logo.propTypes = {
   logo: PropTypes.shape({
     url: PropTypes.string,
-    text: PropTypes.string,
-  }),
+    text: PropTypes.string
+  })
 };
 
 export default Logo;

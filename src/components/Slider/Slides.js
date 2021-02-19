@@ -44,7 +44,7 @@ Slides.propTypes = {
   GatsbyLink: PropTypes.any,
   mobile: PropTypes.bool,
   sliderContents: PropTypes.array,
-  sliderSettings: PropTypes.object,
+  sliderSettings: PropTypes.object
 };
 
 export default Slides;

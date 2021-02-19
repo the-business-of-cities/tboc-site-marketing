@@ -14,8 +14,8 @@ const Events = ({ events, GatsbyLink }) => {
   });
 
   const pastEvents = events
-    .filter((event) => Moment(event.node.date).diff(Moment()) < 0)
-    .map((event) => (
+    .filter(event => Moment(event.node.date).diff(Moment()) < 0)
+    .map(event => (
       <Event
         {...event.node}
         GatsbyLink={GatsbyLink}
@@ -25,9 +25,9 @@ const Events = ({ events, GatsbyLink }) => {
     ));
 
   const upcomingEvents = events
-    .filter((event) => Moment(event.node.date).diff(Moment()) >= 0)
+    .filter(event => Moment(event.node.date).diff(Moment()) >= 0)
     .reverse()
-    .map((event) => (
+    .map(event => (
       <Event
         {...event.node}
         GatsbyLink={GatsbyLink}
@@ -91,7 +91,7 @@ const Events = ({ events, GatsbyLink }) => {
 };
 
 Events.propTypes = {
-  events: PropTypes.array,
+  events: PropTypes.array
 };
 
 export default Events;

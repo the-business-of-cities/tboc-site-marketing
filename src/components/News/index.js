@@ -12,7 +12,7 @@ const News = ({ news, sorting, GatsbyLink }) => (
 );
 
 News.propTypes = {
-  news: PropTypes.array.isRequired,
+  news: PropTypes.array.isRequired
 };
 
 export default News;

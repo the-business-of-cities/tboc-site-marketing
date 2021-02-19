@@ -14,7 +14,7 @@ const Publications = ({ publications, sorting, GatsbyLink }) => (
 );
 
 Publications.propTypes = {
-  publications: PropTypes.array.isRequired,
+  publications: PropTypes.array.isRequired
 };
 
 export default Publications;

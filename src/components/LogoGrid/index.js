@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
-const gridColumns = (logosPerRow) => {
-  return R.map((n) => `repeat(${n}, 1fr)`)(logosPerRow);
+const gridColumns = logosPerRow => {
+  return R.map(n => `repeat(${n}, 1fr)`)(logosPerRow);
 };
 
 const LogoGridWrapper = styled.div`
   display: grid;
-  ${(props) =>
+  ${props =>
     mixins.bpEach(
       "grid-template-columns",
       gridColumns(props.logosPerRow)
@@ -48,9 +48,8 @@ const LogoGrid = ({ logos, logosPerRow }) => {
               <LogoWrapper key={i} href={link}>
                 <LogoInner>
                   <LogoImage
-                    src={`https://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${
-                      image && image.file.url
-                    }`}
+                    src={`https://res.cloudinary.com/codogo/image/fetch/h_500,c_fill,g_face,f_auto/https:${image &&
+                      image.file.url}`}
                   />
                 </LogoInner>
               </LogoWrapper>
@@ -67,13 +66,13 @@ LogoGrid.defaultProps = {
     xs: 2,
     sm: 3,
     md: 4,
-    lg: 4,
-  },
+    lg: 4
+  }
 };
 
 LogoGrid.propTypes = {
   logos: PropTypes.array.isRequired,
-  logosPerRow: PropTypes.object.isRequired,
+  logosPerRow: PropTypes.object.isRequired
 };
 
 export default LogoGrid;

@@ -22,9 +22,9 @@ const PartnerCategory = ({ category }) => {
 
         {category.partner && (
           <LogoGrid
-            logos={category.partner.map((partner) => ({
+            logos={category.partner.map(partner => ({
               image: partner.image,
-              link: `/partners/${slugify(partner.name, { lower: true })}`,
+              link: `/partners/${slugify(partner.name, { lower: true })}`
             }))}
           />
         )}
@@ -34,7 +34,7 @@ const PartnerCategory = ({ category }) => {
 };
 
 PartnerCategory.propTypes = {
-  category: PropTypes.any.isRequired,
+  category: PropTypes.any.isRequired
 };
 
 export default PartnerCategory;

@@ -26,8 +26,8 @@ const PublicationTemplate = ({ data, location }) => {
 
 PublicationTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulPublication: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulPublication: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default PublicationTemplate;

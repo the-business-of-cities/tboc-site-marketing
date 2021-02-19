@@ -4,7 +4,7 @@ import {
   Container,
   Column,
   Row,
-  Publications,
+  Publications
 } from "../components";
 
 import { graphql, Link } from "gatsby";
@@ -14,7 +14,7 @@ import Layout from "../layouts/index";
 
 const PublicationsPage = ({ data, location }) => {
   const publications = data.contentfulPublications.edges.filter(
-    (publication) => publication.node.showAsPublication !== false
+    publication => publication.node.showAsPublication !== false
   );
 
   return (
@@ -49,8 +49,8 @@ const PublicationsPage = ({ data, location }) => {
 PublicationsPage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulPublications: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulPublications: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default PublicationsPage;

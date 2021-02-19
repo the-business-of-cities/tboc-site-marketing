@@ -10,7 +10,7 @@ class Slider extends React.Component {
     super(props);
 
     this.state = {
-      mobile: undefined,
+      mobile: undefined
     };
 
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -50,7 +50,7 @@ const enhance = compose();
 
 Slider.propTypes = {
   GatsbyLink: PropTypes.any,
-  sliderContents: PropTypes.any,
+  sliderContents: PropTypes.any
 };
 
 export default enhance(Slider);

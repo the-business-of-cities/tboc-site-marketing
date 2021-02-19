@@ -22,8 +22,8 @@ const JobTemplate = ({ data, location }) => {
 
 JobTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulJob: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulJob: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default JobTemplate;

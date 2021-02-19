@@ -31,12 +31,12 @@ const GridWrapper = styled.div`
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  ${(props) =>
+  ${props =>
     props.sorting &&
     `
 		position: relative;
 		padding-top: 5em
-	`}
+	`};
 `;
 
 class GridTableList extends React.Component {
@@ -44,7 +44,7 @@ class GridTableList extends React.Component {
     super(props);
     this.state = {
       table: false,
-      oldest: false,
+      oldest: false
     };
 
     this.toggleTable = this.toggleTable.bind(this);
@@ -52,21 +52,21 @@ class GridTableList extends React.Component {
   }
 
   toggleTable() {
-    this.setState((prevState) => ({
-      table: !prevState.table,
+    this.setState(prevState => ({
+      table: !prevState.table
     }));
   }
 
   toggleSorting() {
-    this.setState((prevState) => ({
-      oldest: !prevState.oldest,
+    this.setState(prevState => ({
+      oldest: !prevState.oldest
     }));
   }
 
   render() {
     let { entries, slug, sorting } = this.props;
 
-    entries = entries.map((entry) => {
+    entries = entries.map(entry => {
       return entry.node || entry;
     });
 
@@ -114,7 +114,7 @@ class GridTableList extends React.Component {
 GridTableList.propTypes = {
   GatsbyLink: PropTypes.any,
   entries: PropTypes.array.isRequired,
-  slug: PropTypes.string,
+  slug: PropTypes.string
 };
 
 export default GridTableList;

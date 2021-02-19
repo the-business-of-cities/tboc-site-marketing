@@ -12,7 +12,7 @@ const breakpoints = {
   xs: { min: 0, max: sm - 1 },
   sm: { min: sm, max: md - 1 },
   md: { min: md, max: lg - 1 },
-  lg: { min: lg, max: 100000 },
+  lg: { min: lg, max: 100000 }
 };
 
 const colors = {
@@ -23,11 +23,11 @@ const colors = {
   footer: "#002B4E",
   bg: {
     light: "#ffe4ca",
-    medium: "#E4C1A3",
+    medium: "#E4C1A3"
   },
   grey: "rgba(0,0,0,0.2)",
   lines: "rgba(0,0,0,0.2)",
-  borders: "rgba(0,0,0,0.2)",
+  borders: "rgba(0,0,0,0.2)"
 };
 
 const theme = {
@@ -38,58 +38,58 @@ const theme = {
       xs: "12px",
       sm: "14px",
       md: "16px",
-      lg: "17px",
+      lg: "17px"
     },
     title: {
-      family: "Montserrat, sans-serif",
+      family: "Montserrat, sans-serif"
     },
     family: "Montserrat, sans-serif",
     paragraph: '"Lora", sans-serif',
-    heading: '"Montserrat", sans-serif',
+    heading: '"Montserrat", sans-serif'
   },
   gutter: {
     xs: 15,
     sm: 20,
     md: 30,
-    lg: 30,
+    lg: 30
   },
   scrollbar: {
     width: "10px",
     color: {
       track: "#ddd",
-      thumb: colors.text,
-    },
+      thumb: colors.text
+    }
   },
   dimensions: {
     nav: {
       height: {
         xs: "50px",
-        other: "110px",
+        other: "110px"
       },
       margin: {
         xs: "14px",
-        other: "45px",
+        other: "45px"
       },
       logoHeight: {
         xs: "40px",
-        other: "60px",
+        other: "60px"
       },
-      linksHeight: "42px",
+      linksHeight: "42px"
     },
     footer: {
       height: {
         xs: "130px",
-        other: "60px",
-      },
+        other: "60px"
+      }
     },
-    maxTextWidth: 800,
+    maxTextWidth: 800
   },
   meta: {
     twitterUsername: "mcclowes",
     twitterCreator: "codogoio",
     googleAnalytics: "UA-89374864-3",
-    googleSearch: "YQs24--DxVBln2zZc8hPo1kZFoxzc2amoF6-QWkDe7k",
-  },
+    googleSearch: "YQs24--DxVBln2zZc8hPo1kZFoxzc2amoF6-QWkDe7k"
+  }
 };
 
 // themegutter = {

@@ -6,13 +6,13 @@ const breakpoints = {
   xs: { min: 0, max: sm - 1 },
   sm: { min: sm, max: md - 1 },
   md: { min: md, max: lg - 1 },
-  lg: { min: lg, max: 100000 },
+  lg: { min: lg, max: 100000 }
 };
 
 const palette = {
   primary: "#003158",
   secondary: "#005291",
-  tertiary: "#0071CC",
+  tertiary: "#0071CC"
 };
 
 const colors = {
@@ -22,7 +22,7 @@ const colors = {
   linkHover: "#4D6491",
   nav: {
     background: palette.primary,
-    alt: "#fff",
+    alt: "#fff"
   },
   footer: palette.primary,
   background: {
@@ -30,11 +30,11 @@ const colors = {
     lighter: "#fafafa",
     light: "#eee",
     medium: "#aaa",
-    dark: palette.primary,
+    dark: palette.primary
   },
   grey: "rgba(0,0,0,0.2)",
   lines: "rgba(0,0,0,0.2)",
-  borders: "rgba(0,0,0,0.2)",
+  borders: "rgba(0,0,0,0.2)"
 };
 
 const theme = {
@@ -45,58 +45,58 @@ const theme = {
       xs: "12px",
       sm: "14px",
       md: "16px",
-      lg: "17px",
+      lg: "17px"
     },
     title: {
-      family: "Montserrat, sans-serif",
+      family: "Montserrat, sans-serif"
     },
     family: "Montserrat, sans-serif",
     paragraph: '"Lora", sans-serif',
-    heading: '"Montserrat", sans-serif',
+    heading: '"Montserrat", sans-serif'
   },
   gutter: {
     xs: 15,
     sm: 20,
     md: 30,
-    lg: 30,
+    lg: 30
   },
   scrollbar: {
     width: "10px",
     color: {
       track: "#ddd",
-      thumb: colors.text,
-    },
+      thumb: colors.text
+    }
   },
   dimensions: {
     nav: {
       height: {
         xs: "50px",
-        other: "110px",
+        other: "110px"
       },
       margin: {
         xs: "14px",
-        other: "45px",
+        other: "45px"
       },
       logoHeight: {
         xs: "40px",
-        other: "60px",
+        other: "60px"
       },
-      linksHeight: "42px",
+      linksHeight: "42px"
     },
     footer: {
       height: {
         xs: "130px",
-        other: "60px",
-      },
+        other: "60px"
+      }
     },
-    maxTextWidth: 800,
+    maxTextWidth: 800
   },
   meta: {
     twitterUsername: "mcclowes",
     twitterCreator: "codogoio",
     googleAnalytics: false, // "UA-127061321-1",
-    googleSearch: "VtmbAGWSFSHyB3QC-HmxMAhPLDkR-4IdnMH_GqwNGrA",
-  },
+    googleSearch: "VtmbAGWSFSHyB3QC-HmxMAhPLDkR-4IdnMH_GqwNGrA"
+  }
 };
 
 // theme.dimensions.gutter = {

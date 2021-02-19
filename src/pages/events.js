@@ -26,8 +26,8 @@ const PartnersPage = ({ data, location }) => {
 PartnersPage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulEvents: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulEvents: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default PartnersPage;

@@ -4,15 +4,15 @@ import fetch from "node-fetch";
 import parseUrl from "url-parse";
 import parseXML from "xml-parser";
 
-export const parseVideoUrl = (videoUrl) => {
+export const parseVideoUrl = videoUrl => {
   return R.contains("vimeo", videoUrl)
     ? {
         platform: "vimeo",
-        id: parseUrl(videoUrl, true).pathname.split("/")[1],
+        id: parseUrl(videoUrl, true).pathname.split("/")[1]
       }
     : {
         platform: "youtube",
-        id: parseUrl(videoUrl, true).query.v,
+        id: parseUrl(videoUrl, true).query.v
       };
 };
 
@@ -26,7 +26,7 @@ const extractVimeoThumbnail = R.pipe(
 
 const parseVimeoThumbnail = (videoId, callback) =>
   fetch(`http://vimeo.com/api/v2/video/${videoId}.xml`)
-    .then((response) => response.text())
+    .then(response => response.text())
     .then(extractVimeoThumbnail)
     .then(callback);
 

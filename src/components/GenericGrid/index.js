@@ -30,12 +30,12 @@ const SortingOptions = styled.div`
 `;
 
 const GridWrapper = styled.div`
-  ${(props) =>
+  ${props =>
     props.sorting &&
     `
 		position: relative;
 		padding-top: 5em
-	`}
+	`};
 `;
 
 // --------------------------------------------------
@@ -45,7 +45,7 @@ class GenericGrid extends React.Component {
     super(props);
     this.state = {
       table: false,
-      oldest: false,
+      oldest: false
     };
 
     this.toggleTable = this.toggleTable.bind(this);
@@ -53,21 +53,21 @@ class GenericGrid extends React.Component {
   }
 
   toggleTable() {
-    this.setState((prevState) => ({
-      table: !prevState.table,
+    this.setState(prevState => ({
+      table: !prevState.table
     }));
   }
 
   toggleSorting() {
-    this.setState((prevState) => ({
-      oldest: !prevState.oldest,
+    this.setState(prevState => ({
+      oldest: !prevState.oldest
     }));
   }
 
   render() {
     let { entries, slug, sorting } = this.props;
 
-    entries = entries.map((entry) => {
+    entries = entries.map(entry => {
       return entry.node || entry;
     });
 
@@ -122,7 +122,7 @@ class GenericGrid extends React.Component {
 GenericGrid.propTypes = {
   GatsbyLink: PropTypes.any,
   entries: PropTypes.array.isRequired,
-  slug: PropTypes.string,
+  slug: PropTypes.string
 };
 
 export default GenericGrid;

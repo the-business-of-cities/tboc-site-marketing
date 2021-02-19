@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 import { compose, withState, withHandlers } from "recompose";
 
 const NavWrapper = styled.nav`
@@ -16,10 +16,12 @@ const NavWrapper = styled.nav`
   top: 0;
   z-index: 10;
   position: relative;
-  ${(props) => mixins.bpEither("height", props.theme.dimensions.nav.height)}
-
-  ${breakpoint("tiny", "min")} {
-    ${mixins.shadow(0)}
+  ${props =>
+    mixins.bpEither("height", props.theme.dimensions.nav.height)} ${breakpoint(
+    "tiny",
+    "min"
+  )} {
+    ${mixins.shadow(0)};
   }
 `;
 
@@ -54,11 +56,11 @@ const enhance = compose(
   withHandlers({
     openMenu: ({ setOpen }) => () => setOpen(true),
     closeMenu: ({ setOpen }) => () => setOpen(false),
-    toggleMenu: ({ setOpen, open }) => () => setOpen(!open),
+    toggleMenu: ({ setOpen, open }) => () => setOpen(!open)
   })
 );
 
-const Nav = (props) => {
+const Nav = props => {
   const { theme, links, logo, open, closeMenu, toggleMenu, GatsbyLink } = props;
 
   return (
@@ -92,7 +94,7 @@ Nav.propTypes = {
   links: PropTypes.array,
   logo: PropTypes.object,
   open: PropTypes.bool,
-  toggleMenu: PropTypes.func,
+  toggleMenu: PropTypes.func
 };
 
 export default enhance(Nav);

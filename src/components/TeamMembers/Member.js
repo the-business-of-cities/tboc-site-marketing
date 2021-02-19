@@ -3,7 +3,7 @@ import React from "react";
 import marked from "marked";
 import styled from "styled-components";
 import { Icon, Image } from "../Primitives";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 
 const TeamMemberWrapper = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const TeamMemberWrapper = styled.div`
 
   ${breakpoint("tiny", "only")} {
     flex-direction: column;
-  } ;
+  }
 `;
 
 const Name = styled.h3`
@@ -77,7 +77,7 @@ class TeamMember extends React.Component {
     super(props);
 
     this.state = {
-      showDescription: false,
+      showDescription: false
     };
 
     this.toggleDescription = this.toggleDescription.bind(this);
@@ -97,7 +97,7 @@ class TeamMember extends React.Component {
       name,
       role,
       twitter,
-      website,
+      website
     } = this.props.member;
 
     return (
@@ -106,7 +106,9 @@ class TeamMember extends React.Component {
           <PrimaryDetails>
             {image && (
               <MemberImage
-                src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_600,h_800,c_fill,g_face,f_auto/https:${image.file.url}`}
+                src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_600,h_800,c_fill,g_face,f_auto/https:${
+                  image.file.url
+                }`}
               />
             )}
 
@@ -155,13 +157,14 @@ class TeamMember extends React.Component {
             </div>
           </PrimaryDetails>
 
-          {extendedDescription && this.state.showDescription && (
-            <ExtendedDescription
-              dangerouslySetInnerHTML={{
-                __html: marked(extendedDescription.extendedDescription),
-              }}
-            />
-          )}
+          {extendedDescription &&
+            this.state.showDescription && (
+              <ExtendedDescription
+                dangerouslySetInnerHTML={{
+                  __html: marked(extendedDescription.extendedDescription)
+                }}
+              />
+            )}
         </TeamMemberWrapper>
       )
     );
@@ -178,8 +181,8 @@ TeamMember.propTypes = {
     name: PropTypes.any,
     role: PropTypes.any,
     twitter: PropTypes.any,
-    website: PropTypes.any,
-  }).isRequired,
+    website: PropTypes.any
+  }).isRequired
 };
 
 export default TeamMember;

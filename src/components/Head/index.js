@@ -8,7 +8,7 @@ import { theme as _theme } from "../../utils/styles";
 
 import ReactGA from "react-ga";
 
-const Head = (props) => {
+const Head = props => {
   const { site, page } = props;
 
   let { theme } = props;
@@ -140,7 +140,7 @@ const Head = (props) => {
 
 Head.propTypes = {
   page: PropTypes.object,
-  site: PropTypes.object,
+  site: PropTypes.object
 };
 
 export default Head;

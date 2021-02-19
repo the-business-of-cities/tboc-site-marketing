@@ -3,7 +3,7 @@ import * as mixins from "codogo-utility-functions";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 
 const LinkWrapper = styled.div`
   position: relative;
@@ -23,7 +23,7 @@ const LinkWrapper = styled.div`
         display: block;
       }
     }
-  } ;
+  }
 `;
 
 const StyledLink = styled.div`
@@ -38,7 +38,7 @@ const StyledLink = styled.div`
 
       &.active {
         font-weight: bold;
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background, 0.8)};
       }
     }
@@ -52,12 +52,12 @@ const StyledLink = styled.div`
       text-transform: uppercase;
 
       &.active {
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background, 0.8)};
       }
 
       &:not(.active):hover {
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background, 0.8)};
       }
     }
@@ -94,7 +94,7 @@ const DropdownLinks = styled.div`
 
   ${breakpoint("mobile", "min")} {
     display: none;
-    background: ${(props) =>
+    background: ${props =>
       mixins.lightenColor(props.theme.colors.nav.background)};
     position: absolute;
     top: ${({ theme }) => theme.dimensions.nav.linksHeight};
@@ -105,7 +105,7 @@ const DropdownLinks = styled.div`
       display: block;
       border: 0;
     }
-  } ;
+  }
 `;
 
 const Dropdown = ({ links, GatsbyLink }) => (
@@ -123,7 +123,7 @@ const Dropdown = ({ links, GatsbyLink }) => (
 );
 
 Dropdown.propTypes = {
-  links: PropTypes.array,
+  links: PropTypes.array
 };
 
 export default Dropdown;

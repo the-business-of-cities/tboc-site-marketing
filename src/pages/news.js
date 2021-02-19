@@ -4,7 +4,7 @@ import {
   Container,
   Column,
   Row,
-  News,
+  News
 } from "../components";
 
 import { graphql, Link } from "gatsby";
@@ -42,8 +42,8 @@ const NewsPage = ({ data, location }) => {
 NewsPage.propTypes = {
   data: PropTypes.shape({
     contentfulPage: PropTypes.object.isRequired,
-    contentfulNews: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulNews: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default NewsPage;

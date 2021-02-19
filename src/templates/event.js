@@ -24,8 +24,8 @@ const EventTemplate = ({ data, location }) => {
 
 EventTemplate.propTypes = {
   data: PropTypes.shape({
-    contentfulEvent: PropTypes.object.isRequired,
-  }).isRequired,
+    contentfulEvent: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default EventTemplate;

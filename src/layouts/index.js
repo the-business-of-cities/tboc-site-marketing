@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 	${defaultGlobalStyles(theme)}
 `;
 
-const TemplateWrapper = (props) => {
+const TemplateWrapper = props => {
   const {
     logo,
     navLinks,
@@ -22,17 +22,17 @@ const TemplateWrapper = (props) => {
     footerText,
     linkedinLink,
     twitterLink,
-    youtubeLink,
+    youtubeLink
   } = props.data.contentfulSettings.edges[0].node;
 
-  const links = navLinks.filter((link) => !link.service);
-  const dropdown = navLinks.filter((link) => link.service);
+  const links = navLinks.filter(link => !link.service);
+  const dropdown = navLinks.filter(link => link.service);
 
   theme.site = {
     siteTitle: props.data.contentfulSettings.edges[0].node.siteTitle,
     siteDescription:
       props.data.contentfulSettings.edges[0].node.siteDescription,
-    url: "https://www.thebusinessofcities.com/",
+    url: "https://www.thebusinessofcities.com/"
   };
 
   return (
@@ -44,7 +44,7 @@ const TemplateWrapper = (props) => {
           site={theme.site}
           page={{
             path: props.location.pathname.split("/").join("/"),
-            slug: props.location.pathname.split("/").join("/"),
+            slug: props.location.pathname.split("/").join("/")
           }}
           image={props.data.contentfulSettings.edges[0].node.logo.file.url}
         />
@@ -59,24 +59,22 @@ const TemplateWrapper = (props) => {
           theme={theme}
           GatsbyLink={Link}
           homepage={props.location.pathname === "/"}
-          links={links
-            .filter((link) => !link.service)
-            .map((link) => {
-              return {
-                to: `/${slugify(link.title, { lower: true })}`,
-                content: link.title,
-                as: "gatsby-link",
-                dropdown:
-                  slugify(link.title, { lower: true }) === "what-we-do" &&
-                  dropdown.map((link) => {
-                    return {
-                      to: `/${slugify(link.title, { lower: true })}`,
-                      content: link.title,
-                      as: "gatsby-link",
-                    };
-                  }),
-              };
-            })}
+          links={links.filter(link => !link.service).map(link => {
+            return {
+              to: `/${slugify(link.title, { lower: true })}`,
+              content: link.title,
+              as: "gatsby-link",
+              dropdown:
+                slugify(link.title, { lower: true }) === "what-we-do" &&
+                dropdown.map(link => {
+                  return {
+                    to: `/${slugify(link.title, { lower: true })}`,
+                    content: link.title,
+                    as: "gatsby-link"
+                  };
+                })
+            };
+          })}
           logo={{ url: logo.file.url, text: logo.description }}
         />
 
@@ -89,16 +87,16 @@ const TemplateWrapper = (props) => {
           socialLinks={[
             {
               type: "youtube",
-              link: youtubeLink,
+              link: youtubeLink
             },
             {
               type: "linkedin",
-              link: linkedinLink,
+              link: linkedinLink
             },
             {
               type: "twitter",
-              link: twitterLink,
-            },
+              link: twitterLink
+            }
           ]}
         />
       </div>
@@ -109,15 +107,15 @@ const TemplateWrapper = (props) => {
 TemplateWrapper.propTypes = {
   children: PropTypes.any,
   data: PropTypes.shape({
-    contentfulSettings: PropTypes.object,
+    contentfulSettings: PropTypes.object
   }),
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 export default ({ children, location }) => (
   <StaticQuery
     query={SettingsQuery}
-    render={(data) => (
+    render={data => (
       <TemplateWrapper data={data} location={location} children={children} />
     )}
   />

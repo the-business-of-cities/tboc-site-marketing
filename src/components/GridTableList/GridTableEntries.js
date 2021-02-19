@@ -22,9 +22,9 @@ const gridItemWidths = {
   xs: 100,
   sm: 50,
   md: 33.33333,
-  lg: 33.33333,
+  lg: 33.33333
 };
-const gridColumns = R.map((n) => `${n}%`)(gridItemWidths);
+const gridColumns = R.map(n => `${n}%`)(gridItemWidths);
 
 const EntryContainer = styled.div`
   display: block;
@@ -159,7 +159,7 @@ const EntryText = styled.div`
 const GridTableEntries = ({ entries, slug, table, GatsbyLink }) => {
   return (
     <EntryContainer className={table && "table"}>
-      {entries.map((entry) => (
+      {entries.map(entry => (
         <Entry
           className="entry"
           key={entry.slug}
@@ -174,7 +174,9 @@ const GridTableEntries = ({ entries, slug, table, GatsbyLink }) => {
             {entry.image && (
               <EntryImage
                 className="image"
-                src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${entry.image.file.url}`}
+                src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${
+                  entry.image.file.url
+                }`}
                 alt={entry.image.description}
               />
             )}
@@ -186,7 +188,7 @@ const GridTableEntries = ({ entries, slug, table, GatsbyLink }) => {
                 <EntryText
                   className="text"
                   dangerouslySetInnerHTML={{
-                    __html: marked(entry.description),
+                    __html: marked(entry.description)
                   }}
                 />
               )}

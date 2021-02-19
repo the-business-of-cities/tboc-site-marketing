@@ -4,7 +4,7 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 import { Icon, MaybeLink } from "../Primitives";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 
 const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.footer};
@@ -16,8 +16,8 @@ const FooterWrapper = styled.footer`
 `;
 
 const Inner = styled.div`
-  ${({theme}) => mixins.bpEither("height", theme.dimensions.footer.height)};
-  ${({theme}) => mixins.bpEither("padding", theme.dimensions.nav.margin)};
+  ${({ theme }) => mixins.bpEither("height", theme.dimensions.footer.height)};
+  ${({ theme }) => mixins.bpEither("padding", theme.dimensions.nav.margin)};
 
   align-items: center;
   display: flex;
@@ -35,7 +35,7 @@ const Inner = styled.div`
     padding-top: 0;
     padding-bottom: 0;
     font-size: 0.9em;
-  } ;
+  }
 `;
 
 const FooterSection = styled.div`
@@ -44,7 +44,7 @@ const FooterSection = styled.div`
   ${breakpoint("tiny", "only")} {
     width: 100%;
     padding: 4px;
-  } ;
+  }
 `;
 
 const FooterLinks = styled.div`
@@ -95,7 +95,7 @@ const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
         <Contact>{footerText}</Contact>
 
         <FooterLinks>
-          {footerLinks.map((link) => (
+          {footerLinks.map(link => (
             <MaybeLink
               GatsbyLink={GatsbyLink}
               key={slugify(link.title, { lower: true })}
@@ -108,7 +108,7 @@ const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
 
         <Social>
           {socialLinks &&
-            socialLinks.map((link) => (
+            socialLinks.map(link => (
               <a
                 key={`footer-${link.type}-${link.link}`}
                 href={link.link}
@@ -117,7 +117,7 @@ const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
                     ? {
                         marginRight: "0.5em",
                         paddingRight: "0.75em",
-                        borderRight: "1px solid white",
+                        borderRight: "1px solid white"
                       }
                     : undefined
                 }
@@ -134,7 +134,7 @@ const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
 Footer.propTypes = {
   footerLinks: PropTypes.array,
   footerText: PropTypes.string,
-  socialLinks: PropTypes.array,
+  socialLinks: PropTypes.array
 };
 
 export default Footer;

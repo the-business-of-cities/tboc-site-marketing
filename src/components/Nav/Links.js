@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { breakpoint } from '../../utils/styles';
+import { breakpoint } from "../../utils/styles";
 
 const LinksWrapper = styled.div`
   align-items: center;
@@ -18,7 +18,7 @@ const LinksWrapper = styled.div`
   ${breakpoint("tiny", "only")} {
     background-color: ${({ theme }) => theme.colors.nav.background};
     top: ${({ theme }) => theme.dimensions.nav.height.xs};
-    transform: translateY(${(props) => (props.open ? 0 : -110)}%);
+    transform: translateY(${props => (props.open ? 0 : -110)}%);
     transition: 0.3s all ease-out;
 
     ${mixins.shadow(2)};
@@ -28,7 +28,7 @@ const LinksWrapper = styled.div`
     display: flex;
     bottom: 0;
     height: ${({ theme }) => theme.dimensions.nav.linksHeight};
-  } ;
+  }
 `;
 
 const LinksContainer = styled.div`
@@ -41,7 +41,7 @@ const LinksContainer = styled.div`
   ${breakpoint("mobile", "min")} {
     flex-direction: row;
     padding: 0 ${({ theme }) => theme.dimensions.nav.margin.xs};
-  } ;
+  }
 `;
 
 const LinkWrapper = styled.div`
@@ -60,7 +60,7 @@ const LinkWrapper = styled.div`
         display: block;
       }
     }
-  } ;
+  }
 `;
 
 const StyledLink = styled.div`
@@ -77,7 +77,7 @@ const StyledLink = styled.div`
 
       &.active {
         font-weight: bold;
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background)};
       }
     }
@@ -91,12 +91,12 @@ const StyledLink = styled.div`
       text-transform: uppercase;
 
       &.active {
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background)};
       }
 
       &:not(.active):hover {
-        background-color: ${(props) =>
+        background-color: ${props =>
           mixins.lightenColor(props.theme.colors.nav.background, 0.1)};
       }
     }
@@ -109,17 +109,17 @@ const DropdownArrow = styled.span`
 
   ${breakpoint("tiny", "only")} {
     display: none;
-  } ;
+  }
 `;
 
-const Links = (props) => {
+const Links = props => {
   const { links, close, open, GatsbyLink } = props;
 
   return (
     <LinksWrapper open={open}>
       <LinksContainer>
         {links &&
-          links.map((link) => {
+          links.map(link => {
             return (
               <LinkWrapper key={link.to} onClick={close}>
                 <StyledLink>
@@ -145,7 +145,7 @@ Links.propTypes = {
   close: PropTypes.func,
   gastbyLink: PropTypes.any,
   links: PropTypes.array,
-  open: PropTypes.bool,
+  open: PropTypes.bool
 };
 
 export default Links;
