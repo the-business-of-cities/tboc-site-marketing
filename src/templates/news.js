@@ -5,28 +5,6 @@ import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
-// ----------------------------------------------------
-
-export const NewsQuery = graphql`
-	query NewsQuery($id: String!) {
-		contentfulNews(id: { eq: $id }) {
-			title
-			description
-			content {
-				content
-			}
-			image {
-				description
-				file {
-					url
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const NewsTemplate = ( { data, location, }, ) => {
 	return (
 
@@ -48,3 +26,21 @@ NewsTemplate.propTypes = {
 };
 
 export default NewsTemplate;
+
+export const NewsQuery = graphql`
+	query NewsQuery($id: String!) {
+		contentfulNews(id: { eq: $id }) {
+			title
+			description
+			content {
+				content
+			}
+			image {
+				description
+				file {
+					url
+				}
+			}
+		}
+	}
+`;

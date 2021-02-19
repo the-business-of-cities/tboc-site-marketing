@@ -5,41 +5,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../layouts/index";
 
-// ----------------------------------------------------
-
-export const AllJobsQuery = graphql`
-	query AllJobsQuery {
-		contentfulPage(title: { eq: "Vacancies" }) {
-			title
-			description
-			introduction {
-				introduction
-			}
-			image {
-				file {
-					url
-				}
-			}
-			...PagePoints
-		}
-		contentfulJobs: allContentfulJob {
-			edges {
-				node {
-					title
-					description
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const JobsPage = ( { data, location, }, ) => {
 	const jobs = data.contentfulJobs.edges;
 
@@ -76,3 +41,34 @@ JobsPage.propTypes = {
 
 
 export default JobsPage;
+
+export const AllJobsQuery = graphql`
+	query AllJobsQuery {
+		contentfulPage(title: { eq: "Vacancies" }) {
+			title
+			description
+			introduction {
+				introduction
+			}
+			image {
+				file {
+					url
+				}
+			}
+			...PagePoints
+		}
+		contentfulJobs: allContentfulJob {
+			edges {
+				node {
+					title
+					description
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`;

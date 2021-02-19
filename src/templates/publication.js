@@ -5,28 +5,6 @@ import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
-// ----------------------------------------------------
-
-export const PublicationQuery = graphql`
-	query PublicationQuery($id: String!) {
-		contentfulPublication(id: { eq: $id }) {
-			title
-			description
-			content {
-				content
-			}
-			image {
-				description
-				file {
-					url
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const PublicationTemplate = ( { data, location, }, ) => {
 	return (
 		<Layout location = { location }>
@@ -47,3 +25,21 @@ PublicationTemplate.propTypes = {
 };
 
 export default PublicationTemplate;
+
+export const PublicationQuery = graphql`
+	query PublicationQuery($id: String!) {
+		contentfulPublication(id: { eq: $id }) {
+			title
+			description
+			content {
+				content
+			}
+			image {
+				description
+				file {
+					url
+				}
+			}
+		}
+	}
+`;

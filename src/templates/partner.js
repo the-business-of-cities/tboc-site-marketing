@@ -7,52 +7,6 @@ import React from "react";
 import marked from "marked";
 import { Link, } from "gatsby";
 
-// ----------------------------------------------------
-
-export const PartnerQuery = graphql`
-	query PartnerQuery($id: String!) {
-		contentfulPartner(id: { eq: $id }) {
-			name
-			website
-			description
-			image {
-				description
-				file {
-					url
-				}
-			}
-			content {
-				content
-			}
-			publications {
-				title
-				description
-				publishingDate
-				image {
-					file {
-						url
-					}
-				}
-			}
-			testimonial {
-				title
-				quote {
-					quote
-				}
-				quotee
-				image {
-					description
-					file {
-						url
-					}
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const PartnerTemplate = ( { data, location, }, ) => {
 	return (
 		<Layout location = { location }>
@@ -114,3 +68,45 @@ PartnerTemplate.propTypes = {
 };
 
 export default PartnerTemplate;
+
+export const PartnerQuery = graphql`
+	query PartnerQuery($id: String!) {
+		contentfulPartner(id: { eq: $id }) {
+			name
+			website
+			description
+			image {
+				description
+				file {
+					url
+				}
+			}
+			content {
+				content
+			}
+			publications {
+				title
+				description
+				publishingDate
+				image {
+					file {
+						url
+					}
+				}
+			}
+			testimonial {
+				title
+				quote {
+					quote
+				}
+				quotee
+				image {
+					description
+					file {
+						url
+					}
+				}
+			}
+		}
+	}
+`;

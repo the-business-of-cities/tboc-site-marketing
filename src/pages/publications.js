@@ -5,44 +5,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../layouts/index";
 
-// ----------------------------------------------------
-
-export const AllPublicationsQuery = graphql`
-	query AllPublicationsQuery {
-		contentfulPage(title: { eq: "Publications" }) {
-			title
-			description
-			introduction {
-				introduction
-			}
-			image {
-				file {
-					url
-				}
-			}
-			...PagePoints
-		}
-		contentfulPublications: allContentfulPublication {
-			edges {
-				node {
-					title
-					description
-					publishingDate
-					showAsPublication
-					externalUrl
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const PublicationsPage = ( { data, location, }, ) => {
 	const publications = data.contentfulPublications
 		.edges
@@ -80,5 +42,38 @@ PublicationsPage.propTypes = {
 	}).isRequired,
 };
 
-
 export default PublicationsPage;
+
+export const AllPublicationsQuery = graphql`
+	query AllPublicationsQuery {
+		contentfulPage(title: { eq: "Publications" }) {
+			title
+			description
+			introduction {
+				introduction
+			}
+			image {
+				file {
+					url
+				}
+			}
+			...PagePoints
+		}
+		contentfulPublications: allContentfulPublication {
+			edges {
+				node {
+					title
+					description
+					publishingDate
+					showAsPublication
+					externalUrl
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+`;

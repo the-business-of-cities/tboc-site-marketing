@@ -5,28 +5,6 @@ import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
 
-// ----------------------------------------------------
-
-export const JobQuery = graphql`
-	query JobQuery($id: String!) {
-		contentfulJob(id: { eq: $id }) {
-			title
-			description
-			content {
-				content
-			}
-			image {
-				description
-				file {
-					url
-				}
-			}
-		}
-	}
-`;
-
-// ----------------------------------------------------
-
 const JobTemplate = ( { data, location, }, ) => {
 	return (
 		<Layout location = { location }>
@@ -47,3 +25,21 @@ JobTemplate.propTypes = {
 };
 
 export default JobTemplate;
+
+export const JobQuery = graphql`
+	query JobQuery($id: String!) {
+		contentfulJob(id: { eq: $id }) {
+			title
+			description
+			content {
+				content
+			}
+			image {
+				description
+				file {
+					url
+				}
+			}
+		}
+	}
+`;

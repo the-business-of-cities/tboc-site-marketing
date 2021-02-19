@@ -7,68 +7,11 @@ import slugify from "slugify";
 import styled from "styled-components";
 import Layout from "../layouts/index";
 
-// ----------------------------------------------------
-
-export const SliderQuery = graphql`
-	query SliderQuery {
-		contentfulPage(title: { eq: "Home" }) {
-			title
-			description
-			...PagePoints
-			partnerCategory {
-				title
-				partner {
-					name
-					website
-					image {
-						file {
-							url
-						}
-					}
-				}
-			}
-		}
-		contentfulHomeSettings: allContentfulSiteSettings {
-			edges {
-				node {
-					homeDescription {
-						homeDescription
-					}
-					homeBanner {
-						... on ContentfulPublication {
-							title
-							description
-							externalUrl
-							image {
-								file {
-									url
-								}
-							}
-						}
-						... on ContentfulNews {
-							title
-							description
-							externalUrl
-							image {
-								file {
-									url
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
 const LogoWrapper = styled.div`
 	margin-bottom: 1em;
 	flex: 1;
 	width: 100%;
 `;
-
-// ----------------------------------------------------
 
 const HomePage = ( { data, location, }, ) => {
 	return (
@@ -140,3 +83,56 @@ HomePage.propTypes = {
 };
 
 export default HomePage;
+
+export const SliderQuery = graphql`
+	query SliderQuery {
+		contentfulPage(title: { eq: "Home" }) {
+			title
+			description
+			...PagePoints
+			partnerCategory {
+				title
+				partner {
+					name
+					website
+					image {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
+		contentfulHomeSettings: allContentfulSiteSettings {
+			edges {
+				node {
+					homeDescription {
+						homeDescription
+					}
+					homeBanner {
+						... on ContentfulPublication {
+							title
+							description
+							externalUrl
+							image {
+								file {
+									url
+								}
+							}
+						}
+						... on ContentfulNews {
+							title
+							description
+							externalUrl
+							image {
+								file {
+									url
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`;
