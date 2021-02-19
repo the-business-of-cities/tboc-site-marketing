@@ -1,4 +1,4 @@
-import { ContentPage } from "tboc-site-components";
+import { ContentPage } from "../components";
 
 import { graphql } from "gatsby";
 import React from "react";

@@ -1,36 +1,22 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
 	siteMetadata: {
 		title: "The Business of Cities",
-  		siteUrl: "https://www.thebusinessofcities.com",
+  	siteUrl: "https://www.thebusinessofcities.com",
 	},
 	plugins: [
-		"gatsby-plugin-react-helmet",
-		"gatsby-plugin-styled-components",
 		{
 			resolve: "gatsby-source-contentful",
 			options: {
-				spaceId: "7k0m7hkot1dm",
-				accessToken: "cfc110c750c3c3e5ea7916eaef42ce7049bc07713cc7ecf40288cad64ae7cb3b",
+				spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+				accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
 			},
 		},
-		{
-			resolve: "gatsby-plugin-favicon",
-			options: {
-				logo: "./src/images/favicon.png",
-				injectHTML: true,
-				icons: {
-					android: true,
-					appleIcon: true,
-					appleStartup: true,
-					coast: false,
-					favicons: true,
-					firefox: true,
-					twitter: false,
-					yandex: false,
-					windows: false,
-				},
-			},
-		},
+		"gatsby-plugin-react-helmet",
+		"gatsby-plugin-styled-components",
 		{
 			resolve: "gatsby-plugin-google-analytics",
 			options: {
@@ -40,9 +26,16 @@ module.exports = {
 				respectDNT: true, // Avoids sending pageview hits from custom paths
 			},
 		},
+		"gatsby-transformer-remark",
 		{
-			resolve: "gatsby-plugin-sitemap",
-		},
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+		"gatsby-plugin-sitemap",
 	],
 };
 

@@ -6,7 +6,7 @@ import {
   Column,
   Row,
   LogoGrid,
-} from "tboc-site-components";
+} from "../components";
 
 import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";

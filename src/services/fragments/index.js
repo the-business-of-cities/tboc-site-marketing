@@ -1,3 +1,5 @@
+import { graphql } from "gatsby";
+
 export const PointFragment = graphql`
   fragment PagePoints on ContentfulPage {
     content {

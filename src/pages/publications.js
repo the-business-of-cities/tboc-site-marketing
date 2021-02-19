@@ -5,7 +5,7 @@ import {
   Column,
   Row,
   Publications,
-} from "tboc-site-components";
+} from "../components";
 
 import { graphql, Link } from "gatsby";
 import React from "react";

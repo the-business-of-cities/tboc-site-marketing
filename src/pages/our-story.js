@@ -1,4 +1,4 @@
-import { ContentPage, TeamMembers } from "tboc-site-components";
+import { ContentPage, TeamMembers } from "../components";
 
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";

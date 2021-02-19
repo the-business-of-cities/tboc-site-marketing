@@ -1,4 +1,4 @@
-import { ErrorPage } from "tboc-site-components";
+import { ErrorPage } from "../components";
 
 import React from "react";
 import Layout from "../layouts/index";

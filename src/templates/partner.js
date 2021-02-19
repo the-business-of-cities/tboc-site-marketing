@@ -7,7 +7,7 @@ import {
   MaybeLink,
   Testimonial,
   Publications,
-} from "tboc-site-components";
+} from "../components";
 import { graphql } from "gatsby";
 
 import Layout from "../layouts/index";

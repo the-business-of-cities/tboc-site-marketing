@@ -1,4 +1,4 @@
-import { ContentPage, Events } from "tboc-site-components";
+import { ContentPage, Events } from "../components";
 import { graphql, Link } from "gatsby";
 
 import Layout from "../layouts/index";
