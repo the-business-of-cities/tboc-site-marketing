@@ -3,10 +3,12 @@
 .cache
 node_modules
 yarn-error.log
-.env
+.env*
 .DS_Store
 
 # Build
 /public
 /lib
 /.cache
+
+.vercel
