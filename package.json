@@ -19,11 +19,8 @@
     "gatsby-plugin-sitemap": "^2.2.4",
     "gatsby-plugin-styled-components": "^3.1.5",
     "gatsby-source-contentful": "^2.0.50",
-    "jest": "^26.6.3",
     "marked": "^0.6.2",
-    "mcclowes-scripts": "^0.5.3",
     "moment": "^2.24.0",
-    "pre-commit": "^1.2.2",
     "react": "^16.11.0",
     "react-accessible-accordion": "^3.0.1",
     "react-cookie-banner": "^4.1.0",
@@ -42,23 +39,28 @@
   },
   "devDependencies": {
     "babel-loader": "8.1.0",
-    "prettier": "^2.0.5"
+    "husky": "^5.0.9",
+    "jest": "^26.6.3",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^3.1.0"
   },
   "eslintConfig": {
     "extends": "mcclowes"
   },
-  "pre-commit": [
-    "format"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format:staged"
+    }
+  },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "mcclowes-scripts format",
+    "format": "prettier --write src/",
+    "format:staged": "pretty-quick --staged",
     "test": "jest"
   }
 }
