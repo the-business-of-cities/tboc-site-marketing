@@ -8,7 +8,7 @@ import { breakpoint } from "../../utils/styles";
 const LinkWrapper = styled.div`
   position: relative;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     border-top: 1px solid;
 
     &,
@@ -17,7 +17,7 @@ const LinkWrapper = styled.div`
     }
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     &:hover {
       > div {
         display: block;
@@ -30,7 +30,7 @@ const StyledLink = styled.div`
   a {
     color: ${({ theme }) => theme.colors.link};
 
-    ${breakpoint("tiny", "only")} {
+    ${breakpoint("mobile", "only")} {
       display: block;
       padding: 0.9em ${({ theme }) => theme.dimensions.nav.margin.xs};
       font-size: 0.9em;
@@ -43,7 +43,7 @@ const StyledLink = styled.div`
       }
     }
 
-    ${breakpoint("mobile", "min")} {
+    ${breakpoint("tablet", "min")} {
       display: inline-block;
       height: ${({ theme }) => theme.dimensions.nav.linksHeight};
       line-height: ${({ theme }) => theme.dimensions.nav.linksHeight};
@@ -66,7 +66,7 @@ const StyledLink = styled.div`
 
 const StyledDropdownLink = styled(StyledLink)`
   a {
-    ${breakpoint("mobile", "min")} {
+    ${breakpoint("tablet", "min")} {
       background: ${({ theme }) => theme.colors.background.light};
 
       &,
@@ -80,19 +80,19 @@ const StyledDropdownLink = styled(StyledLink)`
       }
     }
 
-    ${breakpoint("tiny", "only")} {
+    ${breakpoint("mobile", "only")} {
       padding-left: 2em;
     }
   }
 `;
 
 const DropdownLinks = styled.div`
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     font-size: 0.9em;
     opacity: 0.67;
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     display: none;
     background: ${props =>
       mixins.lightenColor(props.theme.colors.nav.background)};

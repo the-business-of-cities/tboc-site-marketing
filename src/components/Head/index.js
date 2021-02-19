@@ -4,22 +4,36 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { theme as _theme } from "../../utils/styles";
+import { theme as defaultTheme } from "../../utils/styles";
 
 import ReactGA from "react-ga";
+
+import favicon from '../../images/icon.png';
 
 const Head = props => {
   const { site, page } = props;
 
   let { theme } = props;
   if (theme == null) {
-    theme = { ..._theme };
+    theme = { ...defaultTheme };
   }
 
   const image =
     R.path(["image", "url"])(page) || R.path(["homeImage", "url"])(site);
 
-  return site || page ? (
+  if(!site && !page) {
+    return <Helmet>
+      <meta charSet="utf-8" />
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>The Business of Cities</title>
+    </Helmet>
+  }
+
+  return (
     <Helmet>
       <meta charSet="utf-8" />
 
@@ -27,7 +41,9 @@ const Head = props => {
 
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      {page && page.slug ? (
+      <link rel="icon" href={favicon} />
+
+      {page?.slug ? (
         <link
           rel="canonical"
           href={`${site.url}/${page.slug ? page.slug : ""}`}
@@ -43,14 +59,14 @@ const Head = props => {
       <meta
         name="description"
         content={
-          page && page.description ? page.description : site.siteDescription
+          page?.description || site.siteDescription
         }
       />
 
       <meta
         property="og:url"
         content={`http://www.thebusinessofcities.com/${
-          page && page.slug ? page.slug : ""
+          page?.slug || ""
         }`}
       />
 
@@ -59,7 +75,7 @@ const Head = props => {
       <meta
         property="og:title"
         content={
-          page && page.title
+          page?.title
             ? `${page.title} | ${site.siteTitle}`
             : `${site.siteTitle} | ${site.siteDescription}`
         }
@@ -70,7 +86,7 @@ const Head = props => {
       <meta
         property="og:description"
         content={
-          page && page.description ? page.description : site.siteDescription
+          page?.description || site.siteDescription
         }
       />
 
@@ -80,9 +96,7 @@ const Head = props => {
 
       {/*180x110 Image for Linkedin */}
       <meta property="og:image" content={image} />
-
       <meta property="og:image:width" content="180" />
-
       <meta property="og:image:height" content="110" />
 
       {/*600x315 Image for Facebook */}
@@ -94,12 +108,7 @@ const Head = props => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={theme.meta.twitterUsername} />
       <meta name="twitter:creator" content={theme.meta.twitterCreator} />
-
-      {page && page.title
-        ? `<meta name = "twitter:title" content = ${page.title} />
-				`
-        : `<meta name = "twitter:title" content = ${site.siteTitle} />
-				`}
+      <meta name="twitter:title" content={page?.title || site.siteTitle}/>
 
       <meta
         name="twitter:url"
@@ -124,16 +133,6 @@ const Head = props => {
       {/* Google analytics*/}
       {theme.meta.googleAnalytics &&
         ReactGA.initialize(theme.meta.googleAnalytics)}
-    </Helmet>
-  ) : (
-    <Helmet>
-      <meta charSet="utf-8" />
-
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-      <title>Website</title>
     </Helmet>
   );
 };

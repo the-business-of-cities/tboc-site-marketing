@@ -7,7 +7,7 @@ const Page = styled.div`
   padding: 0;
   flex-direction: column;
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     display: flex;
   } ;
 `;

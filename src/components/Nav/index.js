@@ -26,7 +26,7 @@ const NavWrapper = styled.nav`
 `;
 
 const MobileStuff = styled.div`
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     display: none;
   }
 

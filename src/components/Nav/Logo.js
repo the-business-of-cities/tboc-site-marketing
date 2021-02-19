@@ -14,7 +14,7 @@ const LogoWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     bottom: ${({ theme }) => theme.dimensions.nav.linksHeight};
   }
 `;

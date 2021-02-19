@@ -15,7 +15,7 @@ const ResponsiveYouTubeWrapper = styled.div`
   height: 0;
   width: 100%;
 
-  span {
+  > * {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,23 +28,23 @@ export const Video = ({ videoUrl, video }) => {
   const parsedVideoUrl = videoUrl ? parseVideoUrl(videoUrl) : undefined;
 
   if (videoUrl && parsedVideoUrl) {
-    return parsedVideoUrl.platform === "vimeo" ? (
+    if(parsedVideoUrl.platform === "vimeo") {
       <VimeoWrapper>
         <Vimeo videoId={parsedVideoUrl.id} />
       </VimeoWrapper>
-    ) : (
-      <ResponsiveYouTubeWrapper>
-        <YouTube
-          videoId={parsedVideoUrl.id}
-          opts={{ height: "100%", width: "100%" }}
-        />
-      </ResponsiveYouTubeWrapper>
-    );
-  } else {
-    return (
-      <ReactVideoWrapper>
-        <ReactVideo playsInline src={video} />
-      </ReactVideoWrapper>
-    );
+    }
+    
+    return <ResponsiveYouTubeWrapper>
+      <YouTube
+        videoId={parsedVideoUrl.id}
+        opts={{ height: "100%", width: "100%" }}
+      />
+    </ResponsiveYouTubeWrapper>
   }
+
+  return (
+    <ReactVideoWrapper>
+      <ReactVideo playsInline src={video} />
+    </ReactVideoWrapper>
+  );
 };

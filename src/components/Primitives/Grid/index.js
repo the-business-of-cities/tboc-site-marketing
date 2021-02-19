@@ -8,7 +8,7 @@ const Grid = styled.div`
   padding: 3em;
   flex: 1;
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     flex-basis: 100%;
     padding: 1em;
   } ;

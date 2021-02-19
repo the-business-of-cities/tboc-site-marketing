@@ -22,16 +22,18 @@ const LogoWrapper = styled.div`
 `;
 
 const HomePage = ({ data, location }) => {
+  const homeSettings = data.contentfulHomeSettings.edges[0].node;
+  
   return (
     <Layout location={location}>
       <BlankPage
         GatsbyLink={Link}
         banner={{
           text:
-            data.contentfulHomeSettings.edges[0].node.homeDescription
+            homeSettings.homeDescription
               .homeDescription
         }}
-        sliderContents={data.contentfulHomeSettings.edges[0].node.homeBanner}
+        sliderContents={homeSettings.homeBanner}
       >
         {data.contentfulPage.content &&
           data.contentfulPage.content.map((section, i) => (

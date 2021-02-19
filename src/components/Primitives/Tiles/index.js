@@ -13,7 +13,7 @@ export const TileWrapper = styled.div`
   width: 50%;
   float: left;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     width: 100%;
   }
 `;
@@ -22,7 +22,7 @@ export const TileInner = styled.div`
   position: relative;
   margin-bottom: 1em;
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     padding: 0;
   }
 `;

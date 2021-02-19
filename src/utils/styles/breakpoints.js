@@ -21,7 +21,7 @@ export const breakpoint = (size, cap) => {
   let rules = {
     max: `(max-width: ${breakpoints[size].max})`,
     min: `(min-width: ${breakpoints[size].min})`,
-    only: ""
+    only: "",
   };
 
   rules.only = `${rules.max} and ${rules.min}`;

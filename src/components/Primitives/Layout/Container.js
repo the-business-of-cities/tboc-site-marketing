@@ -16,7 +16,7 @@ const Container = styled.div`
 
   ${(props) => props.narrow && "max-width: 750px"};
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     flex-basis: 100%;
   } ;
 `;

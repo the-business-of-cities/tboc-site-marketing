@@ -18,7 +18,7 @@ const Section = styled.div`
     background-color: ${({ theme }) => theme.colors.background.lighter};
   }
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     flex-wrap: wrap;
   } ;
 `;

@@ -15,7 +15,7 @@ const LinksWrapper = styled.div`
   position: absolute;
   right: 0;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     background-color: ${({ theme }) => theme.colors.nav.background};
     top: ${({ theme }) => theme.dimensions.nav.height.xs};
     transform: translateY(${props => (props.open ? 0 : -110)}%);
@@ -24,7 +24,7 @@ const LinksWrapper = styled.div`
     ${mixins.shadow(2)};
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     display: flex;
     bottom: 0;
     height: ${({ theme }) => theme.dimensions.nav.linksHeight};
@@ -38,7 +38,7 @@ const LinksContainer = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.lg.min}px;
   flex-direction: column;
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     flex-direction: row;
     padding: 0 ${({ theme }) => theme.dimensions.nav.margin.xs};
   }
@@ -47,12 +47,12 @@ const LinksContainer = styled.div`
 const LinkWrapper = styled.div`
   position: relative;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     color: ${({ theme }) => theme.colors.background.white};
     border-top: 1px solid;
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     color: ${({ theme }) => theme.colors.nav.alt};
 
     &:hover {
@@ -65,7 +65,7 @@ const LinkWrapper = styled.div`
 
 const StyledLink = styled.div`
   a {
-    ${breakpoint("tiny", "only")} {
+    ${breakpoint("mobile", "only")} {
       display: block;
       padding: 0.9em ${({ theme }) => theme.dimensions.nav.margin.xs};
       font-size: 0.9em;
@@ -82,7 +82,7 @@ const StyledLink = styled.div`
       }
     }
 
-    ${breakpoint("mobile", "min")} {
+    ${breakpoint("tablet", "min")} {
       display: inline-block;
       height: ${({ theme }) => theme.dimensions.nav.linksHeight};
       line-height: ${({ theme }) => theme.dimensions.nav.linksHeight};
@@ -107,7 +107,7 @@ const DropdownArrow = styled.span`
   margin-left: 0.5em;
   font-size: 0.8em;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     display: none;
   }
 `;

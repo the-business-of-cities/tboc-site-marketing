@@ -20,7 +20,7 @@ const Row = styled.div`
   ${(props) => props.reverse && "flex-direction: row-reverse;"};
   ${(props) => props.noPadding && "padding: 0 !important;"};
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     flex-wrap: wrap;
   } ;
 `;

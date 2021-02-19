@@ -16,12 +16,12 @@ const Column = styled.div`
     padding-right: 0.5em;
   }
 
-  ${breakpoint("mobile", "max")} {
+  ${breakpoint("tablet", "max")} {
     flex-basis: 100% !important;
     padding: 1em;
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     &:first-child {
       flex: 1;
     }

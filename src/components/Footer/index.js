@@ -26,12 +26,12 @@ const Inner = styled.div`
   max-width: ${({ theme }) => theme.breakpoints.lg.min}px;
   margin: 0 auto;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     flex-wrap: wrap;
     height: auto;
   }
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     padding-top: 0;
     padding-bottom: 0;
     font-size: 0.9em;
@@ -41,7 +41,7 @@ const Inner = styled.div`
 const FooterSection = styled.div`
   text-align: center;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     width: 100%;
     padding: 4px;
   }
@@ -50,7 +50,7 @@ const FooterSection = styled.div`
 const FooterLinks = styled.div`
   text-align: center;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     width: 100%;
     padding: 4px;
   }

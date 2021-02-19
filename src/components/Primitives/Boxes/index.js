@@ -8,7 +8,7 @@ import { breakpoint } from '../../../utils/styles';
 const Wrapper = styled.div`
   color: white;
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1em;
@@ -19,7 +19,7 @@ const BoxWrapper = styled.a`
   background-color: ${R.path(["theme", "nav"])};
   display: block;
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     margin-bottom: 1em;
   } ;
 `;
@@ -29,17 +29,17 @@ const paddingTop = "66.7%";
 const Image = styled.div`
   ${mixins.bgImage}
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     padding-top: ${paddingTop};
   }
 
-  ${breakpoint("tiny", "only")} {
+  ${breakpoint("mobile", "only")} {
     padding-top: 50%;
   }
 `;
 
 const TextWrapper = styled.div`
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     padding-top: ${paddingTop};
     position: relative;
   } ;
@@ -48,7 +48,7 @@ const TextWrapper = styled.div`
 const TextInner = styled.div`
   padding: 1em;
 
-  ${breakpoint("mobile", "min")} {
+  ${breakpoint("tablet", "min")} {
     ${mixins.contained()}
   }
 `;
