@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../old";
 
 import defaultTheme from "./themes/theme";
 

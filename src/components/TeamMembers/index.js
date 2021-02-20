@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../utils/old";
 import { Section, Column, Row, Container } from "../Primitives";
 
 import styled from "styled-components";

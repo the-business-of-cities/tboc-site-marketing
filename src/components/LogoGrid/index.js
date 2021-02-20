@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../utils/old";
 
 import * as R from "ramda";
 import PropTypes from "prop-types";

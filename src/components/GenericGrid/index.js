@@ -1,16 +1,13 @@
-import * as mixins from "codogo-utility-functions";
-
+import * as R from "ramda";
+import * as mixins from "../../utils/old";
 import EntryWrapper from "./EntryWrapper";
 import GridEntries from "./GridEntries";
+import PropTypes from "prop-types";
+import React from "react";
 import TableEntries from "./TableEntries";
 import marked from "marked";
-import PropTypes from "prop-types";
-import * as R from "ramda";
-import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
-
-// --------------------------------------------------
 
 const SortingOptions = styled.div`
   position: absolute;
@@ -37,8 +34,6 @@ const GridWrapper = styled.div`
 		padding-top: 5em
 	`};
 `;
-
-// --------------------------------------------------
 
 class GenericGrid extends React.Component {
   constructor(props) {

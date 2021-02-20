@@ -1,8 +1,8 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../../utils/old";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { Link } from 'Gatsby';
+import { Link } from 'gatsby';
 
 export const MaybeLink = ({
   children,

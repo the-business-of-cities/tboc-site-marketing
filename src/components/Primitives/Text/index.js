@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../../utils/old";
 
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
