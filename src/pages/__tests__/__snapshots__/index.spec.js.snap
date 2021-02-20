@@ -3,7 +3,6 @@
 exports[`Home renders correctly 1`] = `
 <_default>
   <BlankPage
-    GatsbyLink={[MockFunction]}
     banner={
       Object {
         "text": "some description",
