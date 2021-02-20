@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../../utils/old";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";

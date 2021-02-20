@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../utils/old";
 
 import EntryWrapper from "../GenericGrid/EntryWrapper";
 import marked from "marked";

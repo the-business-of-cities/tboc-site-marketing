@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Background renders correctly 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`Image renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+<img
+  className="c0"
+/>
+`;
+
+exports[`SecondaryImage renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  object-fix: contain;
+}
+
+<img
+  className="c0"
+/>
+`;
+
+exports[`SmartImage renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  padding-top: 100%;
+  background-color: rgba(0,0,0,0.2);
+  background-image: url();
+  background-size: cover;
+  background-position: center center;
+  background-repeat: norepeat;
+  margin-left: auto;
+}
+
+<div
+  className="c0"
+/>
+`;

@@ -1,8 +1,7 @@
-import { MaybeLink } from "../Primitives";
-
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import { MaybeLink } from "../Primitives";
 
 const EntryWrapperLink = styled(MaybeLink)`
   display: flex;

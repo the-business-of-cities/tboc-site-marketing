@@ -23,23 +23,23 @@ const LogoWrapper = styled.div`
 
 const HomePage = ({ data, location }) => {
   const homeSettings = data.contentfulHomeSettings.edges[0].node;
+  const page = data.contentfulPage
+  const partnerCategory = page.partnerCategory;
   
   return (
     <Layout location={location}>
       <BlankPage
         GatsbyLink={Link}
         banner={{
-          text:
-            homeSettings.homeDescription
-              .homeDescription
+          text: homeSettings.homeDescription.homeDescription
         }}
         sliderContents={homeSettings.homeBanner}
       >
-        {data.contentfulPage.content &&
-          data.contentfulPage.content.map((section, i) => (
+        {page.content &&
+          page.content.map((section, i) => (
             <Point
               bgImage={
-                section.backgroundImage && section.backgroundImage.file.url
+                section?.backgroundImage?.file.url
               }
               cta={
                 section.ctaTarget &&
@@ -49,7 +49,7 @@ const HomePage = ({ data, location }) => {
                 }
               }
               image={section.image}
-              key={`point-${slugify(section.title)}`}
+              key={i}
               reverse={i % 2 === 0}
               text={section.content.content}
               title={section.title}
@@ -57,8 +57,8 @@ const HomePage = ({ data, location }) => {
             />
           ))}
 
-        {data.contentfulPage.partnerCategory &&
-          data.contentfulPage.partnerCategory[0].partner && (
+        {partnerCategory &&
+          partnerCategory[0].partner && (
             <Section>
               <Container>
                 <Row restrict>
@@ -66,13 +66,13 @@ const HomePage = ({ data, location }) => {
                     <h1>A Selection of Our Clients and Partners</h1>
 
                     <LogoWrapper>
-                      {data.contentfulPage.partnerCategory.map(category => (
+                      {partnerCategory.map((category, i) => (
                         <LogoGrid
                           logos={category.partner.map(partner => ({
                             image: partner.image,
                             link: "partners"
                           }))}
-                          key={slugify(category.title, { lower: true })}
+                          key={i}
                           logosPerRow={{ xs: 4, sm: 5, md: 7, lg: 9 }}
                         />
                       ))}

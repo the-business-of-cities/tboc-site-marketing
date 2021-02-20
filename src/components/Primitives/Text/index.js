@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../../utils/old";
 
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
@@ -22,9 +22,9 @@ export const LineCell = () => (
   </LineCellWrapper>
 );
 
-export const Paragraph = (props) => (
+export const Paragraph = ({children}) => (
   <div>
-    {props.children.split("\n").map((p, i) => (
+    {children?.split("\n")?.map((p, i) => (
       <p key={`${p.slice(0, 5)}/${i}`}>{p}</p>
     ))}
   </div>

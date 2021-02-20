@@ -32,16 +32,17 @@ const SlideInner = styled(MaybeLink)`
   position: absolute;
   right: 0;
   transition-duration: 0.5s;
-  background-color: ${props =>
-    props.colorCount % 3 === 0
-      ? props.theme.colors.tertiary
-      : (props.colorCount + 1) % 3 === 0
-        ? props.theme.colors.secondary
-        : props.theme.colors.primary};
+  background-color: ${({theme, colorCount}) =>
+    colorCount % 3 === 0
+      ? theme.colors.tertiary
+      : (colorCount + 1) % 3 === 0
+        ? theme.colors.secondary
+        : theme.colors.primary};
 
   &:hover {
     color: #eee;
     height: ${boxHeight}em;
+    text-decoration: underline;
   }
 
   &:visited {
@@ -57,10 +58,6 @@ const SlideTitle = styled.div`
   line-height: ${titleLineHeight};
   height: ${2 * titleLineHeight}em;
   overflow: hidden;
-
-  ${SlideInner}:hover {
-    text-decoration: underline;
-  }
 `;
 
 const SlideText = styled.div`
@@ -88,12 +85,12 @@ const SlideText = styled.div`
         background: linear-gradient(
           to right,
           transparent,
-          ${props =>
-              props.colorCount % 3 === 0
-                ? props.theme.colors.tertiary
-                : (props.colorCount + 1) % 3 === 0
-                  ? props.theme.colors.secondary
-                  : props.theme.colors.primary}
+          ${({colorCount, theme}) =>
+              colorCount % 3 === 0
+                ? theme.colors.tertiary
+                : (colorCount + 1) % 3 === 0
+                  ? theme.colors.secondary
+                  : theme.colors.primary}
             50%
         );
       }
@@ -108,8 +105,6 @@ const SlideImage = styled.img`
   position: absolute;
   padding-bottom: ${slideInnerHeight};
 `;
-
-// --------------------------------------------------
 
 const Slide = ({ colorCount, slide, GatsbyLink }) => {
   const { title, image, description, externalUrl, __typename } = slide;

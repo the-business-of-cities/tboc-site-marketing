@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Line renders correctly 1`] = `
+.c0 {
+  height: 1.5px;
+  width: 100%;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`LineCell renders correctly 1`] = `
+<styled.div>
+  <styled.div />
+</styled.div>
+`;
+
+exports[`Paragraph renders a sentance correctly 1`] = `
+<div>
+  <p
+    key="Somet/0"
+  >
+    Something something something
+  </p>
+</div>
+`;
+
+exports[`Paragraph renders empty correctly 1`] = `<div />`;
+
+exports[`Paragraph renders paragraphs correctly 1`] = `
+<div>
+  <p
+    key="Somet/0"
+  >
+    Something something something. Something something something. Something something something. Something something something.
+  </p>
+</div>
+`;

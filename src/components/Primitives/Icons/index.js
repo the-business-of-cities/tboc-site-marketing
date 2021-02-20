@@ -22,8 +22,8 @@ const AwesomeIcon = styled(FontAwesomeIcon)`
   margin: 0.5em;
 `;
 
-const Icon = (props) => {
-  return iconMap[props.icon] && <AwesomeIcon icon={iconMap[props.icon]} />;
+const Icon = ({icon}) => {
+  return iconMap[icon] && <AwesomeIcon icon={iconMap[icon]} />;
 };
 
 export { Icon };

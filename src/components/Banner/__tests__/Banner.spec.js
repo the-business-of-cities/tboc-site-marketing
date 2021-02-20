@@ -1,11 +1,9 @@
-import React from "react";
-import renderer from "react-test-renderer";
 import Banner from "../index";
+import React from "react";
+import { shallow } from '../../../utils/tests';
 
 describe("Banner", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Banner />).toJSON();
-
-    expect(tree).toMatchSnapshot();
+    expect(shallow(<Banner />)).toMatchSnapshot();
   });
 });

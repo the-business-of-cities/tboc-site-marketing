@@ -1,14 +1,13 @@
-import { MaybeLink } from "../Primitives";
-import * as mixins from "codogo-utility-functions";
-
-import EntryWrapper from "./EntryWrapper";
-import marked from "marked";
-import PropTypes from "prop-types";
 import * as R from "ramda";
+import * as mixins from "../../utils/old";
+import EntryWrapper from "./EntryWrapper";
+import PropTypes from "prop-types";
 import React from "react";
+import Table from "../Table";
+import marked from "marked";
 import slugify from "slugify";
 import styled from "styled-components";
-import Table from "../Table";
+import { MaybeLink } from "../Primitives";
 
 const Cell = ({ entry, slug, children, GatsbyLink }) => {
   return (

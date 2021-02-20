@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaybeLink renders default correctly 1`] = `<a />`;
+
+exports[`MaybeLink renders gatsby link correctly 1`] = `
+<ForwardRef
+  to="some-url"
+/>
+`;
+
+exports[`MaybeLink renders href correctly 1`] = `
+<a
+  href="some-other-url"
+/>
+`;

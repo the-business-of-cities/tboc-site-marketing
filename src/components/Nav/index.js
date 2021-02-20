@@ -1,4 +1,4 @@
-import * as mixins from "codogo-utility-functions";
+import * as mixins from "../../utils/old";
 import Burger from "./Burger";
 import Links from "./Links";
 import Logo from "./Logo";
