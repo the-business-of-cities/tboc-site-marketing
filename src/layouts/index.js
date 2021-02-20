@@ -7,7 +7,7 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import CookieBanner from "react-cookie-banner";
 import PropTypes from "prop-types";
 import React from "react";
-import theme from "./theme";
+import theme from "../utils/styles/themes/theme";
 import slugify from "slugify";
 
 const GlobalStyle = createGlobalStyle`

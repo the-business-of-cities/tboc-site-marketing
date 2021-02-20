@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TilesWrapper renders correctly 1`] = `
+.c1 {
+  link: text-decoration:none;
+  color: currentColor;
+}
+
+general:.c0:before,
+.c1:after {
+  content: "";
+  display: table;
+}
+
+.c1:after {
+  clear: both;
+}
+
+<div
+  className="c0 c1"
+/>
+`;

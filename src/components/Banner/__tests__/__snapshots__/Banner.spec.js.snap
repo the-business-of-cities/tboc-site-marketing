@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner renders correctly 1`] = `
+<styled.div>
+  <styled.div
+    narrow={true}
+  >
+    <styled.div>
+      <styled.div
+        center={true}
+      >
+        <styled.h2 />
+      </styled.div>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

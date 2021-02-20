@@ -22,9 +22,9 @@ export const LineCell = () => (
   </LineCellWrapper>
 );
 
-export const Paragraph = (props) => (
+export const Paragraph = ({children}) => (
   <div>
-    {props.children.split("\n").map((p, i) => (
+    {children?.split("\n")?.map((p, i) => (
       <p key={`${p.slice(0, 5)}/${i}`}>{p}</p>
     ))}
   </div>

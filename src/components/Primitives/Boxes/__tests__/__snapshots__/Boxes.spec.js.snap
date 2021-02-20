@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Boxes renders correctly 1`] = `
+<styled.div>
+  <Box
+    image={
+      Object {
+        "url": "https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+      }
+    }
+    key="0"
+    link="#"
+    text="Watch things"
+    title="Watch"
+  />
+  <Box
+    image={
+      Object {
+        "url": "https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+      }
+    }
+    key="1"
+    link="#"
+    text="Read things"
+    title="Read"
+  />
+  <Box
+    image={
+      Object {
+        "url": "https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb",
+      }
+    }
+    key="2"
+    link="#"
+    text="Listen to things"
+    title="Listen"
+  />
+</styled.div>
+`;

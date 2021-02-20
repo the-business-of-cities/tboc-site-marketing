@@ -1,13 +1,9 @@
 import { css } from "styled-components";
 import * as mixins from "codogo-utility-functions";
 
-import theme from "./theme";
+import defaultTheme from "./themes/theme";
 
-// --------------------------------------------------
-
-const defaultGlobalStyles = customTheme => {
-  const activeTheme = customTheme || theme;
-
+const defaultGlobalStyles = (theme=defaultTheme) => {
   return css`
     *,
     *:before,
@@ -23,12 +19,12 @@ const defaultGlobalStyles = customTheme => {
     }
 
     body {
-      background-color: ${activeTheme.colors.background.medium};
-      font-family: ${activeTheme.font.family};
-      ${mixins.bpEach("font-size", activeTheme.font.size)}
-      color: ${activeTheme.colors.text};
+      background-color: ${theme.colors.background.medium};
+      font-family: ${theme.font.family};
+      ${mixins.bpEach("font-size", theme.font.size)}
+      color: ${theme.colors.text};
       margin: 0;
-      ${mixins.bpEither("margin-bottom", activeTheme.dimensions.footer.height)}
+      ${mixins.bpEither("margin-bottom", theme.dimensions.footer.height)}
       line-height: 1.5;
       text-rendering: optimizeLegibility;
     }
@@ -47,8 +43,8 @@ const defaultGlobalStyles = customTheme => {
     h2,
     h3,
     h4 {
-      ${mixins.bpEach("margin-top", activeTheme.font.size)}
-      ${mixins.bpEach("margin-bottom", activeTheme.font.size)}
+      ${mixins.bpEach("margin-top", theme.font.size)}
+      ${mixins.bpEach("margin-bottom", theme.font.size)}
     }
 
     img {
@@ -65,7 +61,7 @@ const defaultGlobalStyles = customTheme => {
     }
 
     p {
-      ${mixins.bpEach("margin-bottom", activeTheme.font.size)}
+      ${mixins.bpEach("margin-bottom", theme.font.size)}
 
       a {
         &,
@@ -74,12 +70,12 @@ const defaultGlobalStyles = customTheme => {
         &:active {
           text-decoration: underline;
           font-weight: bold;
-          color: ${activeTheme.colors.link};
+          color: ${theme.colors.link};
         }
 
         &:hover,
         &:active {
-          color: ${activeTheme.colors.linkHover};
+          color: ${theme.colors.linkHover};
           opacity: 0.7;
         }
       }
@@ -92,7 +88,7 @@ const defaultGlobalStyles = customTheme => {
     ul,
     ol,
     li {
-      ${mixins.bpEach("margin-bottom", activeTheme.font.size)};
+      ${mixins.bpEach("margin-bottom", theme.font.size)};
     }
 
     ul,
@@ -111,13 +107,13 @@ const defaultGlobalStyles = customTheme => {
         content: "";
         display: block;
         width: 5em;
-        border-bottom: 0.4em solid ${activeTheme.colors.background.medium};
+        border-bottom: 0.4em solid ${theme.colors.background.medium};
       }
     }
 
     hr {
       border: 0;
-      border-top: 0.4em solid ${activeTheme.colors.background.medium};
+      border-top: 0.4em solid ${theme.colors.background.medium};
       margin: 2em 0;
     }
   `;

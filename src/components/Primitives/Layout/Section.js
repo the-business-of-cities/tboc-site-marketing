@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpoint } from '../../../utils/styles';
 
-const Section = styled.div`
+export const Section = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background.white};
   display: flex;
@@ -22,5 +22,3 @@ const Section = styled.div`
     flex-wrap: wrap;
   } ;
 `;
-
-export { Section };

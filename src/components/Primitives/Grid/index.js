@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpoint } from '../../../utils/styles';
 
-const Grid = styled.div`
+export const Grid = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -13,5 +13,3 @@ const Grid = styled.div`
     padding: 1em;
   } ;
 `;
-
-export { Grid };

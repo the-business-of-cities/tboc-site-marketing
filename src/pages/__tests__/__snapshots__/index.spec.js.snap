@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<_default>
+  <BlankPage
+    GatsbyLink={[MockFunction]}
+    banner={
+      Object {
+        "text": "some description",
+      }
+    }
+    sliderContents={
+      Array [
+        Object {
+          "description": "something",
+          "image": Object {
+            "file": Object {
+              "url": "url",
+            },
+          },
+          "text": "banner text",
+        },
+      ]
+    }
+  >
+    <Point
+      bgImage="someurl"
+      cta={
+        Object {
+          "link": "/some-title",
+          "text": "cta text",
+        }
+      }
+      key="0"
+      reverse={true}
+    />
+    <styled.div>
+      <styled.div>
+        <styled.div
+          restrict={true}
+        >
+          <styled.div>
+            <h1>
+              A Selection of Our Clients and Partners
+            </h1>
+            <styled.div>
+              <LogoGrid
+                key="0"
+                logos={
+                  Array [
+                    Object {
+                      "image": "someurl",
+                      "link": "partners",
+                    },
+                  ]
+                }
+                logosPerRow={
+                  Object {
+                    "lg": 9,
+                    "md": 7,
+                    "sm": 5,
+                    "xs": 4,
+                  }
+                }
+              />
+            </styled.div>
+          </styled.div>
+        </styled.div>
+      </styled.div>
+    </styled.div>
+  </BlankPage>
+</_default>
+`;
