@@ -3,7 +3,7 @@
 exports[`MaybeLink renders default correctly 1`] = `<a />`;
 
 exports[`MaybeLink renders gatsby link correctly 1`] = `
-<ForwardRef
+<mockConstructor
   to="some-url"
 />
 `;
