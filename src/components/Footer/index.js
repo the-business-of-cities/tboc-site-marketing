@@ -88,17 +88,16 @@ const Social = styled(FooterSection)`
   }
 `;
 
-const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
+const Footer = ({ footerText, footerLinks, socialLinks }) => {
   return (
     <FooterWrapper>
       <Inner>
         <Contact>{footerText}</Contact>
 
         <FooterLinks>
-          {footerLinks.map(link => (
+          {footerLinks.map((link, i) => (
             <MaybeLink
-              GatsbyLink={GatsbyLink}
-              key={slugify(link.title, { lower: true })}
+              key={i}
               to={`/${slugify(link.title.toLowerCase())}`}
             >
               {link.title}
@@ -108,9 +107,9 @@ const Footer = ({ footerText, footerLinks, socialLinks, GatsbyLink }) => {
 
         <Social>
           {socialLinks &&
-            socialLinks.map(link => (
+            socialLinks.map((link, i) => (
               <a
-                key={`footer-${link.type}-${link.link}`}
+                key={i}
                 href={link.link}
                 style={
                   link.type === "phone"

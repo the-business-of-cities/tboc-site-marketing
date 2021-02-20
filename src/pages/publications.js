@@ -32,7 +32,6 @@ const PublicationsPage = ({ data, location }) => {
               <Row restrict>
                 <Column>
                   <Publications
-                    GatsbyLink={Link}
                     sorting={true}
                     publications={publications}
                   />

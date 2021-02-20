@@ -9,14 +9,13 @@ import slugify from "slugify";
 import styled from "styled-components";
 import { MaybeLink } from "../Primitives";
 
-const Cell = ({ entry, slug, children, GatsbyLink }) => {
+const Cell = ({ entry, slug, children }) => {
   return (
     <td>
       <MaybeLink
-        GatsbyLink={GatsbyLink}
         to={
-          !entry.externalUrl &&
-          `/${slug}/${slugify(entry.title, { lower: true })}`
+          !entry.externalUrl ?
+          `/${slug}/${slugify(entry.title, { lower: true })}` : undefined
         }
         href={entry.externalUrl}
       >

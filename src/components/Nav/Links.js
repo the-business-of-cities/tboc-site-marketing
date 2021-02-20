@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
 import { breakpoint } from "../../utils/styles";
+import { MaybeLink } from "../Primitives";
 
 const LinksWrapper = styled.div`
   align-items: center;
@@ -18,7 +19,7 @@ const LinksWrapper = styled.div`
   ${breakpoint("mobile", "only")} {
     background-color: ${({ theme }) => theme.colors.nav.background};
     top: ${({ theme }) => theme.dimensions.nav.height.xs};
-    transform: translateY(${props => (props.open ? 0 : -110)}%);
+    transform: translateY(${({open}) => open ? 0 : -110}%);
     transition: 0.3s all ease-out;
 
     ${mixins.shadow(2)};
@@ -113,7 +114,7 @@ const DropdownArrow = styled.span`
 `;
 
 const Links = props => {
-  const { links, close, open, GatsbyLink } = props;
+  const { links, close, open } = props;
 
   return (
     <LinksWrapper open={open}>
@@ -123,15 +124,15 @@ const Links = props => {
             return (
               <LinkWrapper key={link.to} onClick={close}>
                 <StyledLink>
-                  <GatsbyLink to={link.to} activeClassName="active">
+                  <MaybeLink to={link.to} activeClassName="active">
                     {link.content}
 
                     {link.dropdown && <DropdownArrow>▼</DropdownArrow>}
-                  </GatsbyLink>
+                  </MaybeLink>
                 </StyledLink>
 
                 {link.dropdown && (
-                  <Dropdown GatsbyLink={GatsbyLink} links={link.dropdown} />
+                  <Dropdown  links={link.dropdown} />
                 )}
               </LinkWrapper>
             );

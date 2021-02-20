@@ -8,7 +8,6 @@ import {
   MaybeLink
 } from "../Primitives";
 import { Video } from "../Video";
-
 import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
@@ -63,7 +62,7 @@ const Point = props => {
               fullCTA.link &&
               fullCTA.text && (
                 <Button
-                  GatsbyLink={GatsbyLink}
+                  
                   to={fullCTA.link}
                   text={fullCTA.text}
                   outline="black"
@@ -80,7 +79,6 @@ const Point = props => {
               {!videoUrl ? (
                 fullCTA && fullCTA.link ? (
                   <MaybeLink
-                    GatsbyLink={GatsbyLink}
                     to={fullCTA.link.link}
                     href={fullCTA.link.link}
                   >

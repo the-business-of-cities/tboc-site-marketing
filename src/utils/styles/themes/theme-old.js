@@ -2,8 +2,6 @@ import { objectMap } from "codogo-utility-functions";
 
 import React from "react";
 
-// --------------------------------------------------
-
 const sm = 768;
 const md = 992;
 const lg = md;

@@ -4,7 +4,6 @@ import React from "react";
 
 const News = ({ news, sorting, GatsbyLink }) => (
   <GenericGrid
-    GatsbyLink={GatsbyLink}
     sorting={sorting}
     entries={news}
     slug="news"

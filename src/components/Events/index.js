@@ -8,7 +8,7 @@ import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
 
-const Events = ({ events, GatsbyLink }) => {
+const Events = ({ events }) => {
   events.sort((a, b) => {
     return Moment(a.node.date).diff(Moment(b.node.date)) < 0 ? 1 : -1;
   });
@@ -18,7 +18,6 @@ const Events = ({ events, GatsbyLink }) => {
     .map(event => (
       <Event
         {...event.node}
-        GatsbyLink={GatsbyLink}
         key={`${slugify(event.node.title, { lower: true })}-${event.node.date}`}
         condensed
       />
@@ -30,7 +29,6 @@ const Events = ({ events, GatsbyLink }) => {
     .map(event => (
       <Event
         {...event.node}
-        GatsbyLink={GatsbyLink}
         key={`${slugify(event.node.title, { lower: true })}-${event.node.date}`}
       />
     ));

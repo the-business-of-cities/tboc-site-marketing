@@ -5,14 +5,14 @@ import { Slider, Banner } from "../../../components";
 
 class BlankPage extends React.Component {
   render() {
-    const { children, sliderContents, banner, GatsbyLink } = this.props;
+    const { children, sliderContents, banner } = this.props;
 
     return (
       <Page>
         {banner && <Banner text={banner.text} />}
 
         {sliderContents && (
-          <Slider GatsbyLink={GatsbyLink} sliderContents={sliderContents} />
+          <Slider  sliderContents={sliderContents} />
         )}
 
         {children}
@@ -22,7 +22,6 @@ class BlankPage extends React.Component {
 }
 
 BlankPage.propTypes = {
-  GatsbyLink: PropTypes.any,
   banner: PropTypes.object,
   children: PropTypes.array,
   sliderContents: PropTypes.array,

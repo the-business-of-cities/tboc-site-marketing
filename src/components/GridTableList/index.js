@@ -100,7 +100,6 @@ class GridTableList extends React.Component {
         )}
 
         <GridTableEntries
-          GatsbyLink={this.props.GatsbyLink}
           table={this.state.table}
           sorting={sorting}
           entries={entries}
@@ -112,7 +111,6 @@ class GridTableList extends React.Component {
 }
 
 GridTableList.propTypes = {
-  GatsbyLink: PropTypes.any,
   entries: PropTypes.array.isRequired,
   slug: PropTypes.string
 };

@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { breakpoint } from "../../utils/styles";
+import { MaybeLink } from "../Primitives";
 
 const LogoWrapper = styled.div`
   background: white;
@@ -55,17 +56,17 @@ const LogoImage = styled.img`
   object-position: left;
 `;
 
-const Logo = ({ logo, GatsbyLink }) => (
+const Logo = ({ logo }) => (
   <LogoWrapper>
     <LogoContainer>
       <LogoLink>
-        <GatsbyLink to="/">
+        <MaybeLink to="/">
           {logo.url ? (
             <LogoImage src={logo.url} />
           ) : (
             <LogoText>{logo.text}</LogoText>
           )}
-        </GatsbyLink>
+        </MaybeLink>
       </LogoLink>
     </LogoContainer>
   </LogoWrapper>

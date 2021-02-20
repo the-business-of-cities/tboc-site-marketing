@@ -3,6 +3,7 @@ import * as mixins from "../../utils/old";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
+import { MaybeLink } from "../Primitives";
 import { breakpoint } from "../../utils/styles";
 
 const LinkWrapper = styled.div`
@@ -108,14 +109,14 @@ const DropdownLinks = styled.div`
   }
 `;
 
-const Dropdown = ({ links, GatsbyLink }) => (
+const Dropdown = ({ links }) => (
   <DropdownLinks>
     {links.map(({ content, to }) => (
       <LinkWrapper key={to}>
         <StyledDropdownLink>
-          <GatsbyLink to={to} activeClassName="active">
+          <MaybeLink to={to} activeClassName="active">
             {content}
-          </GatsbyLink>
+          </MaybeLink>
         </StyledDropdownLink>
       </LinkWrapper>
     ))}

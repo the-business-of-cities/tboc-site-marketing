@@ -29,7 +29,7 @@ const JobsPage = ({ data, location }) => {
             <Container>
               <Row restrict>
                 <Column>
-                  <Jobs GatsbyLink={Link} jobs={jobs} />
+                  <Jobs jobs={jobs} />
                 </Column>
               </Row>
             </Container>

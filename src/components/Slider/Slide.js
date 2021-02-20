@@ -117,7 +117,7 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
   return (
     <SlideWrapper>
       {image && (
-        <MaybeLink GatsbyLink={GatsbyLink} href={externalUrl} to={internalUrl}>
+        <MaybeLink  href={externalUrl} to={internalUrl}>
           <SlideImage
             src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${
               image.file.url
@@ -128,7 +128,6 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
       )}
 
       <SlideInner
-        GatsbyLink={GatsbyLink}
         href={externalUrl}
         to={internalUrl}
         colorCount={colorCount}
@@ -149,7 +148,6 @@ const Slide = ({ colorCount, slide, GatsbyLink }) => {
 };
 
 Slide.propTypes = {
-  GatsbyLink: PropTypes.any,
   colorCount: PropTypes.any,
   slide: PropTypes.object
 };

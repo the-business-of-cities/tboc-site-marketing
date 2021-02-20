@@ -35,7 +35,6 @@ class Slider extends React.Component {
         <Container>
           <Row noPadding>
             <Slides
-              GatsbyLink={this.props.GatsbyLink}
               sliderContents={this.props.sliderContents}
               mobile={this.state.mobile}
             />

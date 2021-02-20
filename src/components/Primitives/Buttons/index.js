@@ -61,9 +61,8 @@ export const ButtonWrapper = styled.div`
 			`};
 `;
 
-const Button = ({ children, href, target, text, to, GatsbyLink, ...props }) => (
+const Button = ({ children, href, target, text, to, ...props }) => (
   <MaybeLink
-    GatsbyLink={GatsbyLink}
     to={to}
     href={href}
     target={target}
@@ -89,11 +88,10 @@ const IconButton = ({
   target,
   text,
   to,
-  GatsbyLink,
   ...props
 }) => (
   <MaybeLink
-    GatsbyLink={GatsbyLink}
+    
     to={to}
     href={href}
     target={target}
