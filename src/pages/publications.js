@@ -31,10 +31,7 @@ const PublicationsPage = ({ data, location }) => {
             <Container>
               <Row restrict>
                 <Column>
-                  <Publications
-                    sorting={true}
-                    publications={publications}
-                  />
+                  <Publications sorting={true} publications={publications} />
                 </Column>
               </Row>
             </Container>

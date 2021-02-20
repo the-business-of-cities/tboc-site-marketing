@@ -16,7 +16,7 @@ const PartnersPage = ({ data, location }) => {
             data.contentfulPage.image && data.contentfulPage.image.file.url
           }
         >
-          <Events events={data.contentfulEvents.edges}/>
+          <Events events={data.contentfulEvents.edges} />
         </ContentPage>
       </Layout>
     )
