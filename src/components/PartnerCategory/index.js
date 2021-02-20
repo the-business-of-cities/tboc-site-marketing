@@ -4,15 +4,11 @@ import React from "react";
 import styled from "styled-components";
 import slugify from "slugify";
 
-// --------------------------------------------------
-
 const CategoryWrapper = styled.div`
   margin-bottom: 1em;
   flex: 1;
   width: 100%;
 `;
-
-// --------------------------------------------------
 
 const PartnerCategory = ({ category }) => {
   return (

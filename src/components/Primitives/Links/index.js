@@ -12,9 +12,7 @@ export const MaybeLink = ({
   theme,
   to,
 }) => {
-  if (to) {
-    return <Link to={to} children={children} className={className} />
-  }
+  if (to) return <Link to={to} children={children} className={className} />
   
   return <a href={href} children={children} target={target} className={className} />
 };

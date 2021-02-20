@@ -1,13 +1,12 @@
-import * as mixins from "../../utils/old";
-
-import EntryWrapper from "../GenericGrid/EntryWrapper";
-import marked from "marked";
-import PropTypes from "prop-types";
 import * as R from "ramda";
+import * as mixins from "../../utils/old";
+import EntryWrapper from "../GenericGrid/EntryWrapper";
+import PropTypes from "prop-types";
 import React from "react";
+import Table from "../Table";
+import marked from "marked";
 import slugify from "slugify";
 import styled from "styled-components";
-import Table from "../Table";
 
 const padding = 1;
 const titleFontSize = 1.1;
@@ -156,17 +155,15 @@ const EntryText = styled.div`
   }
 `;
 
-const GridTableEntries = ({ entries, slug, table, GatsbyLink }) => {
+const GridTableEntries = ({ entries, slug, table }) => {
   return (
     <EntryContainer className={table && "table"}>
-      {entries.map(entry => (
+      {entries.map((entry, i) => (
         <Entry
           className="entry"
-          key={entry.slug}
-          key={`entry-${slugify(entry.title.toLowerCase())}`}
+          key={i}
         >
           <EntryWrapper
-            GatsbyLink={GatsbyLink}
             className="wrapper"
             internalUrl={`/${slug}/${slugify(entry.title, { lower: true })}`}
             externalUrl={entry.externalUrl}

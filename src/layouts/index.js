@@ -57,31 +57,31 @@ const TemplateWrapper = props => {
 
         <Nav
           theme={theme}
-          GatsbyLink={Link}
           homepage={props.location.pathname === "/"}
-          links={links.filter(link => !link.service).map(link => {
-            return {
-              to: `/${slugify(link.title, { lower: true })}`,
-              content: link.title,
-              as: "gatsby-link",
-              dropdown:
-                slugify(link.title, { lower: true }) === "what-we-do" &&
-                dropdown.map(link => {
-                  return {
-                    to: `/${slugify(link.title, { lower: true })}`,
-                    content: link.title,
-                    as: "gatsby-link"
-                  };
-                })
-            };
-          })}
+          links={links
+            .filter(link => !link.service)
+            .map(link => {
+              return {
+                to: `/${slugify(link.title, { lower: true })}`,
+                content: link.title,
+                as: "gatsby-link",
+                dropdown:
+                  slugify(link.title, { lower: true }) === "what-we-do" &&
+                  dropdown.map(link => {
+                    return {
+                      to: `/${slugify(link.title, { lower: true })}`,
+                      content: link.title,
+                      as: "gatsby-link"
+                    };
+                  })
+              };
+            })}
           logo={{ url: logo.file.url, text: logo.description }}
         />
 
         {props.children}
 
         <Footer
-          GatsbyLink={Link}
           footerText={footerText}
           footerLinks={footerLinks}
           socialLinks={[

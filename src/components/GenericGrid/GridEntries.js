@@ -106,13 +106,12 @@ const EntryText = styled.div`
   }
 `;
 
-const GridEntries = ({ entries, slug, GatsbyLink }) => {
+const GridEntries = ({ entries, slug }) => {
   return (
     <EntryContainer>
-      {entries.map(entry => (
+      {entries.map((entry, i) => (
         <EntryWrapper
-          GatsbyLink={GatsbyLink}
-          key={`entry-${slugify(entry.title.toLowerCase())}`}
+          key={i}
           internalUrl={`/${slug}/${slugify(entry.title, { lower: true })}`}
           externalUrl={entry.externalUrl}
         >

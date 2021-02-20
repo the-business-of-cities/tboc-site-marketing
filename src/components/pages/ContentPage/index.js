@@ -25,7 +25,6 @@ class ContentPage extends React.Component {
       slider,
       subtitle,
       title,
-      GatsbyLink,
     } = this.props;
 
     return (
@@ -50,14 +49,13 @@ class ContentPage extends React.Component {
 
             return (
               <Point
-                GatsbyLink={GatsbyLink}
                 bgImage={
                   section.backgroundImage &&
                   (section.backgroundImage.file.url || section.backgroundImage)
                 }
                 cta={cta}
                 image={section.image}
-                key={`point-${slugify(section.title, { lower: true })}`}
+                key={i}
                 reverse={i % 2 === 0}
                 text={section.content && section.content.content}
                 title={section.title}
@@ -93,7 +91,6 @@ class ContentPage extends React.Component {
 }
 
 ContentPage.propTypes = {
-  GatsbyLink: PropTypes.any,
   children: PropTypes.any,
   content: PropTypes.any,
   description: PropTypes.any,

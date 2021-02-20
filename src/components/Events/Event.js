@@ -6,13 +6,12 @@ import React from "react";
 import styled from "styled-components";
 import slugify from "slugify";
 
-const Event = ({ condensed, GatsbyLink, ...event }) => {
+const Event = ({ condensed, ...event }) => {
   const Cell = ({ children }) => (
     <td>
       <MaybeLink
         href={event.link}
-        GatsbyLink={GatsbyLink}
-        to={!event.link && `/events/${slugify(event.title, { lower: true })}`}
+        to={!event.link ? `/events/${slugify(event.title, { lower: true })}` : undefined}
       >
         {children}
       </MaybeLink>

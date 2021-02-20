@@ -28,7 +28,7 @@ const NewsPage = ({ data, location }) => {
             <Container>
               <Row restrict>
                 <Column>
-                  <News GatsbyLink={Link} news={data.contentfulNews.edges} />
+                  <News news={data.contentfulNews.edges} />
                 </Column>
               </Row>
             </Container>

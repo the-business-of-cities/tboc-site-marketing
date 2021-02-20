@@ -97,13 +97,11 @@ class GenericGrid extends React.Component {
 
         {this.state.table ? (
           <TableEntries
-            GatsbyLink={this.props.GatsbyLink}
             slug={slug}
             entries={entries}
           />
         ) : (
           <GridEntries
-            GatsbyLink={this.props.GatsbyLink}
             sorting={sorting}
             entries={entries}
             slug={slug}
@@ -115,7 +113,6 @@ class GenericGrid extends React.Component {
 }
 
 GenericGrid.propTypes = {
-  GatsbyLink: PropTypes.any,
   entries: PropTypes.array.isRequired,
   slug: PropTypes.string
 };

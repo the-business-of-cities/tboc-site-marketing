@@ -23,13 +23,12 @@ const LogoWrapper = styled.div`
 
 const HomePage = ({ data, location }) => {
   const homeSettings = data.contentfulHomeSettings.edges[0].node;
-  const page = data.contentfulPage
+  const page = data.contentfulPage;
   const partnerCategory = page.partnerCategory;
-  
+
   return (
     <Layout location={location}>
       <BlankPage
-        GatsbyLink={Link}
         banner={{
           text: homeSettings.homeDescription.homeDescription
         }}
@@ -38,9 +37,7 @@ const HomePage = ({ data, location }) => {
         {page.content &&
           page.content.map((section, i) => (
             <Point
-              bgImage={
-                section?.backgroundImage?.file.url
-              }
+              bgImage={section?.backgroundImage?.file.url}
               cta={
                 section.ctaTarget &&
                 section.ctaText && {
@@ -57,31 +54,30 @@ const HomePage = ({ data, location }) => {
             />
           ))}
 
-        {partnerCategory &&
-          partnerCategory[0].partner && (
-            <Section>
-              <Container>
-                <Row restrict>
-                  <Column>
-                    <h1>A Selection of Our Clients and Partners</h1>
+        {partnerCategory && partnerCategory[0].partner && (
+          <Section>
+            <Container>
+              <Row restrict>
+                <Column>
+                  <h1>A Selection of Our Clients and Partners</h1>
 
-                    <LogoWrapper>
-                      {partnerCategory.map((category, i) => (
-                        <LogoGrid
-                          logos={category.partner.map(partner => ({
-                            image: partner.image,
-                            link: "partners"
-                          }))}
-                          key={i}
-                          logosPerRow={{ xs: 4, sm: 5, md: 7, lg: 9 }}
-                        />
-                      ))}
-                    </LogoWrapper>
-                  </Column>
-                </Row>
-              </Container>
-            </Section>
-          )}
+                  <LogoWrapper>
+                    {partnerCategory.map((category, i) => (
+                      <LogoGrid
+                        logos={category.partner.map(partner => ({
+                          image: partner.image,
+                          link: "partners"
+                        }))}
+                        key={i}
+                        logosPerRow={{ xs: 4, sm: 5, md: 7, lg: 9 }}
+                      />
+                    ))}
+                  </LogoWrapper>
+                </Column>
+              </Row>
+            </Container>
+          </Section>
+        )}
       </BlankPage>
     </Layout>
   );

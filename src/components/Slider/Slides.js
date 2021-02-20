@@ -4,21 +4,17 @@ import React from "react";
 import Slide from "./Slide";
 import slugify from "slugify";
 
-// --------------------------------------------------
-
 const colorMap = (i, colors) => {
   if (i % 3 === 0) {
     return colors.tertiary;
   } else if (i % 2 === 0) {
     return colors.secondary;
-  } else {
-    return colors.primary;
   }
+  
+  return colors.primary;
 };
 
-// --------------------------------------------------
-
-const Slides = ({ sliderContents, mobile, GatsbyLink }) => {
+const Slides = ({ sliderContents, mobile }) => {
   return (
     <Carousel
       autoplay
@@ -29,8 +25,7 @@ const Slides = ({ sliderContents, mobile, GatsbyLink }) => {
       {sliderContents.map((slide, i) => {
         return (
           <Slide
-            GatsbyLink={GatsbyLink}
-            key={`slider-slide-${slugify(slide.title, { lower: true })}`}
+            key={i}
             colorCount={i + 1}
             slide={slide}
           />
@@ -41,7 +36,6 @@ const Slides = ({ sliderContents, mobile, GatsbyLink }) => {
 };
 
 Slides.propTypes = {
-  GatsbyLink: PropTypes.any,
   mobile: PropTypes.bool,
   sliderContents: PropTypes.array,
   sliderSettings: PropTypes.object

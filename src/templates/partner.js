@@ -23,7 +23,7 @@ const PartnerTemplate = ({ data, location }) => {
         title={data.contentfulPartner.name}
         subtitle={
           data.contentfulPartner.website && (
-            <MaybeLink GatsbyLink={Link} href={data.contentfulPartner.website}>
+            <MaybeLink href={data.contentfulPartner.website}>
               {data.contentfulPartner.website}
             </MaybeLink>
           )
@@ -56,7 +56,6 @@ const PartnerTemplate = ({ data, location }) => {
               <Row>
                 <Column>
                   <Publications
-                    GatsbyLink={Link}
                     publications={data.contentfulPartner.publications}
                   />
                 </Column>
