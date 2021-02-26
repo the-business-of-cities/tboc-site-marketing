@@ -10,7 +10,7 @@ const TeamMemberWrapper = styled.div`
   flex-direction: column;
   width: 100%;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     flex-direction: column;
   }
 `;

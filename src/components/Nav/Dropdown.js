@@ -9,7 +9,7 @@ import { breakpoint } from "../../utils/styles";
 const LinkWrapper = styled.div`
   position: relative;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     border-top: 1px solid;
 
     &,
@@ -31,7 +31,7 @@ const StyledLink = styled.div`
   a {
     color: ${({ theme }) => theme.colors.link};
 
-    ${breakpoint("mobile", "only")} {
+    ${breakpoint("mobile", "max")} {
       display: block;
       padding: 0.9em ${({ theme }) => theme.dimensions.nav.margin.xs};
       font-size: 0.9em;
@@ -81,14 +81,14 @@ const StyledDropdownLink = styled(StyledLink)`
       }
     }
 
-    ${breakpoint("mobile", "only")} {
+    ${breakpoint("mobile", "max")} {
       padding-left: 2em;
     }
   }
 `;
 
 const DropdownLinks = styled.div`
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     font-size: 0.9em;
     opacity: 0.67;
   }

@@ -31,7 +31,7 @@ export const ButtonWrapper = styled.div`
           border: 1.5px solid ${color};
           background: transparent;
 
-          ${breakpoint("mobile", "only")} {
+          ${breakpoint("mobile", "max")} {
             border-width: 1px;
           }
 

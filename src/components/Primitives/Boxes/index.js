@@ -19,7 +19,7 @@ const BoxWrapper = styled.a`
   background-color: ${R.path(["theme", "nav"])};
   display: block;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     margin-bottom: 1em;
   } ;
 `;
@@ -33,7 +33,7 @@ const Image = styled.div`
     padding-top: ${paddingTop};
   }
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     padding-top: 50%;
   }
 `;

@@ -16,7 +16,7 @@ const LinksWrapper = styled.div`
   position: absolute;
   right: 0;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     background-color: ${({ theme }) => theme.colors.nav.background};
     top: ${({ theme }) => theme.dimensions.nav.height.xs};
     transform: translateY(${({open}) => open ? 0 : -110}%);
@@ -48,7 +48,7 @@ const LinksContainer = styled.div`
 const LinkWrapper = styled.div`
   position: relative;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     color: ${({ theme }) => theme.colors.background.white};
     border-top: 1px solid;
   }
@@ -66,7 +66,7 @@ const LinkWrapper = styled.div`
 
 const StyledLink = styled.div`
   a {
-    ${breakpoint("mobile", "only")} {
+    ${breakpoint("mobile", "max")} {
       display: block;
       padding: 0.9em ${({ theme }) => theme.dimensions.nav.margin.xs};
       font-size: 0.9em;
@@ -108,7 +108,7 @@ const DropdownArrow = styled.span`
   margin-left: 0.5em;
   font-size: 0.8em;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     display: none;
   }
 `;

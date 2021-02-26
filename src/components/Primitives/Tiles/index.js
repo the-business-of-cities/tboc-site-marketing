@@ -13,7 +13,7 @@ export const TileWrapper = styled.div`
   width: 50%;
   float: left;
 
-  ${breakpoint("mobile", "only")} {
+  ${breakpoint("mobile", "max")} {
     width: 100%;
   }
 `;
