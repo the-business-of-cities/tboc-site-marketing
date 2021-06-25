@@ -1,0 +1,44 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+  open-pull-requests-limit: 10
+  reviewers:
+  - mcclowes
+  assignees:
+  - mcclowes
+  ignore:
+  - dependency-name: core-js
+    versions:
+    - 3.8.1
+    - 3.8.3
+  - dependency-name: gatsby-plugin-styled-components
+    versions:
+    - 3.9.0
+  - dependency-name: gatsby-link
+    versions:
+    - 2.10.0
+    - 2.8.0
+  - dependency-name: babel-loader
+    versions:
+    - 8.2.2
+  - dependency-name: styled-components
+    versions:
+    - 5.2.1
+  - dependency-name: node-notifier
+    versions:
+    - 8.0.1
+  - dependency-name: gatsby
+    versions:
+    - 2.30.1
+  - dependency-name: gatsby-source-contentful
+    versions:
+    - 2.1.66
+  - dependency-name: mcclowes-scripts
+    versions:
+    - 0.11.1
+  - dependency-name: video-react
+    versions:
+    - 0.14.1
