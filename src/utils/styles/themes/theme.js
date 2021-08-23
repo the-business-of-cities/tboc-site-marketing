@@ -49,6 +49,8 @@ const colors = {
   borders: "rgba(0,0,0,0.2)"
 };
 
+const fontFamily = "Avenir Next LT Pro, Avenir Next, Montserrat, sans-serif";
+
 const theme = {
   breakpoints: { ...breakpoints },
   colors: { ...colors },
@@ -60,11 +62,11 @@ const theme = {
       lg: "17px"
     },
     title: {
-      family: "Avenir Next LT Pro, Avenir Next, Montserrat, sans-serif"
+      family: fontFamily,
     },
-    family: "Avenir Next LT Pro, Avenir Next, Montserrat, sans-serif",
-    paragraph: '"Lora", sans-serif',
-    heading: '"Montserrat", sans-serif'
+    family: fontFamily,
+    paragraph: fontFamily,
+    heading: fontFamily,
   },
   gutter: {
     xs: 15,
