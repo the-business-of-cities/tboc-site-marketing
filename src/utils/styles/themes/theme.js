@@ -9,15 +9,27 @@ const breakpoints = {
   lg: { min: lg, max: 100000 }
 };
 
+const tbocBrandColors = {
+  tbocWarmGrey: "#eeeae7",
+  tbocDarkGrey: "#434343",
+  tbocGrey: "#878787",
+  tbocNavy: "#132f4c",
+  blues: {
+    light: "#5995d6",
+    middle: "#28629f",
+    dark: "#1b446d",
+  }
+} 
+
 const palette = {
-  primary: "#003158",
-  secondary: "#005291",
-  tertiary: "#0071CC"
+  primary: tbocBrandColors.tbocNavy,
+  secondary: tbocBrandColors.blues.middle,
+  tertiary: tbocBrandColors.blues.light,
 };
 
 const colors = {
   ...palette,
-  text: "#444",
+  text: tbocBrandColors.tbocDarkGrey,
   link: "#405378",
   linkHover: "#4D6491",
   nav: {
@@ -28,7 +40,7 @@ const colors = {
   background: {
     white: "#fff",
     lighter: "#fafafa",
-    light: "#eee",
+    light: tbocBrandColors.tbocWarmGrey,
     medium: "#aaa",
     dark: palette.primary
   },
@@ -36,6 +48,8 @@ const colors = {
   lines: "rgba(0,0,0,0.2)",
   borders: "rgba(0,0,0,0.2)"
 };
+
+const fontFamily = "Avenir Next LT Pro, Avenir Next, Montserrat, sans-serif";
 
 const theme = {
   breakpoints: { ...breakpoints },
@@ -48,11 +62,11 @@ const theme = {
       lg: "17px"
     },
     title: {
-      family: "Montserrat, sans-serif"
+      family: fontFamily,
     },
-    family: "Montserrat, sans-serif",
-    paragraph: '"Lora", sans-serif',
-    heading: '"Montserrat", sans-serif'
+    family: fontFamily,
+    paragraph: fontFamily,
+    heading: fontFamily,
   },
   gutter: {
     xs: 15,
@@ -92,7 +106,7 @@ const theme = {
     maxTextWidth: 800
   },
   meta: {
-    twitterUsername: "mcclowes",
+    twitterUsername: "TheBizOfCities",
     twitterCreator: "codogoio",
     googleAnalytics: false, // "UA-127061321-1",
     googleSearch: "VtmbAGWSFSHyB3QC-HmxMAhPLDkR-4IdnMH_GqwNGrA"

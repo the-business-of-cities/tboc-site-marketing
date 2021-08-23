@@ -56,7 +56,7 @@ const defaultGlobalStyles = (theme=defaultTheme) => {
     p,
     ul,
     ol {
-      font-family: "Lora", serif;
+      font-family: ${theme.font.paragraph};
       font-size: 1em;
     }
 
