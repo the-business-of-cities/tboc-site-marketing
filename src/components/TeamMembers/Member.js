@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import marked from "marked";
+import { marked } from "marked";
 import styled from "styled-components";
 import { Icon, Image } from "../Primitives";
 import { breakpoint } from "../../utils/styles";

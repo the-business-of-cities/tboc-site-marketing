@@ -13,7 +13,7 @@ import { graphql } from "gatsby";
 import Layout from "../layouts/index";
 import PropTypes from "prop-types";
 import React from "react";
-import marked from "marked";
+import { marked } from "marked";
 import { Link } from "gatsby";
 
 const PartnerTemplate = ({ data, location }) => {

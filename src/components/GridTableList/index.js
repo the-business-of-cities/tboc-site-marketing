@@ -3,7 +3,7 @@ import * as mixins from "../../utils/old";
 import EntryWrapper from "../GenericGrid/EntryWrapper";
 import GridTableEntries from "./GridTableEntries";
 import TableEntries from "../GenericGrid/TableEntries";
-import marked from "marked";
+import { marked } from "marked";
 import PropTypes from "prop-types";
 import * as R from "ramda";
 import React from "react";

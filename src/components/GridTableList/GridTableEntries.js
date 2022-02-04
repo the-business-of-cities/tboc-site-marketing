@@ -4,7 +4,7 @@ import EntryWrapper from "../GenericGrid/EntryWrapper";
 import PropTypes from "prop-types";
 import React from "react";
 import Table from "../Table";
-import marked from "marked";
+import { marked } from "marked";
 import slugify from "slugify";
 import styled from "styled-components";
 

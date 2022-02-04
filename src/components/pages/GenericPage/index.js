@@ -1,7 +1,7 @@
 import { SecondaryImage, Section, Container, Row, Column } from "../../Primitives";
 import Head from "../../../components/Head";
 import BlankPage from "../BlankPage";
-import marked from "marked";
+import { marked } from "marked";
 import PropTypes from "prop-types";
 import React from "react";
 import { withTheme } from "styled-components";

@@ -3,7 +3,7 @@ import { Section, Column, Row, Container, Image } from "../Primitives";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import React from "react";
-import marked from "marked";
+import { marked } from "marked";
 
 const MemberImage = styled(Image)`
   max-width: 250px;

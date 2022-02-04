@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import slugify from "slugify";
 import styled from "styled-components";
-import marked from "marked";
+import { marked } from "marked";
 
 const PointImage = styled(Image)`
   max-height: 40vh;
@@ -35,6 +35,7 @@ const Point = props => {
     videoUrl,
     GatsbyLink
   } = props;
+
   const imageIsVideo =
     image && String(image.file.contentType).match("video/.*") !== null;
 

@@ -5,7 +5,7 @@ import GridEntries from "./GridEntries";
 import PropTypes from "prop-types";
 import React from "react";
 import TableEntries from "./TableEntries";
-import marked from "marked";
+import { marked } from "marked";
 import slugify from "slugify";
 import styled from "styled-components";
 
