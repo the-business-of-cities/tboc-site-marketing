@@ -37,7 +37,7 @@
     "recompose": "^0.30.0",
     "slugify": "^1.4.7",
     "styled-components": "^5.2.1",
-    "url-parse": "^1.5.1",
+    "url-parse": "^1.5.2",
     "video-react": "^0.14.1",
     "xml-parser": "^1.2.1"
   },
