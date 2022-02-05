@@ -24,7 +24,7 @@
     "marked": "^4.0.12",
     "moment": "^2.29.1",
     "nuka-carousel": "^4.7.5",
-    "ramda": "^0.27.1",
+    "ramda": "^0.28.0",
     "react": "^16.13.1",
     "react-accessible-accordion": "^3.3.4",
     "react-cookie-banner": "^4.1.0",
