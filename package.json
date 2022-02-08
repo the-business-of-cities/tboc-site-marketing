@@ -31,7 +31,7 @@
     "react-dom": "^16.13.1",
     "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
-    "react-test-renderer": "^17.0.1",
+    "react-test-renderer": "^17.0.2",
     "react-vimeo": "^2.0.0",
     "react-youtube": "^7.14.0",
     "recompose": "^0.30.0",
