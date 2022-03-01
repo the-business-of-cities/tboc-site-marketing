@@ -35,7 +35,7 @@
     "react-vimeo": "^2.0.0",
     "react-youtube": "^7.14.0",
     "recompose": "^0.30.0",
-    "slugify": "^1.4.7",
+    "slugify": "^1.6.5",
     "styled-components": "^5.2.1",
     "url-parse": "^1.5.2",
     "video-react": "^0.14.1",
