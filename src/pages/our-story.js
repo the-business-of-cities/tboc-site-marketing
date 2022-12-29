@@ -68,7 +68,6 @@ export const AllTeamMembersQuery = graphql`
             }
             linkedIn
             twitter
-            website
             email
           }
         }
