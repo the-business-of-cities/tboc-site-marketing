@@ -3,9 +3,6 @@
   "description": "The Business of Cities marketing site",
   "version": "3.7.1",
   "author": "Max Clayton Clowes <contact@mcclowes.com>",
-  "engines": {
-    "node": ">=14.9.0 <15"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
