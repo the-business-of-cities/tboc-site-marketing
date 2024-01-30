@@ -106,18 +106,19 @@ const SlideImage = styled.img`
   padding-bottom: ${slideInnerHeight};
 `;
 
-const Slide = ({ colorCount, slide, GatsbyLink }) => {
+const Slide = (props) => {
+  const { colorCount, slide, GatsbyLink } = props
   const { title, image, description, externalUrl, __typename } = slide;
-
-  let slug = __typename.toLowerCase().split("contentful")[1];
-  slug = slug.endsWith("s") ? slug : `${slug}s`;
-
-  const internalUrl = `/${slug}/${slugify(slide.title, { lower: true })}`;
+  
+  // let slug = __typename.toLowerCase().split("contentful")[1];
+  // slug = slug.endsWith("s") ? slug : `${slug}s`;
+  // const internalUrl = `/${slug}/${slugify(slide.title, { lower: true })}`;
+  const internalUrl = `/news/${slugify(slide.title, { lower: true })}`;
 
   return (
     <SlideWrapper>
       {image && (
-        <MaybeLink  href={externalUrl} to={internalUrl}>
+        <MaybeLink href={externalUrl} to={internalUrl}>
           <SlideImage
             src={`https://res.cloudinary.com/codogo/image/fetch/c_imagga_scale,w_800,h_600,c_fill,g_face,f_auto/https:${
               image.file.url

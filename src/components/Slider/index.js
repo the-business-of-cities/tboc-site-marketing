@@ -1,5 +1,3 @@
-import { compose } from "recompose";
-
 import Slides from "./Slides";
 import { Section, Container, Row } from "../Primitives";
 import PropTypes from "prop-types";
@@ -45,11 +43,9 @@ class Slider extends React.Component {
   }
 }
 
-const enhance = compose();
-
 Slider.propTypes = {
   GatsbyLink: PropTypes.any,
   sliderContents: PropTypes.any
 };
 
-export default enhance(Slider);
+export default Slider;

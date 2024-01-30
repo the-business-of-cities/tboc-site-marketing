@@ -3,10 +3,9 @@ import Burger from "./Burger";
 import Links from "./Links";
 import Logo from "./Logo";
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { breakpoint } from "../../utils/styles";
-import { compose, withState, withHandlers } from "recompose";
 
 const NavWrapper = styled.nav`
   background-color: ${({ theme }) => theme.colors.nav.background};
@@ -51,17 +50,14 @@ const BurgerWrapper = styled.div`
   z-index: 1;
 `;
 
-const enhance = compose(
-  withState("open", "setOpen", false),
-  withHandlers({
-    openMenu: ({ setOpen }) => () => setOpen(true),
-    closeMenu: ({ setOpen }) => () => setOpen(false),
-    toggleMenu: ({ setOpen, open }) => () => setOpen(!open)
-  })
-);
-
 const Nav = props => {
-  const { theme, links, logo, open, closeMenu, toggleMenu } = props;
+  const { theme, links, logo } = props;
+
+  const [open, setOpen] = useState(false);
+
+  const openMenu = ({ setOpen }) => () => setOpen(true);
+  const closeMenu = ({ setOpen }) => () => setOpen(false);
+  const toggleMenu = ({ setOpen, open }) => () => setOpen(!open);
 
   return (
     <NavWrapper>
@@ -83,7 +79,7 @@ const Nav = props => {
         </BurgerWrapper>
       </MobileStuff>
 
-      <Logo  logo={logo} />
+      <Logo logo={logo} />
     </NavWrapper>
   );
 };
@@ -96,4 +92,4 @@ Nav.propTypes = {
   toggleMenu: PropTypes.func
 };
 
-export default enhance(Nav);
+export default Nav;
