@@ -6,9 +6,11 @@ Live site: <https://www.thebusinessofcities.com/>
 
 ---
 
-Utilises tboc-site-components
-
 ## Getting started
+
+Copy the .env and replace the relevant variables:
+
+`cp example.env.development .env.development`
 
 Install dependencies:
 

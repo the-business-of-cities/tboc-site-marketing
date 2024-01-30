@@ -14,7 +14,9 @@ const colorMap = (i, colors) => {
   return colors.primary;
 };
 
-const Slides = ({ sliderContents, mobile }) => {
+const Slides = (props) => {
+  const { sliderContents, mobile } = props
+
   return (
     <Carousel
       autoplay
